@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@services/*": ["core/services/*"],
+      "@views/*": ["views/*"],
+      "@core/*": ["core/*"]
+  }
+  }
+}
