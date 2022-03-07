@@ -69,8 +69,22 @@ import AclProfileList from "./views/core/reception/acl_profile/AclProfileList.vu
 import AclProfileCorporation from "./views/core/reception/AclProfileCorporation/AclProfileCorporation.vue";
 import Scheduling from './views/core/schedule/Scheduling.vue'
 
+import GuideManagement from "./views/core/guide-management/GuideManagement.vue";
+import GuideManagementList from "./views/core/guide-management/GuideManagementList.vue";
+
 
 const routes: RouteRecordRaw[] = [
+  {
+    path: "/guide-managements",
+    name: "GuideManagementList",
+    component: GuideManagementList,
+  },
+  {
+    path: "/guide-management/:id",
+    name: "GuideManagement",
+    component: GuideManagement,
+  },
+
   {
     path: "/",
     name: "Login",
