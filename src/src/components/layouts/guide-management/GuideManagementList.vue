@@ -2,43 +2,6 @@
   <div>
     <NotificationAlert />
     <h3 class="text-gray-700 text-2xl font-semibold"> Gestão de guias</h3>
-
-    <div class="mt-4 flex flex-col sm:flex-row">
-         <div class="flex">
-            <div class="relative">
-               <select class="appearance-none h-full rounded-l border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                  <option>Mosrar 5 resultados</option>
-                  <option>Mostrar 10 resultados</option>
-                  <option>Mostrar 20 resultados</option>
-               </select>
-               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-            </div>
-            <div class="block relative mt-4 sm:mt-0">
-               <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
-                     <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
-                  </svg>
-               </span>
-               <input @change="onFilter" placeholder="" v-model="search" class="appearance-none  border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
-            </div>
-         </div>
-         <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5">
-              <span class="flex justify-end px-4 py-0">  
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg> PDF
-              </span>
-         </button>
-         <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5 rounded-r">
-              <span class="flex justify-end px-4 py-0">  
-              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg> Excel
-              </span>
-         </button>
-      </div>
-
-
     <div class="mt-4">
       <div class="mt-6 " >
         <div class="mt-4 px-4 py-5 bg-white grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1">
@@ -132,6 +95,43 @@
         </div>       
       </div> 
     </div>
+    <div class="mt-4 flex flex-col sm:flex-row">
+         <div class="flex">
+            <div class="relative">
+               <select class="appearance-none h-full rounded-l border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Mosrar 5 resultados</option>
+                  <option>Mostrar 10 resultados</option>
+                  <option>Mostrar 20 resultados</option>
+               </select>
+               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
+            </div>
+            <div class="block relative mt-4 sm:mt-0">
+               <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
+                     <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
+                  </svg>
+               </span>
+               <input @change="onFilter" placeholder="" v-model="search" class="appearance-none  border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none ">
+            </div>
+         </div>
+         <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5">
+              <span class="flex justify-end px-4 py-0">  
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg> PDF
+              </span>
+         </button>
+         <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5 rounded-r">
+              <span class="flex justify-end px-4 py-0">  
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg> Excel
+              </span>
+         </button>
+      </div>
+
+
+
 
       <div class="mt-4">
       <div class="mt-6">
