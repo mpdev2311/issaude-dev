@@ -1,53 +1,41 @@
 <template>
   <div>
     <NotificationAlert />
-    <h3 class="text-gray-700 text-2xl font-semibold"> Gestão de guias</h3>
+     <h3 class="text-gray-700 text-3xl font-semibold">Gestão de Guias</h3>
     <div class="mt-4">
-      <div class="mt-6 " >
+      <div class="mt-6" >
         <div class="mt-4 px-4 py-5 bg-white grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1">
              <div class="sm:col-span-3">               
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                      Paciente
                 </label>
-                <div class="mt-3">
+                <div class="mt-3 w-10/12">
                     <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-50 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
                 </div>
              </div>
-            <div class="sm:col-span-2 ">
+            <div class="sm:col-span-3">
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                    Período de Busca:<span class="text-red-700">*</span>
                 </label>
-                <div class="mt-2 flex">
-                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out" >
+                <div class="mt-2 px-2  flex">
+                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
                      <span>a</span>
-                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out" >
+                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                </div>
-             </div>
-             <div class="sm:col-span-1 ">
-                <div class="flex mt-4 justify-end px-2 py-3">              
-                <button @click="onCreate()" type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3">
+                  <button @click="onCreate()" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
                   Atualizar               
                 </button>
-              </div>
+                </div>
+                       
              </div>
 
-             <!-- <div class="sm:col-span-1">
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                Data Fim<span class="text-red-700">*</span>
-                </label>
-                <div class="mt-1">
-                     <input type="date"   name="dataFim" id="dataFim" autocomplete="dataFim" class="ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-4 rounded-l border border-gray-300 rounded-md" >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                </div>
-             </div> -->
              <div class="sm:col-span-1">               
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                      Prontuário
                 </label>
-                <div class="mt-1">
+                <div class="mt-1" >
                     <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
                 </div>
@@ -114,7 +102,7 @@
                <input @change="onFilter" placeholder="" v-model="search" class="appearance-none  border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none ">
             </div>
          </div>
-         <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5">
+         <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5 w-10/12">
               <span class="flex justify-end px-4 py-0">  
               <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -135,7 +123,7 @@
 
       <div class="mt-4">
       <div class="mt-6">
-        <div class="bg-white shadow rounded-md overflow-hidden my-6">
+        <div class="bg-white shadow rounded-md overflow-hidden my-6 w-10/12/">
           <table class="text-left w-full border-collapse">
             <thead class="border-b">
               <tr>
@@ -275,10 +263,10 @@
                   </button>
                </div>
             </div>
-              <div class="flex justify-end px-2 py-3 bg-gray-50 rounded-b-lg text-right sm:px-0 bg-gray-900">
+              <div class="flex justify-end px-2 py-3 bg-gray-50 rounded-b-lg text-right sm:px-0 bg-gray-900 w-1/1">
               
                 <button @click="onCreate()" type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3">
-                  Abrir Nova Agenda
+                  Abrir Nova Guia
                 <svg class="h-5 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
