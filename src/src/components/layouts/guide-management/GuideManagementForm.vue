@@ -108,7 +108,7 @@
           Data emissão
           </label>
           <div class="mt-1">
-            <input disabled type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md" v-model="approach.id">
+            <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md" v-model="approach.id">
           </div>
         </div>
          <div class="col-span-6 sm:col-span-1">
@@ -378,7 +378,7 @@ export default defineComponent({
     });
   
     const onCancel = async () =>{
-      router.push('/approaches')
+      router.push('/guide-managements')
     }
 
     const onSave = async () => {      
