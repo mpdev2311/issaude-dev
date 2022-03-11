@@ -27,13 +27,17 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Paciente
           </label>
-              <div class="block relative mt-4 sm:mt-0">
-               <span class="absolute inset-y-0 left-0 flex  items-center pl-4  ">
-                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
-                     <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
-                  </svg>
-               </span>
-               <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-200 mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+          <div class=" flex mt-1 w-full ">               
+            <input  placeholder="" v-model="search" class="bg-gray-200 mt- block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+          
+            <div class="block relative mt-4 sm:mt-0 ">
+              <span class="absolute inset-y-0 left-0 flex  items-center pt-1 pl-3  ">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
+                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
+                </svg>
+              </span>
+              <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-200 mt-  block w-full w-10 py-2 px-3 items-center border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+            </div>
             </div>
         </div>
  
