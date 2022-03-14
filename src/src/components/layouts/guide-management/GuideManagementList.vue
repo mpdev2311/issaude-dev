@@ -317,7 +317,7 @@ export default defineComponent({
     })
 
     const onEdit = (id) => {
-       router.push(`/guide-management/${id}`)
+       router.push(`/guide-sadt/${id}`)
     }
 
     const onDelete = async (i) => {
@@ -325,7 +325,7 @@ export default defineComponent({
     }
 
     const onCreate = () =>{
-      router.push('/guide-management/0')
+      router.push('/guide-sadt/0')
     }
 
     return {
