@@ -84,7 +84,16 @@ const routes: RouteRecordRaw[] = [
     name: "GuideManagement",
     component: GuideManagement,
   },
-
+  {
+    path: "/guide-sadt",
+    name: "GuideSadtList",
+    component: GuideManagementList,
+  },
+  {
+    path: "/guide-sadt/:id",
+    name: "GuideSadt",
+    component: GuideManagement,
+  },
   {
     path: "/",
     name: "Login",
