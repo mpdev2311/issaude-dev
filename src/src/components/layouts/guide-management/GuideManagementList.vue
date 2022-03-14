@@ -10,7 +10,7 @@
                      Paciente
                 </label>
                 <div class="mt-3 w-10/12">
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-50 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-50 ml-2 text-sm bg-gray-200 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
                 </div>
              </div>
@@ -19,10 +19,10 @@
                    Período de Busca:<span class="text-red-700">*</span>
                 </label>
                 <div class="mt-2 px-2  flex">
-                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-200 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
                      <span>a</span>
-                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-200 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
                   <button @click="onCreate()" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
                   Atualizar               
@@ -36,7 +36,7 @@
                      Prontuário
                 </label>
                 <div class="mt-1" >
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-200 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
                 </div>
              </div>
@@ -46,7 +46,7 @@
                     Convênio<span class="text-red-700">*</span>
                 </label>
                 <div class="mt-1">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
                          <option  v-bind:value="0"></option>
                           <option v-for="i in scheduleNames" :key="i" :value="i.id" >{{i.nome}}</option>
@@ -58,7 +58,7 @@
                     Local Atendimento<span class="text-red-700">*</span>
                 </label>
                 <div class="mt-1">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
                          <option  v-bind:value="0"></option>
                           <option v-for="i in scheduleNames" :key="i" :value="i.id" >{{i.nome}}</option>
@@ -71,7 +71,7 @@
                     Profissional<span class="text-red-700">*</span>
                 </label>
                 <div class="mt-1">
-                    <select name="profissional" id="profissional" autocomplete="profissional" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select name="profissional" id="profissional" autocomplete="profissional" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                        >
                         <option  v-bind:value="0"></option>
                             <option v-for="i in healthProfessionals" :key="i" :value="i.id" >{{i.nome}}</option> 
@@ -86,20 +86,20 @@
     <div class="mt-4 flex flex-col sm:flex-row">
          <div class="flex">
             <div class="relative">
-               <select class="appearance-none h-full rounded-l border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                  <option>Mosrar 5 resultados</option>
+               <select class="appearance-none h-full rounded-l border block w-full bg-gray-200 bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 transition duration-500 ease-in-out">
+                  <option>Mostrar 5 resultados</option>
                   <option>Mostrar 10 resultados</option>
                   <option>Mostrar 20 resultados</option>
                </select>
-               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
+               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2  text-gray-700"></div>
             </div>
             <div class="block relative mt-4 sm:mt-0">
-               <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
+               <span class="absolute inset-y-0 left-0 flex  items-center pl-2">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
                      <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
                   </svg>
                </span>
-               <input @change="onFilter" placeholder="" v-model="search" class="appearance-none  border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none ">
+               <input @change="onFilter" placeholder="" v-model="search" class="appearance-none  border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-gray-200 bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none transition duration-500 ease-in-out ">
             </div>
          </div>
          <button class="text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5 w-10/12">
