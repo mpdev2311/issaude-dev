@@ -1,30 +1,261 @@
 <template>
-<div>
-  <div class="  h-96 w-96 max-h-3/4 m-5 p-4 border-r-2 rounded  border-gray-500">
-        <div class="sm:col-span-3">               
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                     Paciente
-                </label>
-                <div class="mt-3 w-10/12">
-                    <input type="text"  name="p_consulta" id="p_consulta" autocomplete="p_consulta" class=" xl:w-50 ml-2 text-sm bg-gray-200 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
+  <div>
+    <h3 class="text-gray-700 text-2xl font-semibold">Guia de Consulta</h3>
+
+    <div class="mt-8">
+      <div class="mt-4">
+        <div class="p-6 bg-white rounded-t-lg shadow-md">
+         
+<form class="space-y-4 divide-y divide-gray-200">
+  <div class="space-y-8 divide-y divide-gray-200">
+
+    <div class="pt-1">
+
+ 
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1 ">
+
+        <div class="sm:col-span-1 ">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Empr.Solicitante
+          </label>
+          <div class="mt-2 max-w-5xl ">
+            <input disabled type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-200 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out " v-model="approach.id">
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Guia Prestador
+          </label>
+          <div class=" flex mt-1 w-full ">               
+            <input  placeholder="" v-model="search" class="bg-gray-200 mt- block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+          
+            <div class="block relative mt-4 sm:mt-0 ">
+              <span class="absolute inset-y-0 left-0 flex  items-center pt-1 pl-3  ">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
+                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
+                </svg>
+              </span>
+              <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-200 mt-  block w-full w-10 py-2 px-3 items-center border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+            </div>
+            </div>
+        </div>
+ 
+        <div class="col-span-6 sm:col-span-2">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+           Guia Operadora
+          </label>
+          <div>
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-200 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+         <div class="col-span-6 sm:col-span-2">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Senha
+          </label>
+          <div>
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+         <div class="col-span-6 sm:col-span-2">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+          Tipo Atendimento
+          </label>
+          <div>
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+         <div class="col-span-6 sm:col-span-2">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Tipo de Saída
+          </label>
+          <div>
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+         <div class="col-span-6 sm:col-span-2">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Tipo de Consulta
+          </label>
+          <div>
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+        <div class="sm:col-span-1">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Indicação de Acidente
+          </label>
+          <div class="mt-">
+            <input disabled type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" v-model="approach.id">
+          </div>
+        </div>
+        <div class="sm:col-span-1">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+         Carater
+          </label>
+          <div class="mt-1 max-w-5xl">
+            <input disabled type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" v-model="approach.id">
+          </div>
+        </div>
+        <div class="sm:col-span-1">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Tipo de Doença
+          </label>
+          <div class="mt-1">
+            <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" v-model="approach.id">
+          </div>
+        </div>
+         <div class="col-span-6 sm:col-span-1">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Tempo de Doença
+          </label>
+          <div>
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-200 mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+
+        <div class="col-span-6 sm:col-span-1">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Atendimento RN
+          </label>          
+          <div>            
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+         <div class="col-span-6 sm:col-span-1">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Data Solicitação
+          </label>          
+          <div>            
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+        <div class="sm:col-span-1  ">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">
+            Data Autorização
+          </label>
+          <div class="mt-1 ">
+            <input type="text" name="last_name" id="last_name" autocomplete="family-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" v-model="approach.descricao">
+          </div>
+        </div>
+
+         <div class="col-span-6 sm:col-span-1">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Data emissão
+          </label>          
+          <div>            
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+
+         <div class="sm:col-span-1">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">
+            Validade da Senha
+          </label>
+          <div class="mt-1 max-w-5xl">
+            <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="last_name" id="last_name" autocomplete="family-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" v-model="approach.descricao">
+          </div>
+        </div>
+
+         <div class="sm:col-span-1">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">
+            Indicação Clinica
+          </label>
+          <div class="mt-1">
+            <input type="text" name="last_name" id="last_name" autocomplete="family-name" class="bg-gray-200 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" v-model="approach.descricao">
+          </div>
+        </div>
+
+         <div class="col-span-6 sm:col-span-1 max-w-5xl">
+          <label for="local" class="block text-sm font-medium text-gray-700">
+            Obs
+          </label>          
+          <div>            
+            <select  v-model="approach.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>
+        </div>
+
+         
+        <!--
+        <div class="sm:col-span-3">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">
+           Usuário
+          </label>
+          <div class="mt-1">
+            <select v-model="specialty.id_user"  id="tipo" name="tipo" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+             <option v-for="item in user" :key="item.nome" v-bind:value="item.id">{{item.nome}}</option>
+          </select>
+          </div>
+        </div>
+
+        
+
+
+        <div class="sm:col-span-3">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">
+           Corporação
+          </label>
+          <div class="mt-1">
+           <select v-model="specialty.id_corp"  id="corporation" name="corporation" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+             <option v-for="item in usercorporation" :key="item.nome" v-bind:value="item.id">{{item.nome}}</option>
+          </select>
+          </div>
+        </div>
+ -->
+    
+
                 </div>
-             </div>
-             
-        <div class="sm:col-span-3">               
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                     Paciente
-                </label>
-                <div class="mt-3 w-10/12">
-                    <input type="text"  name="p_consulta" id="p_consulta" autocomplete="p_consulta" class=" xl:w-50 ml-2 text-sm bg-gray-200 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
                 </div>
-             </div>
-             
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="flex justify-end px-4 py-3 bg-gray-50 rounded-b-lg text-right sm:px-6 bg-gray-900">
+      <button @click="onCancel()" type="button" class="space-x-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-2">
+        Voltar
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+      </button>
+      <button @click="onSave()" type="button" class="space-x-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-4">
+        Salvar 
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
   </div>
-  </div>
-  
-  
 </template>
 
 <script lang="ts">

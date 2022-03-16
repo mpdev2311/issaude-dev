@@ -175,12 +175,12 @@
                 <th
                   class="py-3 px-5 bg-gray-900 font-medium uppercase text-sm text-gray-100"
                 >
-                  Editar
+                  Açãoe
                 </th>
                 <th
                   class="py-3 px-5 bg-gray-900 font-medium uppercase text-sm text-gray-100"
                 >
-                  Delete
+                  ...
                 </th>
               </tr>
             </thead>
