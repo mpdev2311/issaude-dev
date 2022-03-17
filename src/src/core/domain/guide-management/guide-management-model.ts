@@ -1,0 +1,65 @@
+export class GuideManagement {
+    numero_guia: string;
+    emissao: string;
+    id_profissional_executante: number;
+    id_paciente: number;
+    tipo_doenca:string;
+    tempo_doenca: string;
+    indicacao_acidente: number;
+    cid_principal: string;
+    cid1: string;
+    cid2: string;
+    cid3:string;
+    data_atendimento: string;
+    cod_procedimento: string;
+    tipo_consulta: number;
+    tipo_saida: number;
+    obs: string;;
+    cod_tabela_hm: string;
+    tempo_doe: string;
+    tipo: number;
+    data_fim: string;
+    tipo_atendimento: string;
+    id_agenda: number;
+    consulta: boolean;
+    senha: string;
+    id_agenda_nome: number;
+    id_local_atendimento: number;
+    id_empresa_contratada: number;
+    usuario: string;
+    data_gravacao: string;
+    id_solicitante: number;
+    id_corp: number;
+    id_tipo_internacao:number
+    id_regime_internacao:number
+    carater_internacao:string;
+    id_user: number;
+    id_empresa_solicitante: number;
+    qdiarias:number
+    id_plano: number;
+    id_acomodacao: number;
+    alta: string;
+    id_entrega: number;
+    data_hora_recebimento: string;
+    id_user_recebeu: number;
+    hora_atendimento: string;
+    data_autorizacao: string;
+    justificativa: string;
+    id_especialidade: number;
+    id_medico_autorizador: number;
+    atendimento_rn:string;
+    sintomas: string;
+    prova_diagnostica: string;
+    ativo: boolean;
+    guia_glosa: string;
+    validade_senha: string;
+    data_solicitacao: string;
+    cod_solicitante: number;
+    cod_executante: number;
+    numero_guia_solicitacao_internacao: number;
+    is_venda: boolean;
+    id_prestador: number;
+    id_user_quitou: number;
+    dados_neo_natal: string;
+    dados_parto: string;
+}
