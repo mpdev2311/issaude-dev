@@ -38,6 +38,8 @@ import aclProfileCorporationStore from './acl/acl-profile-corporation/acl-profil
 import localAcess from './local-access/local-access-store'
 import schedulingStatusStore from './scheduling-status/scheduling-status-store'
 import schedulingStore from './scheduling/scheduling-store'
+import patientStore from './patient/patient-store'
+import guideManagementStore from './guide-management/guide-management-store'
 
 
 
@@ -84,10 +86,9 @@ const store = createStore({
     schedulingAccess:schedulingAccessStore,
     AclModuleRoute:AclModuleRouteStore,
     aclGroup:aclGroupStore,
-    aclProfileCorporation:aclProfileCorporationStore
-
-
-
+    aclProfileCorporation:aclProfileCorporationStore,
+    patient: patientStore,
+    guideManagement: guideManagementStore,
   },
 })
 
