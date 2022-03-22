@@ -10,7 +10,7 @@
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                      Prontuário
                 </label>
-                <div class="mt-2" >
+                <div class="mt-3" >
                     <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
                 </div>
@@ -19,10 +19,29 @@
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                      Paciente
                 </label>
-                <div class="mt-1 w-10/12">
+                 <div class=" flex mt-1 w-full ">
+             <!-- <div>
+            <select   id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-44 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+               <option v-bind:value="'1'">teste Paciente</option>
+              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
+            </select>
+          </div>              -->
+            <input  placeholder=""  class="bg-gray-100 mt-1 block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+          
+            <div class="block relative mt-1 ">
+              <span class="absolute inset-y-0 left-0 flex  items-center pt-1 pl-3  ">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
+                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
+                </svg>
+              </span>
+              <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-100 mt-  block w-full w-10 py-2 px-3 items-center border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+            </div>
+            </div>
+                <!-- <div class="mt-1 w-10/12">
                     <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-50 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-                </div>
+                </div> -->
              </div>
 
             <div class="sm:col-span-3">
@@ -35,19 +54,17 @@
                      <span>a</span>
                      <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                  <button @click="onCreate()" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
+                  <button @click="alert('crud componentes')" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
                   Atualizar               
                 </button>
-                </div>
-                       
+                </div>                       
              </div>
 
-
-              <div class="sm:col-span-2">
+              <div class="sm:col-span-2 m-2">
                 <label for="nome" class="block text-sm font-medium text-gray-700">
                     Convênio<span class="text-red-700">*</span>
                 </label>
-                <div class="mt-1">
+                <div class="mt-1 ">
                     <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
                          <option  v-bind:value="0"></option>
@@ -55,6 +72,7 @@
                     </select>
                 </div>
              </div>
+
               <div class="sm:col-span-2">
                 <label for="nome" class="block text-sm font-medium text-gray-700">
                     Local Atendimento<span class="text-red-700">*</span>
@@ -62,8 +80,12 @@
                 <div class="mt-1">
                     <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
-                         <option  v-bind:value="0"></option>
-                          <option v-for="i in scheduleNames" :key="i" :value="i.id" >{{i.nome}}</option>
+                        <option  v-bind:value="0">Selecione</option>
+                         <option
+                            v-for="i in localAccess"
+                            :key="i"
+                            :value="i.id"
+                          >{{ i.localAttendance.local }}</option>
                     </select>
                 </div>
              </div>
@@ -141,7 +163,7 @@
                               role="menuitem"
                               tabindex="0"
                               id="menu-item-0"
-                            >Abrir Nova Guia
+                            >Nova Guia
                               <span class="inline-flex justify-center border border-transparent shadow-sm text-sm font-medium rounded-md text-green-600">
                                 <svg class="h-5 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                   <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -240,9 +262,11 @@ export default defineComponent({
   computed:{
     ...mapState([
       'guideManagements',
+       'localAccess'
       ]),
     ...mapGetters([
       'guideManagements',
+       'localAccess'
     ]),
   },
 
@@ -312,6 +336,7 @@ export default defineComponent({
     })
 
     onMounted(async () => {
+      store.dispatch('LOAD_LOCAL_ACESS')
       await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
     })
 

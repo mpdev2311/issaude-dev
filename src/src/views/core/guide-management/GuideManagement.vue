@@ -54,9 +54,12 @@
           </label>
           <div>
             <select  v-model="guideManagement.id_local_atendimento" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-              <option value="">Selecionar</option>
-               <option v-bind:value="'2'">teste Local de Atendimento</option>
-              <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
+                  <option value>Selecionar</option>
+                  <option
+                    v-for="i in localAccess"
+                    :key="i"
+                    :value="i.id"
+                  >{{ i.localAttendance.local }}</option>
             </select>
           </div>
         </div>
@@ -264,17 +267,15 @@
           </div>
         </div>
 
-         <div class="sm:col-span-2">
+         <div class="sm:col-span-6">
             <label for="obs" class="block text-sm font-medium text-gray-700">
             Obs:
             </label>
             <div class="mt-1">
-                <textarea  v-model="guideManagement.obs" id="about" name="about" rows="1"  class="max-w-lg shadow-sm bg-gray-100 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md" 
+                <textarea  v-model="guideManagement.obs" id="about" name="about" rows="1"  class="w-full shadow-sm bg-gray-100 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md" 
                 />                               
             </div>                       
         </div>
-      
-
                 </div>
                 </div>
             </div>
@@ -315,16 +316,19 @@ export default defineComponent({
    methods: {
          ...mapMutations([   
             'guideManagement',
-             'guideManagements',  
+             'guideManagements',
+             'localAccess'
          ]),
       },
 
   computed:{
     ...mapState([
-      'guideManagement',  
+      'guideManagement',
+      'localAccess'
       ]),
     ...mapGetters([
-      'guideManagement',  
+      'guideManagement',
+      'localAccess'
     ]),
   },
 
@@ -343,7 +347,7 @@ export default defineComponent({
       id_paciente: 0,
       tipo_doenca: "",
       tempo_doenca: "",
-      indicacao_acidente: 0,
+      indicacao_acidente: 2,
       cid_principal: "",
       cid1: null,
       cid2: null,
@@ -405,6 +409,7 @@ export default defineComponent({
    store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
 
   onMounted(async () => { 
+      store.dispatch('LOAD_LOCAL_ACESS')
       const { id } = router.currentRoute.value.params;
 
       if(id !== '0'){
