@@ -1,20 +1,34 @@
+import { GuideManagement, GuideManagements } from './../../domain/guide-management/guide-management-model';
 import { AxiosResponse } from 'axios'
 import { axios } from '../request'
 import { AxiosInstance } from 'axios';
-import { GuideManagement } from 'core/domain/guide-management/guide-management-model';
 
 export default class GuideManagementService{
     
-    public static async getAll() : Promise<Array<GuideManagement>>{
+    public static async getAll() : Promise<Array<GuideManagements>>{
         const { get } = axios as AxiosInstance;
-        const { data } = await get('/revenues/guides?page=0&size=20&id_corp=1&start_date=01/02/2022&end_date=28/02/2022&id_tipo_guia=5')
+        const { data } = await get('/revenues/guides?page=0&size=20&id_corp=1&start_date=01/02/2022&end_date=22/03/2022')
         return data;
     }
 
-    // public static async getById(id:any) : Promise<AxiosResponse>{
-    //     const { get } = axios as AxiosInstance;
-    //     return await get(`/api/providers/${id}`)
-    // }
+    public static async deleteById(id:any) : Promise<AxiosResponse>{
+        return await (axios as AxiosInstance).delete(`/revenues/guides/${id}/1`)
+    }
+
+     public static async create(guideManagement : GuideManagement) : Promise<AxiosResponse>{
+        const { post } = axios as AxiosInstance;
+        return await post(`/revenues/guides`, guideManagement)
+    }
+    
+    public static async update(guideManagement : GuideManagement) : Promise<AxiosResponse>{
+        const { put } = axios as AxiosInstance;
+        return await put(`/revenues/guides`, guideManagement)
+    }
+
+    public static async getById(id:any) : Promise<AxiosResponse>{
+        const { get } = axios as AxiosInstance;
+        return await get(`/revenues/guides/${id}`)
+    }
 
     // public static async getAllByName(search:any) : Promise<AxiosResponse>{
     //     const { get } = axios as AxiosInstance;
@@ -26,9 +40,7 @@ export default class GuideManagementService{
     //     return await get(`/api/providers/${search}`)
     // }
 
-    // public static async deleteById(id:any) : Promise<AxiosResponse>{
-    //     return await (axios as AxiosInstance).delete(`/api/providers/${id}`)
-    // }
+  
 
     // public static async create(healthInsurance : HealthInsurance) : Promise<AxiosResponse>{
     //     const { post } = axios as AxiosInstance;

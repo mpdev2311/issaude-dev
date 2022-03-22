@@ -11,14 +11,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
 import Sidebar from './Sidebar.vue'
 import Header from "./Header.vue";
-export default defineComponent({
-  components: {
-    Header,
-    Sidebar,
-  },
-});
 </script>
