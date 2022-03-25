@@ -1,5 +1,5 @@
 import ProvidersService from "../../services/providers/providers-service"
-import { Provider } from "../../domain/providers/provider-model";
+import { Providers } from "../../domain/providers/provider-model";
 import router from "../../../router";
 
 export default {
