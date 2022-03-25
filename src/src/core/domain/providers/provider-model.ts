@@ -1,3 +1,10 @@
+export interface Providers {
+	content: Content[];
+	totalPages: number;
+	size: number;
+	last: boolean;
+	totalElements: number;
+}
 export interface PlanAgreement {
 }
 
@@ -25,14 +32,6 @@ export interface Content {
 	specialtie: Specialtie;
 	specialtie2: Specialtie2;
 	specialtie3: Specialtie3;
-}
-
-export interface Providers {
-	content: Content[];
-	totalPages: number;
-	size: number;
-	last: boolean;
-	totalElements: number;
 }
 
 export class Provider {

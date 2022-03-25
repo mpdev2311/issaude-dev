@@ -4,6 +4,6 @@
 
 
 ///providers/filters?page=0&size=20&id_corp=1&id_tipo_prestador=1&nao_atende=false
-//{{api}}/providers/filters?page=0&size=20&id_corp=1&id_tipo_prestador=1&nao_atende=false
+//providers/filters?page=0&size=20&id_corp=1&id_tipo_prestador=1&nao_atende=false
 
 //{{api}}/revenues/guides-type
