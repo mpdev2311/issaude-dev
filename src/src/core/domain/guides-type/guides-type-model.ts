@@ -1,6 +1,6 @@
-// export class GuideType{
-//     "id": 5,
-//     "nome": "Consulta TISS",
-//     "ativo": true,
-//     "servico_tipo": 5
-// }
+export class GuideType{
+    id: number;
+    nome: string;
+    ativo: boolean;
+    servico_tipo: string;
+}
