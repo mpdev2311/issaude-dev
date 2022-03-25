@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Login from './views/core/login/Login.vue'
 import SSO from './views/core/sso/SSO.vue'
 import Dashboard from './views/core/dashboard/Dashboard.vue'
@@ -49,413 +49,407 @@ import Plan from './views/core/plans/Plan.vue'
 import PlanList from './views/core/plans/PlanList.vue'
 import ScheduleConfigs from './views/core/schedule-config/ScheduleConfigs.vue'
 import ScheduleConfigsList from './views/core/schedule-config/ScheduleConfigsList.vue'
-import HealthInsurances from "./views/core/health-insurances/HealthInsurances.vue";
-import HealthInsurancesList from "./views/core/health-insurances/HealthInsurancesList.vue";
-import Providers from "./views/core/providers/Providers.vue";
-import ProvidersList from "./views/core/providers/ProvidersList.vue";
-import Manufacturers from "./views/core/manufacturers/Manufacturers.vue";
-import ManufacturersList from "./views/core/manufacturers/ManufacturersList.vue";
-import PrinterConfiguration from "./views/core/printerConfiguration/PrinterConfiguration.vue"
-import PasswordAttendance from "./views/core/reception/PasswordAttendance/PasswordAttendance.vue"
-import PasswordAttendanceGenerate from "./views/core/reception/PasswordAttendanceGenerate/PasswordAttendanceGenerate.vue"
-import SchedulePermission from "./views/core/management-and-permission/schedule-permissions/SchedulePermission.vue";
-import SchedulePermissionList from "./views/core/management-and-permission/schedule-permissions/SchedulePermissionList.vue";
-import AclModuleRoutesList from "./views/core/management-and-permission/acl-module-routes/AclModuleRoutesList.vue"
-import AclModuleRoutes from "./views/core/management-and-permission/acl-module-routes/AclModuleRoutes.vue"
-import User from "./views/core/reception/User/User.vue"
-import UserList from "./views/core/reception/User/UserList.vue"
-import AclProfile from "./views/core/reception/acl_profile/AclProfile.vue"
-import AclProfileList from "./views/core/reception/acl_profile/AclProfileList.vue"
-import AclProfileCorporation from "./views/core/reception/AclProfileCorporation/AclProfileCorporation.vue";
+import HealthInsurances from './views/core/health-insurances/HealthInsurances.vue'
+import HealthInsurancesList from './views/core/health-insurances/HealthInsurancesList.vue'
+import Providers from './views/core/providers/Providers.vue'
+import ProvidersList from './views/core/providers/ProvidersList.vue'
+import Manufacturers from './views/core/manufacturers/Manufacturers.vue'
+import ManufacturersList from './views/core/manufacturers/ManufacturersList.vue'
+import PrinterConfiguration from './views/core/printerConfiguration/PrinterConfiguration.vue'
+import PasswordAttendance from './views/core/reception/PasswordAttendance/PasswordAttendance.vue'
+import PasswordAttendanceGenerate from './views/core/reception/PasswordAttendanceGenerate/PasswordAttendanceGenerate.vue'
+import SchedulePermission from './views/core/management-and-permission/schedule-permissions/SchedulePermission.vue'
+import SchedulePermissionList from './views/core/management-and-permission/schedule-permissions/SchedulePermissionList.vue'
+import AclModuleRoutesList from './views/core/management-and-permission/acl-module-routes/AclModuleRoutesList.vue'
+import AclModuleRoutes from './views/core/management-and-permission/acl-module-routes/AclModuleRoutes.vue'
+import User from './views/core/reception/User/User.vue'
+import UserList from './views/core/reception/User/UserList.vue'
+import AclProfile from './views/core/reception/acl_profile/AclProfile.vue'
+import AclProfileList from './views/core/reception/acl_profile/AclProfileList.vue'
+import AclProfileCorporation from './views/core/reception/AclProfileCorporation/AclProfileCorporation.vue'
 import Scheduling from './views/core/schedule/Scheduling.vue'
-
-import GuideManagement from "./views/core/guide-management/GuideManagement.vue";
-import GuideManagementList from "./views/core/guide-management/GuideManagementList.vue";
+import GuideManagement from './views/core/guide-management/GuideManagement.vue'
+import GuideManagementList from './views/core/guide-management/GuideManagementList.vue'
 
 const routes: RouteRecordRaw[] = [
   {
-    path: "/guide-managements",
-    name: "GuideManagementList",
-    component: GuideManagementList,
-  },
-  {
-    path: "/guide-management/:id",
-    name: "GuideManagement",
-    component: GuideManagement,
-  },
-  {
-    path: "/",
-    name: "Login",
+    path: '/',
+    name: 'Login',
     component: Login,
-    meta: { layout: "empty" },
+    meta: { layout: 'empty' },
   },
   {
-    path: "/print-configuration",
-    name: "PrinterConfiguration",
+    path: '/print-configuration',
+    name: 'PrinterConfiguration',
     component: PrinterConfiguration,
-    meta: { layout: "empty" },
+    meta: { layout: 'empty' },
   },
   {
-    path: "/sso",
-    name: "SSO",
+    path: '/sso',
+    name: 'SSO',
     component: SSO,
-    meta: { layout: "empty" },
+    meta: { layout: 'empty' },
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
   },
   {
-    path: "/chooseCompany",
-    name: "ChooseCompany",
+    path: '/chooseCompany',
+    name: 'ChooseCompany',
     component: ChooseCompany,
-    meta: { layout: "empty" },
+    meta: { layout: 'empty' },
   },
   {
-    path: "/ui-elements",
-    name: "UIElements",
+    path: '/ui-elements',
+    name: 'UIElements',
     component: UIElements,
   },
   {
-    path: "/presentation",
-    name: "PresentationList",
-    component: PresentationList
+    path: '/presentation',
+    name: 'PresentationList',
+    component: PresentationList,
   },
   {
-    path: "/presentation/:id",
-    name: "Presentation",
-    component: Presentation
+    path: '/presentation/:id',
+    name: 'Presentation',
+    component: Presentation,
   },
   {
-    path: "/unitmeasure",
-    name: "UnitMeasureList",
-    component: UnitMeasureList
+    path: '/unitmeasure',
+    name: 'UnitMeasureList',
+    component: UnitMeasureList,
   },
   {
-    path: "/unitmeasure/:id",
-    name: "UnitMeasure",
-    component: UnitMeasure
+    path: '/unitmeasure/:id',
+    name: 'UnitMeasure',
+    component: UnitMeasure,
   },
   {
-    path: "/via",
-    name: "ViaList",
-    component: ViaList
+    path: '/via',
+    name: 'ViaList',
+    component: ViaList,
   },
   {
-    path: "/via/:id",
-    name: "Via",
-    component: Via
+    path: '/via/:id',
+    name: 'Via',
+    component: Via,
   },
   {
-    path: "/stock_names",
-    name: "StockNameList",
-    component: StockNameList
+    path: '/stock_names',
+    name: 'StockNameList',
+    component: StockNameList,
   },
   {
-    path: "/stock_names/:id",
-    name: "StockName",
-    component: StockName
+    path: '/stock_names/:id',
+    name: 'StockName',
+    component: StockName,
   },
   {
-    path: "/specialties",
-    name: "SpecialtyList",
-    component: SpecialtyList
+    path: '/specialties',
+    name: 'SpecialtyList',
+    component: SpecialtyList,
   },
   {
-    path: "/specialties/:id",
-    name: "Specialty",
-    component: Specialty
+    path: '/specialties/:id',
+    name: 'Specialty',
+    component: Specialty,
   },
   {
-    path: "/dosages",
-    name: "DosageList",
-    component: DosageList
+    path: '/dosages',
+    name: 'DosageList',
+    component: DosageList,
   },
   {
-    path: "/dosages/:id",
-    name: "Dosage",
-    component: Dosage
+    path: '/dosages/:id',
+    name: 'Dosage',
+    component: Dosage,
   },
   {
-    path: "/consultation_places",
-    name: "ConsultationPlaceList",
-    component: ConsultationPlaceList
+    path: '/consultation_places',
+    name: 'ConsultationPlaceList',
+    component: ConsultationPlaceList,
   },
   {
-    path: "/consultation_places/:id",
-    name: "ConsultationPlace",
-    component: ConsultationPlace
+    path: '/consultation_places/:id',
+    name: 'ConsultationPlace',
+    component: ConsultationPlace,
   },
   {
-    path: "/companies",
-    name: "CompanyList",
-    component: CompanyList
+    path: '/companies',
+    name: 'CompanyList',
+    component: CompanyList,
   },
   {
-    path: "/companies/:id",
-    name: "Company",
-    component: Company
+    path: '/companies/:id',
+    name: 'Company',
+    component: Company,
   },
   {
-    path: "/accountinfo",
-    name: "AccountInfoList",
-    component: AccountInfoList
+    path: '/accountinfo',
+    name: 'AccountInfoList',
+    component: AccountInfoList,
   },
   {
-    path: "/accountinfo/:id",
-    name: "AccountInfo",
-    component: AccountInfo
+    path: '/accountinfo/:id',
+    name: 'AccountInfo',
+    component: AccountInfo,
   },
   {
-    path: "/tables",
-    name: "Tables",
+    path: '/tables',
+    name: 'Tables',
     component: TablesEdit,
   },
   {
-    path: "/forms",
-    name: "Forms",
+    path: '/forms',
+    name: 'Forms',
     component: Forms,
   },
   {
-    path: "/cards",
-    name: "Cars",
+    path: '/cards',
+    name: 'Cars',
     component: Cards,
   },
   {
-    path: "/modal",
-    name: "Modal",
+    path: '/modal',
+    name: 'Modal',
     component: Modal,
   },
   {
-    path: "/blank",
-    name: "Blanks",
+    path: '/blank',
+    name: 'Blanks',
     component: Blanks,
   },
   {
-    path: "/procedure_types",
-    name: "ProcedureTypesList",
+    path: '/procedure_types',
+    name: 'ProcedureTypesList',
     component: ProcedureTypesList,
   },
   {
-    path: "/procedure_types/:id",
-    name: "ProcedureTypes",
+    path: '/procedure_types/:id',
+    name: 'ProcedureTypes',
     component: ProcedureType,
   },
   {
-    path: "/receipt_types",
-    name: "ReceiptTypesList",
+    path: '/receipt_types',
+    name: 'ReceiptTypesList',
     component: ReceiptTypeList,
   },
   {
-    path: "/receipt_types/:id",
-    name: "ReceiptTypes",
+    path: '/receipt_types/:id',
+    name: 'ReceiptTypes',
     component: ReceiptType,
   },
   {
-    path: "/target-audience",
-    name: "TargetAudienceList",
+    path: '/target-audience',
+    name: 'TargetAudienceList',
     component: TargetAudienceList,
   },
   {
-    path: "/target-audience/:id",
-    name: "TargetAudience",
+    path: '/target-audience/:id',
+    name: 'TargetAudience',
     component: TargetAudience,
   },
   {
-    path: "/product-classification",
-    name: "ProductClassificationList",
+    path: '/product-classification',
+    name: 'ProductClassificationList',
     component: ProductClassificationList,
   },
   {
-    path: "/product-classification/:id",
-    name: "ProductClassification",
+    path: '/product-classification/:id',
+    name: 'ProductClassification',
     component: ProductClassification,
   },
   {
-    path: "/schedule_rooms",
-    name: "ScheduleRoomsList",
+    path: '/schedule_rooms',
+    name: 'ScheduleRoomsList',
     component: ScheduleRoomsList,
   },
   {
-    path: "/schedule_rooms/:id",
-    name: "ScheduleRooms",
+    path: '/schedule_rooms/:id',
+    name: 'ScheduleRooms',
     component: ScheduleRooms,
   },
 
   {
-    path: "/languages",
-    name: "LanguagesList",
+    path: '/languages',
+    name: 'LanguagesList',
     component: LanguagesList,
   },
   {
-    path: "/languages/:id",
-    name: "Languages",
+    path: '/languages/:id',
+    name: 'Languages',
     component: Languages,
   },
 
-
   {
-    path: "/approaches",
-    name: "ApproachesList",
+    path: '/approaches',
+    name: 'ApproachesList',
     component: ApproachesList,
   },
   {
-    path: "/approaches/:id",
-    name: "Approaches",
+    path: '/approaches/:id',
+    name: 'Approaches',
     component: Approaches,
   },
 
   {
-    path: "/protocol_names",
-    name: "ProtocolNamesList",
+    path: '/protocol_names',
+    name: 'ProtocolNamesList',
     component: ProtocolNamesList,
   },
   {
-    path: "/protocol_names/:id",
-    name: "ProtocolNames",
+    path: '/protocol_names/:id',
+    name: 'ProtocolNames',
     component: ProtocolNames,
   },
 
   {
-    path: "/plans",
-    name: "PlanList",
+    path: '/plans',
+    name: 'PlanList',
     component: PlanList,
   },
   {
-    path: "/plans/:id",
-    name: "Plan",
+    path: '/plans/:id',
+    name: 'Plan',
     component: Plan,
   },
   {
-    path: "/health_professionals",
-    name: "HealthProfessionalList",
+    path: '/health_professionals',
+    name: 'HealthProfessionalList',
     component: HealthProfessionalList,
   },
   {
-    path: "/health_professionals/:id",
-    name: "HealthProfessional",
+    path: '/health_professionals/:id',
+    name: 'HealthProfessional',
     component: HealthProfessional,
   },
 
   {
-    path: "/health_insurances",
-    name: "HealthInsurancesList",
+    path: '/health_insurances',
+    name: 'HealthInsurancesList',
     component: HealthInsurancesList,
   },
   {
-    path: "/health_insurances/:id",
-    name: "HealthInsurances",
+    path: '/health_insurances/:id',
+    name: 'HealthInsurances',
     component: HealthInsurances,
   },
 
   {
-    path: "/providers",
-    name: "ProvidersList",
+    path: '/providers',
+    name: 'ProvidersList',
     component: ProvidersList,
   },
   {
-    path: "/providers/:id",
-    name: "Providers",
+    path: '/providers/:id',
+    name: 'Providers',
     component: Providers,
   },
   {
-    path: "/manufacturers",
-    name: "ManufacturersList",
+    path: '/manufacturers',
+    name: 'ManufacturersList',
     component: ManufacturersList,
   },
   {
-    path: "/manufacturers/:id",
-    name: "Manufacturers",
+    path: '/manufacturers/:id',
+    name: 'Manufacturers',
     component: Manufacturers,
   },
   {
-    path: "/schedule_configs",
-    name: "ScheduleConfigsList",
+    path: '/schedule_configs',
+    name: 'ScheduleConfigsList',
     component: ScheduleConfigsList,
   },
   {
-    path: "/schedule_configs/:id",
-    name: "ScheduleConfigs",
+    path: '/schedule_configs/:id',
+    name: 'ScheduleConfigs',
     component: ScheduleConfigs,
   },
   {
-    path: "/schedule_permission/",
-    name: "ScheduleCPermission",
+    path: '/schedule_permission/',
+    name: 'ScheduleCPermission',
     component: SchedulePermission,
   },
   {
-    path: "/acl_modules_routes/",
-    name: "AclModulesRoute",
+    path: '/acl_modules_routes/',
+    name: 'AclModulesRoute',
     component: AclModuleRoutes,
   },
   {
-    path: "/users",
-    name: "UserList",
+    path: '/users',
+    name: 'UserList',
     component: UserList,
   },
   {
-    path: "/users/:id",
-    name: "User",
+    path: '/users/:id',
+    name: 'User',
     component: User,
-
   },
   {
-    path: "/profile_corporation/:id",
-    name: "AclProfileCorporation",
+    path: '/profile_corporation/:id',
+    name: 'AclProfileCorporation',
     component: AclProfileCorporation,
-
   },
   {
-    path: "/password_attendance",
-    name: "PasswordAttendance",
+    path: '/password_attendance',
+    name: 'PasswordAttendance',
     component: PasswordAttendance,
-    meta: { layout: "empty" },
+    meta: { layout: 'empty' },
   },
   {
-    path: "/password_attendance/:service",
-    name: "PasswordAttendanceGenerate",
+    path: '/password_attendance/:service',
+    name: 'PasswordAttendanceGenerate',
     component: PasswordAttendanceGenerate,
-    meta: { layout: "empty" },
+    meta: { layout: 'empty' },
   },
   {
-    path: "/schedule_permission",
-    name: "SchedulePermission",
+    path: '/schedule_permission',
+    name: 'SchedulePermission',
     component: SchedulePermission,
   },
   {
-    path: "/acl_profiles/:id",
-    name: "AclProfile",
-    component: AclProfile
+    path: '/acl_profiles/:id',
+    name: 'AclProfile',
+    component: AclProfile,
   },
   {
-    path: "/acl_profiles",
-    name: "AclProfileList",
+    path: '/acl_profiles',
+    name: 'AclProfileList',
     component: AclProfileList,
   },
   {
-    path: "/semrota",
-    name: "Sem Rota",
+    path: '/semrota',
+    name: 'Sem Rota',
     component: Blanks,
-  },{
-    path:"/scheduling",
-    name: "Scheduling",
-    component: Scheduling
-  }
-
-];
+  },
+  {
+    path: '/scheduling',
+    name: 'Scheduling',
+    component: Scheduling,
+  },
+  {
+    path: '/guide-managements',
+    name: 'GuideManagementList',
+    component: GuideManagementList,
+  },
+  {
+    path: '/guide-management/:id',
+    name: 'GuideManagement',
+    component: GuideManagement,
+  },
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes: routes,
-});
+})
 
 router.beforeEach((to, from, next) => {
-
   const isLogged = !localStorage.getItem('token')
 
-  if (to.name !== 'Login' && top.name !== 'ChooseCompany' && isLogged)
-    next({ name: 'Login' })
+  if (to.name !== 'Login' && top.name !== 'ChooseCompany' && isLogged) next({ name: 'Login' })
 
   next()
 })

@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<TableCellProps>(), {
     props.column.align === 'end' && 'text-right justify-end',
     props.column.align === 'center' && 'text-center justify-center',
     props.column.align === 'start' && 'text-left justify-start',
-    Number(props.column.key) !== props.total - 1 ? 'border-b border-gray-200' : '', 'whitespace-nowrap py-1 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8',
+    Number(props.column.key) !== props.total - 1 ? 'border-b border-gray-200' : '', 'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8',
     props.column.cellClass
   ]"
   >
