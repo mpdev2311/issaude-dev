@@ -40,6 +40,7 @@ import schedulingStatusStore from './scheduling-status/scheduling-status-store'
 import schedulingStore from './scheduling/scheduling-store'
 import patientStore from './patient/patient-store'
 import guideManagementStore from './guide-management/guide-management-store'
+import billsSadtStore from './guide-sadt/bills-sadt-store'
 
 const key: InjectionKey<Store<any>> = Symbol()
 
@@ -85,6 +86,7 @@ const store = createStore({
     aclProfileCorporation: aclProfileCorporationStore,
     patient: patientStore,
     guideManagement: guideManagementStore,
+    billsSadt: billsSadtStore
   },
 })
 
