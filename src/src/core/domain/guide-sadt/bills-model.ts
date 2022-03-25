@@ -1,5 +1,3 @@
-declare module namespace {
-
     export interface Provider {
         id: number;
         nome: string;
@@ -48,5 +46,4 @@ declare module namespace {
         totalElements: number;
     }
 
-}
 
