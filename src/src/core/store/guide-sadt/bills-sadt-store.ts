@@ -6,7 +6,6 @@ export default {
     state: () => ({
         billsSadts: [],
         billsSadt:{},
-        guideManagement: {
         guideManagements: [],
         guideManagement: {
             id: 0,
