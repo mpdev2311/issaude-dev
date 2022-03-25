@@ -1,3 +1,40 @@
+export interface PlanAgreement {
+}
+
+export interface Specialtie {
+	id: number;
+	nome_especialidade: string;
+	codigo: string;
+	codigo2: string;
+	codigo_3: string;
+	ativo: boolean;
+	id_user: number;
+	id_corp: number;
+}
+
+export interface Specialtie2 {
+}
+
+export interface Specialtie3 {
+}
+
+export interface Content {
+	id: number;
+	nome: string;
+	planAgreement: PlanAgreement;
+	specialtie: Specialtie;
+	specialtie2: Specialtie2;
+	specialtie3: Specialtie3;
+}
+
+export interface Providers {
+	content: Content[];
+	totalPages: number;
+	size: number;
+	last: boolean;
+	totalElements: number;
+}
+
 export class Provider {
     
     id:number
@@ -139,3 +176,4 @@ export class Provider {
 	id_abordagem: string
 
 }
+

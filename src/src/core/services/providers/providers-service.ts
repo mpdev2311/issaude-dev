@@ -3,12 +3,19 @@ import { AxiosInstance, AxiosResponse } from 'axios'
 import { axios } from '../../../core/services/request'
 
 export default class ProviderService{
+
     public static async getAll() : Promise<Array<Provider>>{
         const { get } = axios as AxiosInstance;
         const { data } = await get('/providers/');
         return data
         
     }
+    // public static async getAll() : Promise<Array<Provider>>{
+    //     const { get } = axios as AxiosInstance;
+    //     const { data } = await get('/providers/');
+    //     return data
+        
+    // }
 
     public static async getById(id:any) : Promise<AxiosResponse>{
         const { get } = axios as AxiosInstance;
