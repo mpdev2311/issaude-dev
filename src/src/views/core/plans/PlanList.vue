@@ -159,8 +159,8 @@ import { useRouter } from "vue-router"
 import { mapGetters, mapState, useStore } from "vuex";
 import Finder from '../../../components/finders/Finder.vue'
 import { key, store } from "../../../../src/core/store/store"
-import { Provider } from "core/domain/providers/provider-model";
-import { HealthPlan } from "core/domain/health-plans/health-plan-model";
+import { Provider, Providers } from "../../../core/domain/providers/provider-model";
+import { HealthPlan } from "../../../core/domain/health-plans/health-plan-model";
 
 export default defineComponent({
 
