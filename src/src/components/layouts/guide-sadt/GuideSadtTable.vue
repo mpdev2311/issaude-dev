@@ -238,8 +238,8 @@
                   class="bg-white shadow rounded-md overflow-hidden mb-0 w-full max-h-[27rem] overflow-y-auto bg-gray-100"
                 >
                   <!--  -->
-                  <Table v-if="guideManagements !== 0"
-                    :data="guideManagements.content"
+                  <Table v-if="billsSadts !== 0"
+                    :data="billsSadts.content"
                     :columns="columnsTab"
                   >
                     <template #header-column="{ column }">
@@ -273,7 +273,7 @@
                     </template>
                     <template #body-cell="{ row, column, value }">
                        <template v-if="column.key === 'iditem'">{{ row.id }}</template>
-                      <template v-if="column.key === 'convenio'">{{ row.agreementPlan.id }}</template>
+                      <!-- <template v-if="column.key === 'convenio'">{{ row.agreementPlan.id }}</template> -->
                       
                       <template v-if="column.key === 'dropdown'">
                         <Dropdown class="lg:mr-10">
@@ -401,39 +401,48 @@ export default defineComponent({
                         format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                       },
-                      data_atendimento: {
+                      data_prescricao: {
                         label: 'Data',
                         align: 'start',
+                       // format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                      patient: {
+                      codigo_tiss: {
                         label: 'Código',
                         align: 'start',
-                        format: (value: any) => value.nome,
+                       // format: (value: any) => value.nome,
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                      id: {
+                      honorario: {
                         label: 'Descrição',
-                        align: 'start'
+                        align: 'start',
+                        format: (value: any) => value.descri,
+                        cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                       },
-                       numero_guia: {
+                       quant: {
                         label: 'Qtd',
                         align: 'start',
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                     'convenio': {
+                     valor_unitario: {
                         label: 'Valor',
                         align: 'start',
                        // format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                       },
-                       providers: {
-                        label: 'Grau',
+                       valor_total: {
+                        label: 'Valor Total',
                         align: 'start',
-                        format: (value: any) => value.nome,
+                        //format: (value: any) => value.nome,
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                      provider: {
+                      grau_part: {
+                        label: 'Grau',
+                        align: 'start',
+                        //format: (value: any) => value.nome,
+                      cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
+                       },
+                       provider: {
                         label: 'Profissional',
                         align: 'start',
                         format: (value: any) => value.nome,
@@ -468,7 +477,8 @@ export default defineComponent({
     })
 
     const onEdit = (id) => {
-      router.push(`/guide-management/${id}`)
+        openModalFees()
+     // router.push(`/guide-management/${id}`)
     }
 
     const onDelete = async (id) => {

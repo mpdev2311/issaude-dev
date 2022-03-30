@@ -33,6 +33,18 @@
             <input  v-model="guideManagement.id" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
+        <div class="sm:col-span-1 m-2">
+                <label for="nome" class="block text-sm font-medium text-gray-700">
+                    Tipo de Guia
+                </label>
+                <div class="mt-1 ">
+                    <select  v-model="guideManagement.tipo" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                        >
+                         <option  v-bind:value="0">Selecione</option>
+                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
+                    </select>
+                </div>
+             </div>
 
         <div class="sm:col-span-3">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
@@ -283,6 +295,7 @@ export default defineComponent({
              'guideManagements',
              'localAccess',
              'providers',
+             'guidetypes'
          ]),
       },
 
@@ -291,11 +304,13 @@ export default defineComponent({
       'guideManagement',
       'localAccess',
       'providers',
+      'guidetypes'
       ]),
     ...mapGetters([
       'guideManagement',
       'localAccess',
       'providers',
+      'guidetypes'
     ]),
   },
 
@@ -376,6 +391,7 @@ export default defineComponent({
    store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
 
   onMounted(async () => { 
+      await store.dispatch('GUIDES_TYPE_STORE_LOAD')
       await store.dispatch('LOAD_LOCAL_ACESS')
       await store.dispatch('PROVIDER_STORE_LOAD')
       const { id } = router.currentRoute.value.params;
