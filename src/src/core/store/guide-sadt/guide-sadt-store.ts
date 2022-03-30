@@ -4,7 +4,6 @@ import router from "../../../router";
 
 export default {
     state: () => ({
-        guideManagement: {
         guideManagements: [],
         guideManagement: {
             id: 0,

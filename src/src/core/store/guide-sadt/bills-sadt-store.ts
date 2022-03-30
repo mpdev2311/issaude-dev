@@ -23,13 +23,13 @@ export default {
         
         
         BILLS_STORE_LOAD : async ({ commit }) => {
-            await commit('GUIDE_MANAGEMENT_STORE_LOAD', await BillsService.getAll())
+            await commit('BILLS_STORE_LOAD', await BillsService.getAll())
         },
 
         
-        BILLS_STORE_SET_BLANK : async ({ commit }, billsSadt : Bills) =>{            
-            await commit('GUIDE_MANAGEMENT_STORE_LOAD_BY_ID', billsSadt)
-        },
+        // BILLS_STORE_SET_BLANK : async ({ commit }, billsSadt : Bills) =>{            
+        //     await commit('GUIDE_MANAGEMENT_STORE_LOAD_BY_ID', billsSadt)
+        // },
 
         // BILLS_STORE_LOAD_BY_ID : async ({ commit }, id : number) => {
         //     const { data } = await BillsService.getById(id);

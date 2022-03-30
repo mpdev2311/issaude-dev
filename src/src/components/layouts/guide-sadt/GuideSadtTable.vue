@@ -1,92 +1,130 @@
 <template>
   <div>
-    <NotificationAlert />
-     <h3 class="text-gray-700 text-3xl font-semibold">Gestão de Guias</h3>
-    <div class="mt-4">
+    <!-- <NotificationAlert /> -->
+    <!-- <Modal title="Dados do paciente" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal" lg>
+      <template #body>
+         <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label
+              for="first-name"
+              class="block text-sm font-medium text-gray-700"
+            >Data de nascimento</label>
+            <input
+              type="date"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Sexo</label>
+            <select
+              id="location"
+              name="location"
+              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            >
+              <option>Masculino</option>
+              <option selected>Feminino</option>
+              <option>Outros</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label
+              for="first-name"
+              class="block text-sm font-medium text-gray-700"
+            >Telefone comercial</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Telefone celular</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label for="first-name" class="block text-sm font-medium text-gray-700">CPF</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">RG</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label for="first-name" class="block text-sm font-medium text-gray-700">Nome</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Sobrenome</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+        </div>
+      </template>
+    </Modal> -->
+     <ModalFees :open-modal="modalFees" @close-modal="modalFees = false" />
+     <!-- <h3 class="text-gray-700 text-3xl font-semibold">Gestão de Guias</h3> -->
+    <!-- <div class="mt-4">
       <div class="mt-6" >
         <div class="rounded-lg  mt-4 px-4 py-5 bg-white grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1">
                        
-             <div class="sm:col-span-1">               
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                     Prontuário
-                </label>
-                <div class="mt-3" >
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-                </div>
-             </div>
-             <div class="sm:col-span-2">               
+             <div class="sm:col-span-3">               
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                      Paciente
                 </label>
-                 <div class=" flex mt-1 w-full ">
-             <!-- <div>
-            <select   id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-44 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-              <option value="">Selecionar</option>
-               <option v-bind:value="'1'">teste Paciente</option>
-              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
-            </select>
-          </div>              -->
-            <input  placeholder=""  class="bg-gray-100 mt-1 block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
-          
-            <div class="block relative mt-1 ">
-              <span class="absolute inset-y-0 left-0 flex  items-center pt-1 pl-3  ">
-                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
-                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
-                </svg>
-              </span>
-              <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-100 mt-  block w-full w-10 py-2 px-3 items-center border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
-            </div>
-            </div>
-                <!-- <div class="mt-1 w-10/12">
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-50 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                <div class="mt-2" >
+                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full  ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-                </div> -->
-             </div>
-
-            <div class="sm:col-span-3">
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                   Período de Busca:
-                </label>
-                <div class="mt-2 px-2  flex">
-                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                     <span>a</span>
-                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                  <button @click="alert('crud componentes')" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
-                  Atualizar               
-                </button>
-                </div>                       
-             </div>
-
-              <div class="sm:col-span-1 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Tipo de Guia
-                </label>
-                <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
                 </div>
              </div>
-
-              <div class="sm:col-span-1 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Convênio
-                </label>
-                <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0"></option>
-                          <option v-for="i in scheduleNames" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
-
-              <div class="sm:col-span-2">
+             
+              <div class="sm:col-span-3">
                 <label for="nome" class="block text-sm font-medium text-gray-700">
                     Local Atendimento
                 </label>
@@ -103,23 +141,68 @@
                 </div>
              </div>
 
-              <div class="sm:col-span-2">
+             
+              <div class="sm:col-span-2 m-2">
                 <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Profissional
+                    Solicitante
                 </label>
-                <div class="mt-1">
-                    <select name="profissional" id="profissional" autocomplete="profissional" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                       >
-                        <option  v-bind:value="0">Selecione</option>
-                            <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
-                            
+                <div class="mt-1 ">
+                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                        >
+                         <option  v-bind:value="0">Selecione</option>
+                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
                     </select>
                 </div>
+             </div>
+
+             
+              <div class="sm:col-span-2 m-2">
+                <label for="nome" class="block text-sm font-medium text-gray-700">
+                    Execultante
+                </label>
+                <div class="mt-1 ">
+                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                        >
+                         <option  v-bind:value="0">Selecione</option>
+                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
+                    </select>
+                </div>
+             </div>
+
+             
+              <div class="sm:col-span-2 m-2">
+                <label for="nome" class="block text-sm font-medium text-gray-700">
+                    Tiss/Autorizador
+                </label>
+                <div class="mt-1 ">
+                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                        >
+                         <option  v-bind:value="0">Selecione</option>
+                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
+                    </select>
+                </div>
+             </div>
+          
+
+            <div class="sm:col-span-3">
+                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
+                   Período de:
+                </label>
+                <div class="mt-2 px-2  flex">
+                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
+                     <span>a</span>
+                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
+                  <button @click="alert('crud componentes')" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
+                  Atualizar               
+                </button>
+                </div>                       
              </div>
              
         </div>       
       </div> 
-    </div>
+    </div> -->
     <!-- drop -->
 <div class="mt-4 flex flex-col md:flex-row">         
          <button class="rounded-l text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5">
@@ -167,9 +250,9 @@
                          <Dropdown class="lg:mr-10">
                           <template #content="{ closeDropDown }">
                             <button
-                              @click="
+                               @click="
                                 () => {
-                                  closeDropDown(), onCreate()
+                                  closeDropDown(), openModalFees()
                                 }
                               "
                               class="flex text-left text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 w-full"
@@ -252,7 +335,15 @@
             </div>
           </main>
         </div>
+         <div class="mt-4 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-20">   
+            <div class="sm:col-span-6"></div> 
+            <div class="sm:col-span-6"></div> 
+            <div class="sm:col-span-6"></div>    
+            <div class="sm:col-span-6"></div> 
+                   
+        </div>
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -263,23 +354,29 @@ import { key, store } from "../../../../src/core/store/store";
 import Pagination from '../../../components/pagination/Pagination.vue';
 import Table from '../../../components/layouts/Table/Table.vue';
 import Dropdown from '../../../components/dropdown/Dropdown.vue';
+import Modal from '../../../components/modal/Modal.vue'
+import ModalFees from '../../../components/layouts/guide-sadt/ModalFees.vue'
 
 export default defineComponent({
 
   components: {
     Dropdown,
     Pagination,
-    Table
+    Table,
+    Modal,
+    ModalFees
   },
 
   computed:{
     ...mapState([
-      'guideManagements',
+        'billsSadts',
+        'guideManagements',
        'localAccess',
        'providers',
        'guidetypes'
       ]),
     ...mapGetters([
+      'billsSadts',
       'guideManagements',
        'localAccess',
        'providers',
@@ -295,6 +392,8 @@ export default defineComponent({
 
     const router = useRouter();
     const route = useRoute();
+    const modalIsOpen = ref(false);
+    const modalFees = ref(false);
     const columnsTab = ref({
                       iditem: {
                         label: 'ID',
@@ -308,26 +407,32 @@ export default defineComponent({
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
                       patient: {
-                        label: 'Paciente',
+                        label: 'Código',
                         align: 'start',
                         format: (value: any) => value.nome,
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
                       id: {
-                        label: 'Guia Prestator',
+                        label: 'Descrição',
                         align: 'start'
                       },
                        numero_guia: {
-                        label: 'Guia Operadora',
+                        label: 'Qtd',
                         align: 'start',
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
                      'convenio': {
-                        label: 'Convênio',
+                        label: 'Valor',
                         align: 'start',
                        // format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                       },
+                       providers: {
+                        label: 'Grau',
+                        align: 'start',
+                        format: (value: any) => value.nome,
+                      cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
+                       },
                       provider: {
                         label: 'Profissional',
                         align: 'start',
@@ -353,10 +458,13 @@ export default defineComponent({
     })
 
     onMounted(async () => {
-      await store.dispatch('LOAD_LOCAL_ACESS')
-      await store.dispatch('PROVIDER_STORE_LOAD')
-       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
-      await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
+        await store.dispatch('BILLS_STORE_LOAD')
+        await store.dispatch('LOAD_LOCAL_ACESS')
+        await store.dispatch('PROVIDER_STORE_LOAD')
+        await store.dispatch('GUIDES_TYPE_STORE_LOAD')
+        await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
+
+        console.log(store.getters.billsSadts);
     })
 
     const onEdit = (id) => {
@@ -380,12 +488,29 @@ export default defineComponent({
 // }
 // console.log(dataAtualFormatada());
 
+  const onCloseModal = () => {
+      modalIsOpen.value = !modalIsOpen.value
+    }
+
+    const onOpenModal = () => {
+      modalIsOpen.value = !modalIsOpen.value
+    }
+
+    const openModalFees = () => {
+      modalFees.value = !modalFees.value
+    }
+
     return {
       onCreate,
       onEdit,
       onDelete,
       currentPage,
       columnsTab,
+      onCloseModal,
+      onOpenModal,
+      modalIsOpen,
+      modalFees,
+      openModalFees
       //dataAtualFormatada
     };
   },
