@@ -6,8 +6,14 @@ import { AxiosInstance } from 'axios';
 export default class GuideManagementService{
     
     public static async getAll() : Promise<Array<GuideManagements>>{
+        let date = new Date(),
+        dia  = date.getDate().toString().padStart(2, '0'),
+        mes  = (date.getMonth()+1).toString().padStart(2, '0'),
+        ano  = date.getFullYear();
+        const dataAtual =  `${dia}/${mes}/${ano}`;
+
         const { get } = axios as AxiosInstance;
-        const { data } = await get('/revenues/guides?page=0&size=20&id_corp=1&start_date=01/02/2022&end_date=22/03/2022')
+        const { data } = await get(`/revenues/guides?page=0&size=20&id_corp=1&start_date=01/02/2022&end_date=${dataAtual}`)
         return data;
     }
 

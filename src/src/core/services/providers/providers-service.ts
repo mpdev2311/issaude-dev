@@ -1,4 +1,4 @@
-import { Providers } from '../../domain/providers/provider-model'
+import { Providers, Provider } from '../../domain/providers/provider-model'
 import { AxiosInstance, AxiosResponse } from 'axios'
 import { axios } from '../../../core/services/request'
 
@@ -6,7 +6,7 @@ export default class ProviderService{
 
     public static async getAll() : Promise<Array<Providers>>{
         const { get } = axios as AxiosInstance;
-        const { data } = await get('/providers/filters?page=0&size=20&id_corp=1&id_tipo_prestador=1&nao_atende=false/');
+        const { data } = await get('/providers/filters?page=0&size=20&id_corp=1&id_tipo_prestador=1&nao_atende=false');
         return data
         
     }

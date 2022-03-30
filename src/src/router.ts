@@ -71,7 +71,15 @@ import Scheduling from './views/core/schedule/Scheduling.vue'
 import GuideManagement from './views/core/guide-management/GuideManagement.vue'
 import GuideManagementList from './views/core/guide-management/GuideManagementList.vue'
 
+import GuideSadt from './views/core/guide-sadt/guideSadt.vue'
+
 const routes: RouteRecordRaw[] = [
+
+  {
+    path: '/guide-sadt/:id',
+    name: 'GuideSadt',
+    component: GuideSadt,
+  },
   {
     path: '/',
     name: 'Login',

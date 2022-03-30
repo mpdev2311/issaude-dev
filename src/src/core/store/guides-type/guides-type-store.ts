@@ -15,18 +15,18 @@ export default {
 
     getters: {
         guidetypes : (state) => state.guidetypes,
-        guidetype : (state) => state.guidetype
+     //   guidetype : (state) => state.guidetype
     }, 
 
     mutations: {
         GUIDES_TYPE_STORE_LOAD : (state, payload) => state.guidetypes = payload,
-        GUIDES_TYPE_STORE_LOAD_BY_ID : (state, payload) => state.guidetype = payload,
+      //  GUIDES_TYPE_STORE_LOAD_BY_ID : (state, payload) => state.guidetype = payload,
     },
 
     actions :{
         
        GUIDES_TYPE_STORE_LOAD : async ({ commit }) => {
-            await commit('TYPE_GUIDES_STORE_LOAD', await GuideTypeService.getAll())
+            await commit('GUIDES_TYPE_STORE_LOAD', await GuideTypeService.getAll())
         },
 
     //     GUIDES_TYPE_STORE_SET_BLANK : async ({ commit }, guidetype : GuideType) =>{
