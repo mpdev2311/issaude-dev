@@ -10,39 +10,19 @@
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
                      Prontuário
                 </label>
-                <div class="mt-3" >
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-                </div>
-             </div>
-             <div class="sm:col-span-2">               
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                     Paciente
-                </label>
-                 <div class=" flex mt-1 w-full ">
-             <!-- <div>
-            <select   id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-44 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-              <option value="">Selecionar</option>
-               <option v-bind:value="'1'">teste Paciente</option>
-              <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option> 
-            </select>
-          </div>              -->
-            <input  placeholder=""  class="bg-gray-100 mt-1 block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
-          
-            <div class="block relative mt-1 ">
-              <span class="absolute inset-y-0 left-0 flex  items-center pt-1 pl-3  ">
-                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
-                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
-                </svg>
-              </span>
-              <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-100 mt-  block w-full w-10 py-2 px-3 items-center border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
+              <div class="mt-3" >
+                  <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
+              </div>
             </div>
-            </div>
-                <!-- <div class="mt-1 w-10/12">
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-50 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-                </div> -->
-             </div>
+        <div class="sm:col-span-2">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Paciente
+          </label>
+           <div class="mt-2 max-w-5xl ">
+            <input  type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          </div>
+        </div>
 
             <div class="sm:col-span-3">
                 <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
@@ -198,7 +178,7 @@
                             <button
                               @click="
                                 () => {
-                                  closeDropDown(), onEdit(row.id)
+                                  closeDropDown(), onEdit(row)
                                 }
                               "
                               class="flex text-left text-gray-700 block px-4 py-1 text-sm hover:bg-gray-100 w-full"
@@ -359,8 +339,15 @@ export default defineComponent({
       await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
     })
 
-    const onEdit = (id) => {
-      router.push(`/guide-management/${id}`)
+    const onEdit = (dados) => {
+      if(dados.tipo === 3){
+        router.push(`/guide-management/${ dados.id}`)
+      }else  if(dados.tipo === 5){
+        router.push(`/guide-sadt/${ dados.id}`)
+      }else{
+         router.push(`/guide-management/${ dados.id}`)
+      }
+
     }
 
     const onDelete = async (id) => {

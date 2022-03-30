@@ -17,7 +17,7 @@
                 <div class="border-b-2 px-4 py-2 text-white bg-gray-900 rounded-t-lg">   
                   <div class="flex flex-col md:flex-row md:items-center md:justify-between">
 
-                  <div  v-if="healthInsurance.id !== 0">
+                  <!-- <div  v-if="healthInsurance.id !== 0">
                     
                      <a href="#" class="flex-shrink-0 w-full group block">
                       <div class="flex items-center">
@@ -35,7 +35,7 @@
                         </div>
                       </div>
                     </a>
-                  </div>
+                  </div> -->
 
                   
                     <div class="">
@@ -44,11 +44,11 @@
                       </div>
                        <div class="mt-8">
                         <div v-show="step === 1">
-                          <div class="text-2xl  font-bold text-center text-white bg-gray-900 leading-tight">CADASTRO</div>
+                          <div class="text-2xl  font-bold text-center text-white bg-gray-900 leading-tight">GUIA SADT</div>
                         </div>
                         
                         <div v-show="step === 2">
-                          <div class="text-2xl font-bold text-center text-white bg-gray-900 leading-tight">TABELA</div>
+                          <div class="text-2xl font-bold text-center text-white bg-gray-900 leading-tight">PROCEDIMENTOS</div>
                         </div>
                        
                        </div>
@@ -143,11 +143,11 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
 import { useRouter } from "vue-router"
-import {mapGetters, mapState, useStore } from 'vuex'
+import {mapGetters, mapState, useStore,mapMutations } from 'vuex'
 import { key, store } from "../../../core/store/store"
 import GuideSadtForm from "../../../components/layouts/guide-sadt/GuideSadtForm.vue";
 import GuideSadtTable from "../../../components/layouts/guide-sadt/GuideSadtTable.vue";
-import { HealthInsurance } from "../../../core/domain/health-insurances/health-insurances-model";
+import { GuideManagement } from "../../../core/domain/guide-management/guide-management-model";
 
 export default defineComponent({
 
@@ -156,14 +156,28 @@ export default defineComponent({
     GuideSadtTable,
   },
 
+ methods: {
+         ...mapMutations([   
+            'guideManagement',
+             'guideManagements',
+             'localAccess',
+             'providers',
+             'guidetypes'
+         ]),
+      },
+
   computed:{
     ...mapState([
-      'healthInsurances',
-      'healthInsurance'
+      'guideManagement',
+      'localAccess',
+      'providers',
+      'guidetypes'
       ]),
     ...mapGetters([
-      'healthInsurances',
-      'healthInsurance'
+      'guideManagement',
+      'localAccess',
+      'providers',
+      'guidetypes'
     ]),
   },
 
@@ -174,160 +188,87 @@ export default defineComponent({
   setup(props) {
     const router = useRouter();
       let step =ref<number>(1);
-    const healthInsurance = ref<HealthInsurance>({
-        id:0,
-            ativo:true,
-            cnpj:'',
-            id_corp:0,
-            nome:'',
-            endereco:'',
-            cep:'',
-            prazo_entrega:0,
-            contato:'',
-            tel: '',
-            id_user:0,
-            cidade:'',
-            bairro:'',
-            data_gravacao:'',
-            pagamento_em:0,
-            prazo_faturar:0,
-            prazo_revisao:0,
-            registro_convenio:'',
-            id_empresa:0,
-            imagem:'',
-            particular:false,
-            versao_tiss:0,
-            tamanho_matricula:0,
-            registro_ans:'',
-            fonte_pagadora:'',
-            id_tipo_prestador:3,
-            idantigo:0,
-            rg:'',
-            crm:'',
-            uf:'',
-            celular:'',
-            imposto_hm:0,
-            produtividade:0,
-            primeira_especialidade:0,
-            conselho:'',
-            do_corpo_clinico:false,
-            encaminhador:false,
-            socio:false,
-            data_nasc:'',
-            desconto:0,
-            e_mail:'',
-            nao_atende:false,
-            cofins:0,
-            iss:0,
-            ir:0,
-            cll:0,
-            apelido:'',
-            cpf:'',
-            cargo:'',
-            salario:0,
-            id_setor:0,
-            tel_residencial:'',
-            tel_outro:'',
-            sexo:'',
-            responsavel:'',
-            data_admissao:'',
-            cpts:'',
-            livro_registro:'',
-            ramal:'',
-            data_demissao:'',
-            obs:'',
-            cf_df: '',
-            banco:'',
-            id_cargo:0,
-            ncasa:'',
-            proibir_fin:false,
-            hablimit:false,
-            senha:'',
-            id_carga_horaria:0,
-            tipo_retorno_consulta:0,
-            n_pis:'',
-            exige_cid:false,
-            cid_consulta:'',
-            obs_consulta:'',
-            cns:'',
-            cnes:'',
-            quant_consulta:0,
-            cod_ibge:'',
-            agencia:'',
-            conta:'',
-            segunda_especialidade:0,
-            terceira_especialidade:0,
-            icms:0,
-            ipi:0,
-            outras_taxas:0,
-            pis: 0,
-            sus:false,
-            inscricao:'',
-            tipo_de_contruinte:'',
-            tipo_contribuinte: '',
-            p_autorizar:0,
-            uf_crm:'',
-            foto: '',
-            livro_ctps: '',
-            id_civil:0,
-            data_entrada_brasil: '',
-            data_documento: '',
-            nacionalidade: '',
-            pais_origem: '',
-            serie_ctps: '',
-            emissao_ctps: '',
-            emissao_certidao: '',
-            titulo_eleitor:'',
-            zona_titulo_eleitor: '',
-            secao_titulo_eleitor: '',
-            nome_pai: '',
-            uf_ctps: '',
-            complemento_documento: '',
-            orgao_documento: '',
-            tipo_endereco: '',
-            uf_documento: '',
-            id_escolaridade: 0,
-            tipo_certidao: '',
-            naturalidade: '',
-            naturalidade_uf: '',
-            id_raca:0,
-            cbo: '',
-            escola: false,
-            nome_cartorio: '',
-            numero_livro_registro: '',
-            numero_folha_registro: '',
-            numero_termo_registro: '',
-            nome_mae: '',
-            numero_cartorio: '',
-            id_cbo: 0,
-            identificar_executante: false,
-            id_banco: 0,
-            complemento_end:'',
-            uf_estados:'',
-            rqe: '',
-            observacao_funcionario:'',
-            repetir_guia: false,
-            repetir_senha: false,
-            elegibilidade: '',
-            id_idioma: '',
-            id_publico: '',
-            id_abordagem: '', 
+      
+      
+   const guideManagement = ref<GuideManagement>({
+      id:0,
+      numero_guia: "0",
+      emissao: "",
+      id_profissional_executante: 0,
+      id_paciente: 0,
+      tipo_doenca: "",
+      tempo_doenca: "",
+      indicacao_acidente: 2,
+      cid_principal: "",
+      cid1: null,
+      cid2: null,
+      cid3: null,
+      data_atendimento: "",
+      cod_procedimento: "",
+      tipo_consulta: 0,
+      tipo_saida: 0,
+      obs: "",
+      cod_tabela_hm: "",
+      tempo_doe: "",
+      tipo: 0,
+      data_fim: "",
+      tipo_atendimento: "",
+      id_agenda: 1,
+      consulta: true,
+      senha: "",
+      id_agenda_nome: 0,
+      id_local_atendimento: 0,
+      id_empresa_contratada: 1,
+      usuario: "",
+      data_gravacao: "2021-11-08T18:55:25.421+00:00",
+      id_solicitante: 2,
+      id_corp: 1,
+      id_tipo_internacao: null,
+      id_regime_internacao: null,
+      carater_internacao: "",
+      id_user: 1,
+      id_empresa_solicitante: 0,
+      qdiarias: null,
+      id_plano: 1,
+      id_acomodacao: null,
+      alta: null,
+      id_entrega: null,
+      data_hora_recebimento: null,
+      id_user_recebeu: null,
+      hora_atendimento: "1970-01-01T18:53:00.000+00:00",
+      data_autorizacao: "",
+      justificativa: null,
+      id_especialidade: 0,
+      id_medico_autorizador: 0,
+      atendimento_rn: "",
+      sintomas: null,
+      prova_diagnostica: null,
+      ativo: true,
+      guia_glosa: null,
+      validade_senha: "",
+      data_solicitacao: "",
+      cod_solicitante: null,
+      cod_executante: null,
+      numero_guia_solicitacao_internacao: null,
+      is_venda: false,
+      id_prestador: null,
+      id_user_quitou: null,
+      dados_neo_natal: null,
+      dados_parto: null
   });
 
-
-
-  store.dispatch('HEALTH_INSURANCES_STORE_SET_BLANK', healthInsurance.value)
+   store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
   
-  onMounted(async () => {
-       const { id } = router.currentRoute.value.params
+  onMounted(async () => { 
+      await store.dispatch('LOAD_LOCAL_ACESS')
+      await store.dispatch('PROVIDER_STORE_LOAD')
+      await store.dispatch('GUIDES_TYPE_STORE_LOAD')
+      const { id } = router.currentRoute.value.params;
 
-        if(id !== '0'){
-
-          await store.dispatch('HEALTH_INSURANCES_STORE_LOAD_BY_ID', id)          
-          
-
-        }else{
-          await store.dispatch('HEALTH_INSURANCES_STORE_SET_BLANK', healthInsurance.value)
+      if(id !== '0'){
+        await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD_BY_ID', router.currentRoute.value.params.id)
+      }else {
+         await store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
         }
     });
 
@@ -336,11 +277,8 @@ export default defineComponent({
     const onCancel = async () =>{
       router.push('/guide-managements')
     }
-
-   
-
-    const onSave = async () => {
-      await store.dispatch('HEALTH_INSURANCES_STORE_SAVE')
+    const onSave = async () => {   
+      await store.dispatch('GUIDE_MANAGEMENT_STORE_SAVE')
     };
 
     return {
