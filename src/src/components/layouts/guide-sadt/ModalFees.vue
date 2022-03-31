@@ -41,17 +41,17 @@ watchEffect(() => {
               class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
             >
               <option v-bind:value="0">Honorários</option>
-              <option selected>Material</option>
-              <option>Medicamento</option>
-              <option>Taxas/Diáris</option>
+              <option v-bind:value="1">Material</option>
+              <option v-bind:value="2">Medicamento</option>
+              <option v-bind:value="4">Taxas/Diárias</option>
             </select>
           </div>
        
-          <div class="col-span-12 sm:col-span-6">
+          <div class="col-span-12 sm:col-span-5">
             <label
               for="first-name"
               class="block text-sm font-medium text-gray-700"
-            >Faturamento de:</label>
+            >Produtos:</label>
                 <input
               type="text"
               name="last-name"
@@ -60,32 +60,17 @@ watchEffect(() => {
               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
             />
           </div>
-        </div>
-
-        <div class="mt-6 grid grid-cols-12   gap-6 ">
-          <div class="col-span-12 sm:col-span-6">
-            <label
-              for="first-name"
-              class="block text-sm font-medium text-gray-700"
-            >Cirurgia</label>
-            <input
-              type="text"
-              name="last-name"
-              id="last-name"
-              autocomplete="family-name"
-              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
-            />
-          </div>
-
-          <div class="col-span-12 sm:col-span-6">
-            <label for="last-name" class="block text-sm font-medium text-gray-700">Qualidade</label>
-            <input
-              type="text"
-              name="last-name"
-              id="last-name"
-              autocomplete="family-name"
-              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
-            />
+          <div class="col-span-12 sm:col-span-1">
+            <!-- <label for="last-name" class="block text-sm font-medium text-gray-700">Faturamento de:</label> -->
+            <select
+              id="location"
+              name="location"
+              class="mt-6 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            >
+            <option v-bind:value="0">Selecione</option>
+              <option v-bind:value="1">Cirurgia</option>
+              <option v-bind:value="2">Searizar</option>              
+            </select>
           </div>
         </div>
 
@@ -112,8 +97,20 @@ watchEffect(() => {
             />
           </div>
         </div>
-        <div class="mt-6 grid grid-cols-12  gap-6">
+        
+        <div class="mt-6 grid grid-cols-12   gap-6 ">
+
           <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Qualidade</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+           <div class="col-span-12 sm:col-span-6">
             <label for="first-name" class="block text-sm font-medium text-gray-700">Acrescimo/Desconto:</label>
             <input
               type="text"
@@ -123,6 +120,8 @@ watchEffect(() => {
               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
             />
           </div>
+        </div>
+        <div class="mt-6 grid grid-cols-12  gap-6">         
 
           <div class="col-span-12 sm:col-span-6">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Valor Unitário:</label>
@@ -134,9 +133,6 @@ watchEffect(() => {
               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
             />
           </div>
-        </div>
-
-        <div class="mt-6 grid grid-cols-12  gap-6">
           <div class="col-span-12 sm:col-span-6">
             <label for="first-name" class="block text-sm font-medium text-gray-700">Valor total:</label>
             <input
@@ -147,6 +143,9 @@ watchEffect(() => {
               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
             />
           </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-12  gap-6">         
 
           <div class="col-span-12 sm:col-span-6">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Tiss</label>

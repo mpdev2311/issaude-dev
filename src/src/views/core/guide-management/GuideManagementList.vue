@@ -11,7 +11,7 @@
                      Prontuário
                 </label>
               <div class="mt-3" >
-                  <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                  <input type="text" v-model="inputFilter.prontuario"  name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
               </div>
             </div>
@@ -20,7 +20,7 @@
           Paciente
           </label>
            <div class="mt-2 max-w-5xl ">
-            <input  type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+            <input  v-model="inputFilter.paciente" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
 
@@ -29,10 +29,10 @@
                    Período de Busca:
                 </label>
                 <div class="mt-2 px-2  flex">
-                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                    <input v-model="inputFilter.data_ini" type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
                      <span>a</span>
-                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
+                     <input v-model="inputFilter.data_fim" type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
                   <button @click="alert('crud componentes')" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
                   Atualizar               
@@ -45,7 +45,7 @@
                     Tipo de Guia
                 </label>
                 <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select v-model="inputFilter.tipoGuia" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
                          <option  v-bind:value="0">Selecione</option>
                           <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
@@ -58,7 +58,7 @@
                     Convênio
                 </label>
                 <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select v-model="inputFilter.convenio" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
                          <option  v-bind:value="0"></option>
                           <option v-for="i in scheduleNames" :key="i" :value="i.id" >{{i.nome}}</option>
@@ -71,7 +71,7 @@
                     Local Atendimento
                 </label>
                 <div class="mt-1">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select v-model="inputFilter.local_atend" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
                         <option  v-bind:value="0">Selecione</option>
                          <option
@@ -88,7 +88,7 @@
                     Profissional
                 </label>
                 <div class="mt-1">
-                    <select name="profissional" id="profissional" autocomplete="profissional" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    <select v-model="inputFilter.profissional" name="profissional" id="profissional" autocomplete="profissional" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                        >
                         <option  v-bind:value="0">Selecione</option>
                             <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
@@ -275,6 +275,17 @@ export default defineComponent({
 
     const router = useRouter();
     const route = useRoute();
+
+    const inputFilter ={
+      tipoGuia: 0,
+      prontuario: 0,
+      paciente: "",
+      data_ini:"",
+      data_fim: "",
+      convenio: 0,
+      local_atend: 0,
+      profissional: 0
+    }
     const columnsTab = ref({
                       iditem: {
                         label: 'ID',
@@ -340,10 +351,10 @@ export default defineComponent({
     })
 
     const onEdit = (dados) => {
-      if(dados.tipo === 3){
+      if(store.getters.guideManagement.tipo === 3){
+        router.push(`/guide-sadt/${ dados.id}`)        
+      }else  if(store.getters.guideManagement.tipo === 5){
         router.push(`/guide-management/${ dados.id}`)
-      }else  if(dados.tipo === 5){
-        router.push(`/guide-sadt/${ dados.id}`)
       }else{
          router.push(`/guide-management/${ dados.id}`)
       }
@@ -355,7 +366,18 @@ export default defineComponent({
     }
 
     const onCreate = () =>{
-      router.push('/guide-management/0')
+      if(inputFilter.tipoGuia !== 0){
+         if(inputFilter.tipoGuia === 3){
+            router.push(`/guide-sadt/0`)        
+          }else  if(inputFilter.tipoGuia === 5){
+            router.push(`/guide-management/0`)
+          }else{
+            router.push(`/guide-management/0`)
+          }
+      }else{
+        alert('Selecione um Tipo de Guia');
+      }
+      
     }
 
 //     const dataAtualFormatada = () =>{
@@ -373,6 +395,7 @@ export default defineComponent({
       onDelete,
       currentPage,
       columnsTab,
+      inputFilter
       //dataAtualFormatada
     };
   },

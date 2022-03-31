@@ -40,8 +40,8 @@
                 <div class="mt-1 ">
                     <select  v-model="guideManagement.tipo" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
                         >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
+                        <option  v-bind:value="0">Selecione</option>
+                        <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
                     </select>
                 </div>
              </div>
