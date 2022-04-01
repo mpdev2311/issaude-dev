@@ -6,7 +6,6 @@ export default class BillsService{
     public static async getAll() : Promise<Array<Bills>>{
         const { get } = axios as AxiosInstance;
         const { data } = await get('/revenues/bills?page=0&size=20&id_corp=1&conta=3&guia=1');
-        console.log(data);
         return data
     }
 

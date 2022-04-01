@@ -30,7 +30,7 @@ watchEffect(() => {
 </script>
 
 <template>
-<Modal title="Honorários" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal" mg>
+<Modal title="Honorários" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal()" mg>
       <template #body>
          <div class="mt-6 grid  gap-6 ">
           <div class="col-span-12 sm:col-span-6">
