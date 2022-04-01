@@ -27,25 +27,17 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Paciente
           </label>
-          <div class=" flex mt-0 w-full ">
-             <div>
-            <select  v-model="guideManagement.id_paciente" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-48 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-              <!-- <option value="">Selecionar</option> -->
-               <option v-bind:value="'1'">teste Paciente</option>
-              <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
-            </select>
-          </div>             
-            <!-- <input  placeholder="" v-model="guideManagement.id_paciente" class="bg-gray-100 mt- block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out "> -->
-          
-            <div class="block relative mt-1 ">
-              <span class="absolute inset-y-0 left-0 flex  items-center pt-1 pl-3  ">
-                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current  text-gray-500">
-                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
-                </svg>
-              </span>
-              <input  @change="onFilter" placeholder="" v-model="search" class="bg-gray-100 mt-  block w-full w-10 py-2 px-3 items-center border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out ">
-            </div>
-            </div>
+           <div class="mt-2 max-w-5xl ">
+            <input  v-model="guideManagement.id_paciente" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          </div>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Empresa Solicitante
+          </label>
+           <div class="mt-2 max-w-5xl ">
+            <input  v-model="guideManagement.id_empresa_solicitante" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          </div>
         </div>
  
         <div class="col-span-6 sm:col-span-2">
@@ -54,11 +46,11 @@
           </label>
           <div>
             <select  v-model="guideManagement.id_local_atendimento" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-                  <option value="1">Selecionar</option>
+                  <option value="0">Selecionar</option>
                   <option
                     v-for="i in localAccess"
                     :key="i"
-                    :value="i.id"
+                    :value="2"
                   >{{ i.localAttendance.local }}</option>
             </select>
           </div>
@@ -80,7 +72,7 @@
             Profissional Solicitante
           </label>
           <div>
-            <select  v-model="guideManagement.id_empresa_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+            <select  v-model="guideManagement.id_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option value="">Selecionar</option>
               <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
                <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
@@ -266,17 +258,25 @@
           </div>
         </div>
          <div class="sm:col-span-1 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Tipo de Guia
-                </label>
-                <div class="mt-1 ">
-                    <select  v-model="guideManagement.tipo" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
+            <label for="nome" class="block text-sm font-medium text-gray-700">
+                Tipo de Guia
+            </label>
+            <div class="mt-1 ">
+                <select disabled v-model="guideManagement.tipo" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
+                    >
+                      <option  v-bind:value="0">Selecione</option>
+                      <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
+                </select>
+            </div>
+          </div>
+        <div class="sm:col-span-1">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Validade da senha
+          </label>
+          <div class="mt-1">
+            <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  v-model="guideManagement.validade_senha" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
+          </div>
+        </div>
 
          <div class="sm:col-span-6">
             <label for="obs" class="block text-sm font-medium text-gray-700">
@@ -374,20 +374,20 @@ export default defineComponent({
       tipo_consulta: 0,
       tipo_saida: 0,
       obs: "",
-      cod_tabela_hm: "",
+      cod_tabela_hm: "0",
       tempo_doe: "",
-      tipo: 0,
+      tipo: 5,
       data_fim: "",
       tipo_atendimento: "",
       id_agenda: 1,
       consulta: true,
       senha: "",
-      id_agenda_nome: 0,
+      id_agenda_nome: 1,
       id_local_atendimento: 0,
       id_empresa_contratada: 1,
       usuario: "",
-      data_gravacao: "2021-11-08T18:55:25.421+00:00",
-      id_solicitante: 2,
+      //data_gravacao: "2021-11-08T18:55:25.421+00:00",
+      id_solicitante: 0,
       id_corp: 1,
       id_tipo_internacao: null,
       id_regime_internacao: null,
@@ -433,7 +433,8 @@ export default defineComponent({
 
       if(id !== '0'){
         await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD_BY_ID', router.currentRoute.value.params.id)
-      }else {
+      }else {      
+        store.getters.guideManagement.tipo = 5   
          await store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
         }
     });
@@ -443,6 +444,7 @@ export default defineComponent({
     }
 
     const onSave = async () => {   
+      store.getters.guideManagement.tipo = 5;
       await store.dispatch('GUIDE_MANAGEMENT_STORE_SAVE')
     };
 

@@ -210,7 +210,7 @@ export default defineComponent({
       obs: "",
       cod_tabela_hm: "",
       tempo_doe: "",
-      tipo: 0,
+      tipo: 3,
       data_fim: "",
       tipo_atendimento: "",
       id_agenda: 1,
@@ -220,8 +220,8 @@ export default defineComponent({
       id_local_atendimento: 0,
       id_empresa_contratada: 1,
       usuario: "",
-      data_gravacao: "2021-11-08T18:55:25.421+00:00",
-      id_solicitante: 2,
+      //data_gravacao: "2021-11-08T18:55:25.421+00:00",
+      id_solicitante: 0,
       id_corp: 1,
       id_tipo_internacao: null,
       id_regime_internacao: null,
@@ -278,6 +278,7 @@ export default defineComponent({
       router.push('/guide-managements')
     }
     const onSave = async () => {   
+      //store.getters.guideManagement.tipo = 3;
       await store.dispatch('GUIDE_MANAGEMENT_STORE_SAVE')
     };
 

@@ -67,7 +67,7 @@ export class GuideManagement {
         id_local_atendimento: number;
         id_empresa_contratada: number;
         usuario: string;
-        data_gravacao: string;
+        //data_gravacao: string;
         id_solicitante: number;
         id_corp: number;
         id_tipo_internacao:string;
