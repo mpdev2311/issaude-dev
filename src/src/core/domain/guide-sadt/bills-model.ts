@@ -25,7 +25,7 @@
         via_acesso: string;
         tecnica_utilizada: string;
         usuario_encerrou: string;
-        data_gravacao: string;
+        //data_gravacao: string;
         id_corp: number;
         inicio: string;
         fim: string;
