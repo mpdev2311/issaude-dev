@@ -109,102 +109,9 @@
       </template>
     </Modal> -->
      <ModalFees :open-modal="modalFees" @close-modal="modalFees = false" />
-     <!-- <h3 class="text-gray-700 text-3xl font-semibold">Gestão de Guias</h3> -->
-    <!-- <div class="mt-4">
-      <div class="mt-6" >
-        <div class="rounded-lg  mt-4 px-4 py-5 bg-white grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1">
-                       
-             <div class="sm:col-span-3">               
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                     Paciente
-                </label>
-                <div class="mt-2" >
-                    <input type="text"   name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full  ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-                </div>
-             </div>
-             
-              <div class="sm:col-span-3">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Local Atendimento
-                </label>
-                <div class="mt-1">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                        <option  v-bind:value="0">Selecione</option>
-                         <option
-                            v-for="i in localAccess"
-                            :key="i"
-                            :value="i.id"
-                          >{{ i.localAttendance.local }}</option>
-                    </select>
-                </div>
-             </div>
-
-             
-              <div class="sm:col-span-2 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Solicitante
-                </label>
-                <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
-
-             
-              <div class="sm:col-span-2 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Execultante
-                </label>
-                <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
-
-             
-              <div class="sm:col-span-2 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Tiss/Autorizador
-                </label>
-                <div class="mt-1 ">
-                    <select name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
-          
-
-            <div class="sm:col-span-3">
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                   Período de:
-                </label>
-                <div class="mt-2 px-2  flex">
-                    <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                     <span>a</span>
-                     <input type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                  <button @click="alert('crud componentes')" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
-                  Atualizar               
-                </button>
-                </div>                       
-             </div>
-             
-        </div>       
-      </div> 
-    </div> -->
+    
     <!-- drop -->
-<div class="mt-4 flex flex-col md:flex-row">         
+<!-- <div class="mt-4 flex flex-col md:flex-row">         
          <button class="rounded-l text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5">
               <span class="flex justify-end px-4 py-0">  
               <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -224,7 +131,7 @@
                   
             </div>
          </div>
-      </div>
+      </div> -->
     <!--  -->
  
       <!-- nova table -->
@@ -259,7 +166,7 @@
                               role="menuitem"
                               tabindex="0"
                               id="menu-item-0"
-                            >Nova Guia
+                            >Nova Procedimento
                               <span class="inline-flex justify-center border border-transparent shadow-sm text-sm font-medium rounded-md text-green-600">
                                 <svg class="h-5 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                   <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -482,7 +389,7 @@ export default defineComponent({
     }
 
     const onDelete = async (id) => {
-      await store.dispatch('GUIDE_MANAGEMENT_STORE_DELETE_BY_ID', id)
+      await store.dispatch('BILLS_STORE_DELETE_BY_ID', id)
     }
 
     const onCreate = () =>{

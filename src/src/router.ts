@@ -68,18 +68,13 @@ import AclProfile from './views/core/reception/acl_profile/AclProfile.vue'
 import AclProfileList from './views/core/reception/acl_profile/AclProfileList.vue'
 import AclProfileCorporation from './views/core/reception/AclProfileCorporation/AclProfileCorporation.vue'
 import Scheduling from './views/core/schedule/Scheduling.vue'
+import PatientList from './views/core/patients/PatientList.vue'
+import Patient from './views/core/patients/Patient.vue'
 import GuideManagement from './views/core/guide-management/GuideManagement.vue'
 import GuideManagementList from './views/core/guide-management/GuideManagementList.vue'
-
-import GuideSadt from './views/core/guide-sadt/guideSadt.vue'
+import GuideSadt from './views/core/guide-sadt/GuideSadt.vue'
 
 const routes: RouteRecordRaw[] = [
-
-  {
-    path: '/guide-sadt/:id',
-    name: 'GuideSadt',
-    component: GuideSadt,
-  },
   {
     path: '/',
     name: 'Login',
@@ -431,13 +426,21 @@ const routes: RouteRecordRaw[] = [
     path: '/semrota',
     name: 'Sem Rota',
     component: Blanks,
+  },{
+    path:"/scheduling",
+    name: "Scheduling",
+    component: Scheduling
   },
   {
-    path: '/scheduling',
-    name: 'Scheduling',
-    component: Scheduling,
+    path: "/patients",
+    name: "PatientList",
+    component: PatientList,
   },
   {
+    path:"/patients/:id",
+    name: "Patient",
+    component: Patient
+  },{
     path: '/guide-managements',
     name: 'GuideManagementList',
     component: GuideManagementList,
@@ -446,6 +449,11 @@ const routes: RouteRecordRaw[] = [
     path: '/guide-management/:id',
     name: 'GuideManagement',
     component: GuideManagement,
+  },
+  {
+    path: '/guide-sadt/:id',
+    name: 'GuideSadt',
+    component: GuideSadt,
   },
 ]
 

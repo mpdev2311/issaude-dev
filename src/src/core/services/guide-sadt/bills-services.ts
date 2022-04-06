@@ -1,4 +1,4 @@
-import { Bills} from '../../domain/guide-sadt/bills-model'
+import { Bill, Bills } from './../../domain/guide-sadt/bills-model';
 import { AxiosInstance, AxiosResponse } from 'axios'
 import { axios } from '../request'
 
@@ -9,32 +9,22 @@ export default class BillsService{
         return data
     }
 
-    // public static async getById(id:any) : Promise<AxiosResponse>{
-    //     const { get } = axios as AxiosInstance;
-    //     return await get(`/basics/approachs/${id}`)
-    // }
+    public static async getById(id:any) : Promise<AxiosResponse>{
+        const { get } = axios as AxiosInstance;
+        return await get(`/revenues/bills/${id}`)
+    }
 
-    // public static async getAllByName(search:any) : Promise<AxiosResponse>{
-    //     const { get } = axios as AxiosInstance;
-    //     return await get(`/basics/approachs/find/${search}`)
-    // }
+    public static async deleteById(id:any) : Promise<AxiosResponse>{
+        return await (axios as AxiosInstance).delete(`/revenues/bills/${id}`)
+    }
 
-    // public static async getAllById(search:any) : Promise<AxiosResponse>{
-    //     const { get } = axios as AxiosInstance;
-    //     return await get(`/basics/approachs/${search}`)
-    // }
-
-    // public static async deleteById(id:any) : Promise<AxiosResponse>{
-    //     return await (axios as AxiosInstance).delete(`/basics/approachs/${id}`)
-    // }
-
-    // public static async create(approach : GuideType) : Promise<AxiosResponse>{
-    //     const { post } = axios as AxiosInstance;
-    //     return await post(`/basics/approachs/`, approach)
-    // }
+    public static async create(bill : Bill) : Promise<AxiosResponse>{
+        const { post } = axios as AxiosInstance;
+        return await post(`/revenues/bills`, bill)
+    }
     
-    // public static async update(approach :GuideType) : Promise<AxiosResponse>{
-    //     const { put } = axios as AxiosInstance;
-    //     return await put(`/basics/approachs/`, approach)
-    // }
+    public static async update(bill :Bill) : Promise<AxiosResponse>{
+        const { put } = axios as AxiosInstance;
+        return await put(`/revenues/bills`, bill)
+    }
 }
