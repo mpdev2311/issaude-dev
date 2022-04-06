@@ -80,15 +80,16 @@ const store = createStore({
     healthInsurance: healthInsuranceStore,
     manufacturer: manufacturersStore,
     passwordAttendance: passwordAttendanceStore,
-    aclProfile: aclProfileStore,
-    schedulingAccess: schedulingAccessStore,
-    AclModuleRoute: AclModuleRouteStore,
-    aclGroup: aclGroupStore,
-    aclProfileCorporation: aclProfileCorporationStore,
+    aclProfile:aclProfileStore,
+    schedulingAccess:schedulingAccessStore,
+    AclModuleRoute:AclModuleRouteStore,
+    aclGroup:aclGroupStore,
+    aclProfileCorporation:aclProfileCorporationStore,
+    patientStore: patientStore,
     patient: patientStore,
     guideManagement: guideManagementStore,
     billsSadt: billsSadtStore,
-    guidesType: guidesTypeStore
+    guidesType: guidesTypeStore,
   },
 })
 

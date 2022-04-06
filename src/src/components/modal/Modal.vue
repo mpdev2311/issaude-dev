@@ -17,7 +17,12 @@ const props = withDefaults(defineProps<Props>(), {
   md: false,
   sm: true
 })
-const emit = defineEmits(['onCloseModal'])
+const emit = defineEmits(['onCloseModal', 'saveModal', 'save'])
+
+function save() {
+  emit('saveModal')
+  emit('save')
+}
 
 </script>
 
@@ -90,11 +95,13 @@ const emit = defineEmits(['onCloseModal'])
       </div>
       <!--Footer-->
       <div class="w-full flex justify-end py-2 shadow-2xl border-t">
-        <button
-          @click="emit('onCloseModal')"
-          type="button"
-          class="space-x-4 inline-flex justify-center px-5 py-2.5 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-2"
-        >Salvar</button>
+        <slot name="footer">
+          <button
+            @click="save()"
+            type="button"
+            class="space-x-4 inline-flex justify-center px-5 py-2.5 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-2"
+          >Salvar</button>
+        </slot>
       </div>
     </div>
   </div>
