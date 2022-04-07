@@ -441,7 +441,7 @@ const routes: RouteRecordRaw[] = [
     name: "Patient",
     component: Patient
   },{
-    path: '/guide-managements',
+    path: '/ments',
     name: 'GuideManagementList',
     component: GuideManagementList,
   },

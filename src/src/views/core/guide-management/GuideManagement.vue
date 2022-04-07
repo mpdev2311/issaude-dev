@@ -14,7 +14,7 @@
  
       <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1 ">
 
-        <div class="sm:col-span-1 ">
+        <div class="col-span-6 sm:col-span-1 ">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Guia Prestador
           </label>
@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <div class="sm:col-span-3">
+        <div class="col-span-6 sm:col-span-3">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Paciente
           </label>
@@ -31,7 +31,7 @@
             <input  v-model="guideManagement.id_paciente" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
-        <div class="sm:col-span-2">
+        <div class="col-span-6 sm:col-span-2">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Empresa Solicitante
           </label>
@@ -102,7 +102,7 @@
             </select>
           </div>
         </div>
-        <div class="sm:col-span-1">
+        <div class="col-span-6 sm:col-span-1">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Número de Guia
           </label>
@@ -110,7 +110,7 @@
             <input v-model="guideManagement.numero_guia" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
           </div>
         </div>
-        <div class="sm:col-span-1">
+        <div class="col-span-6 sm:col-span-1">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
          Senha
           </label>
@@ -118,7 +118,7 @@
             <input v-model="guideManagement.senha" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
           </div>
         </div>
-        <div class="sm:col-span-1">
+        <div class="col-span-6 sm:col-span-1">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Data emissão
           </label>
@@ -162,7 +162,7 @@
             </select>
           </div>
         </div>
-        <div class="sm:col-span-1  ">
+        <div class="col-span-6 sm:col-span-1  ">
           <label for="last_name" class="block text-sm font-medium text-gray-700">
             Cid Principal
           </label>
@@ -184,7 +184,7 @@
           </div>
         </div>
 
-         <div class="sm:col-span-1">
+         <div class="col-span-6 sm:col-span-1">
           <label for="last_name" class="block text-sm font-medium text-gray-700">
             Data de Atendimento
           </label>
@@ -193,7 +193,7 @@
           </div>
         </div>
 
-         <div class="sm:col-span-1">
+         <div class="col-span-6 sm:col-span-1">
           <label for="last_name" class="block text-sm font-medium text-gray-700">
             Código de Procedimento
           </label>
@@ -257,7 +257,7 @@
             </select>
           </div>
         </div>
-         <div class="sm:col-span-1 m-2">
+         <div class="col-span-6 sm:col-span-1 m-2">
             <label for="nome" class="block text-sm font-medium text-gray-700">
                 Tipo de Guia
             </label>
@@ -269,7 +269,7 @@
                 </select>
             </div>
           </div>
-        <div class="sm:col-span-1">
+        <div class="col-span-6 sm:col-span-1">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Validade da senha
           </label>
@@ -278,7 +278,7 @@
           </div>
         </div>
 
-         <div class="sm:col-span-6">
+         <div class="col-span-6 sm:col-span-6">
             <label for="obs" class="block text-sm font-medium text-gray-700">
             Obs:
             </label>
