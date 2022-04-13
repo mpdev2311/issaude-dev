@@ -73,6 +73,7 @@ import Patient from './views/core/patients/Patient.vue'
 import GuideManagement from './views/core/guide-management/GuideManagement.vue'
 import GuideManagementList from './views/core/guide-management/GuideManagementList.vue'
 import GuideSadt from './views/core/guide-sadt/GuideSadt.vue'
+import GuideHonorarios from './views/core/guide-honorarios/GuideHonorarios.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -441,7 +442,7 @@ const routes: RouteRecordRaw[] = [
     name: "Patient",
     component: Patient
   },{
-    path: '/ments',
+    path: '/guide-managements',
     name: 'GuideManagementList',
     component: GuideManagementList,
   },
@@ -454,6 +455,11 @@ const routes: RouteRecordRaw[] = [
     path: '/guide-sadt/:id',
     name: 'GuideSadt',
     component: GuideSadt,
+  },
+   {
+    path: '/guide-honorarios/:id',
+    name: 'GuideHonorarios',
+    component: GuideHonorarios,
   },
 ]
 
