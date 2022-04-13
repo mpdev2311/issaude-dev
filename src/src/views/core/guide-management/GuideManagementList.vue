@@ -355,6 +355,8 @@ export default defineComponent({
         router.push(`/guide-sadt/${ dados.id}`)        
       }else  if(store.getters.guideManagement.tipo === 5){
         router.push(`/guide-management/${ dados.id}`)
+      }else  if(store.getters.guideManagement.tipo === 6){
+        router.push(`/guide-honorarios/${ dados.id}`)
       }else{
          router.push(`/guide-management/${ dados.id}`)
       }
@@ -371,6 +373,8 @@ export default defineComponent({
             router.push(`/guide-sadt/0`)        
           }else  if(inputFilter.tipoGuia === 5){
             router.push(`/guide-management/0`)
+          }else  if(inputFilter.tipoGuia === 6){
+            router.push(`/guide-honorarios/0`)
           }else{
             router.push(`/guide-management/0`)
           }

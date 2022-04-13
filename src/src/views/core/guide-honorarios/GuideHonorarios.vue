@@ -40,11 +40,11 @@
                   
                     <div class="">
                       <div class="mt-0 align-text-top text-lg text-gray-400 font-semibold">
-                        Guia SADT
+                        Guia Honorários
                       </div>
                        <div class="mt-8">
                         <div v-show="step === 1">
-                          <div class="text-2xl  font-bold text-center text-white bg-gray-900 leading-tight">GUIA SADT</div>
+                          <div class="text-2xl  font-bold text-center text-white bg-gray-900 leading-tight">GUIA HONORÁRIOS</div>
                         </div>
                         
                         <div v-show="step === 2">
@@ -73,12 +73,12 @@
                   <div class="py-2 ">	
                     <div class="px-5 py-1 " v-show="step === 1">
                     
-                       <GuideSadtForm />
+                       <GuideHonorariosForm />
                        <!-- <Template /> -->
 
                     </div>
                     <div class="px-5 py-1 " v-show="step === 2">
-                        <GuideSadtTable />
+                        <GuideHonorariosTable />
 
                     </div>
                    
@@ -145,15 +145,15 @@ import { defineComponent, ref, onMounted } from "vue";
 import { useRouter } from "vue-router"
 import {mapGetters, mapState, useStore,mapMutations } from 'vuex'
 import { key, store } from "../../../core/store/store"
-import GuideSadtForm from "../../../components/layouts/guide-sadt/GuideSadtForm.vue";
-import GuideSadtTable from "../../../components/layouts/guide-sadt/GuideSadtTable.vue";
+import GuideHonorariosForm from "../../../components/layouts/guide-honorarios/GuideHonorariosForm.vue";
+import GuideHonorariosTable from "../../../components/layouts/guide-honorarios/GuideHonorariosTable.vue";
 import { GuideManagement } from "../../../core/domain/guide-management/guide-management-model";
 
 export default defineComponent({
 
   components: { 
-    GuideSadtForm,
-    GuideSadtTable,
+    GuideHonorariosForm,
+    GuideHonorariosTable,
   },
 
  methods: {
