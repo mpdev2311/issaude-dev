@@ -74,6 +74,7 @@ import GuideManagement from './views/core/guide-management/GuideManagement.vue'
 import GuideManagementList from './views/core/guide-management/GuideManagementList.vue'
 import GuideSadt from './views/core/guide-sadt/GuideSadt.vue'
 import GuideHonorarios from './views/core/guide-honorarios/GuideHonorarios.vue'
+import GuideHospitalization from './views/core/guide-hospitalization/GuideHospitalization.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -461,6 +462,11 @@ const routes: RouteRecordRaw[] = [
     name: 'GuideHonorarios',
     component: GuideHonorarios,
   },
+  {
+    path: '/guide-hospitalization/:id',
+    name: 'GuideHospitalization',
+    component: GuideHospitalization,
+  }
 ]
 
 const router = createRouter({

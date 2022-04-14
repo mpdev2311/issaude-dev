@@ -125,9 +125,25 @@
           </div>
         </div>
                   
-         
+          <div class="col-span-6 sm:col-span-1">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Periode de:
+          </label>
+          <div class="mt-3 max-w-5xl">
+            <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  v-model="guideManagement.data_solicitacao" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
+          </div>
+        </div> 
 
          <div class="col-span-6 sm:col-span-1">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">
+           
+          </label>
+          <div class="mt-8 max-w-5xl">
+            <input type="date" v-model="guideManagement.data_autorizacao" pattern="\d{4}-\d{1,2}-\d{1,2}" name="last_name" id="last_name" autocomplete="family-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
+          </div>
+        </div>
+
+         <!-- <div class="col-span-6 sm:col-span-1">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Periode de:
           </label>
@@ -147,9 +163,7 @@
             </select>
           </div>
         </div>
-
-<!-- 
-        <div class="col-span-6 sm:col-span-1 m-2">
+         <div class="col-span-6 sm:col-span-1 m-2">
             <label for="nome" class="block text-sm font-medium text-gray-700">
                 Tipo de Guia
             </label>
@@ -160,7 +174,10 @@
                     <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
                 </select>
             </div>
-          </div>   
+          </div>  
+
+
+        
  
         
         
@@ -186,25 +203,9 @@
 
        
 
-       
+        
 
-         <div class="col-span-6 sm:col-span-1">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
-          Data Solicitação
-          </label>
-          <div class="mt-3 max-w-5xl">
-            <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  v-model="guideManagement.data_solicitacao" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
-          </div>
-        </div> 
-
-         <div class="col-span-6 sm:col-span-1">
-          <label for="last_name" class="block text-sm font-medium text-gray-700">
-            Data Autorização
-          </label>
-          <div class="mt-3 max-w-5xl">
-            <input type="date" v-model="guideManagement.data_autorizacao" pattern="\d{4}-\d{1,2}-\d{1,2}" name="last_name" id="last_name" autocomplete="family-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
-          </div>
-        </div>
+        
          <div class="col-span-6 sm:col-span-1">
           <label for="local" class="block text-sm font-medium text-gray-700">
             Tipo de Doença
@@ -290,7 +291,7 @@
             </select>
           </div>
         </div> -->
-        
+         
          <div class="col-span-6 sm:col-span-6">
             <label for="obs" class="block text-sm font-medium text-gray-700">
             Obs:
@@ -387,7 +388,7 @@ export default defineComponent({
       obs: "",
       cod_tabela_hm: "0",
       tempo_doe: "",
-      tipo: 3,
+      tipo: 6,
       data_fim: "",
       tipo_atendimento: "",
       id_agenda: 1,
