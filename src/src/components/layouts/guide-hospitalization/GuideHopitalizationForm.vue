@@ -417,7 +417,7 @@
             Obs:
             </label>
             <div class="mt-3 max-w-5xl">
-                <textarea  v-model="guideManagement.obs" id="about" name="about" rows="1"  class="w-full shadow-sm bg-gray-100 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md" 
+                <textarea  v-model="guideManagement.obs" id="about" name="about" rows="1"  class=" shadow-sm w-full bg-gray-100 focus:ring-indigo-500 focus:border-indigo-500 block  sm:text-sm border border-gray-200 rounded-md" 
                 />                               
             </div>                       
         </div>
