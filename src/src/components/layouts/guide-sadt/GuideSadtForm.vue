@@ -9,22 +9,6 @@
  
       <div class="mt-3 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1 lg:col-span-3  ">
        
-        <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
-          Guia Prestador
-          </label>
-          <div class="mt-3 max-w-5xl ">
-            <input  v-model="guideManagement.id_prestador" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
-          </div>
-        </div>
-        <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
-          Guia Operadora
-          </label>
-          <div class="mt-3 max-w-5xl ">
-            <input  v-model="guideManagement.numero_guia" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
-          </div>
-        </div>
          <div class="col-span-6 sm:col-span-3">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Empresa Solicitante
@@ -33,6 +17,34 @@
             <input  v-model="guideManagement.id_empresa_solicitante" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
+
+        <div class="col-span-6 sm:col-span-1 ">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Guia Prestador
+          </label>
+          <div class="mt-3 max-w-5xl ">
+            <input  v-model="guideManagement.id_prestador" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          </div>
+        </div>
+
+        <div class="col-span-6 sm:col-span-1 ">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Guia Operadora
+          </label>
+          <div class="mt-3 max-w-5xl ">
+            <input  v-model="guideManagement.numero_guia" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          </div>          
+        </div>
+
+         <!-- <div class="col-span-6 sm:col-span-3">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          Empresa Solicitante
+          </label>
+           <div class="mt-3 max-w-5xl ">
+            <input  v-model="guideManagement.id_empresa_solicitante" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          </div>
+        </div> -->
+
         <div class="col-span-6 sm:col-span-1 m-2">
             <label for="nome" class="block text-sm font-medium text-gray-700">
                 Tipo de Guia

@@ -262,7 +262,7 @@ import Pagination from '../../../components/pagination/Pagination.vue';
 import Table from '../../../components/layouts/Table/Table.vue';
 import Dropdown from '../../../components/dropdown/Dropdown.vue';
 import Modal from '../../../components/modal/Modal.vue'
-import ModalFees from '../../../components/layouts/guide-sadt/ModalFees.vue'
+import ModalFees from '../../../components/layouts/guide-honorarios/ModalFees.vue'
 
 export default defineComponent({
 
