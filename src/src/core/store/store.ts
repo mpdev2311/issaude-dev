@@ -28,7 +28,7 @@ import providerStore from './providers/provider-store'
 import scheduleConfigsStore from './schedule-configs/schedule-configs-store'
 import healthInsuranceStore from './health-insurances/health-insurances-store'
 import manufacturersStore from './manufacturers/manufacturers-store'
-import aclProfileStore from  './acl/acl-profile/acl-profile-store'
+import aclProfileStore from './acl/acl-profile/acl-profile-store'
 import schedulingAccessStore from './management-and-permission/scheduling_acces/scheduling-access-store'
 import printerConfigurationStore from './printer-configuration/printer-configuration-store'
 import passwordAttendanceStore from './reception/password-attendance/password-attendance-store'
@@ -39,44 +39,43 @@ import localAcess from './local-access/local-access-store'
 import schedulingStatusStore from './scheduling-status/scheduling-status-store'
 import schedulingStore from './scheduling/scheduling-store'
 import patientStore from './patient/patient-store'
+import guideManagementStore from './guide-management/guide-management-store'
+import billsSadtStore from './guide-sadt/bills-sadt-store'
+import guidesTypeStore from './guides-type/guides-type-store'
 
-
-
-
-
-const key : InjectionKey<Store<any>> = Symbol()
+const key: InjectionKey<Store<any>> = Symbol()
 
 const store = createStore({
   modules: {
-    messages : messageStore,
-    via : viaStore,
+    messages: messageStore,
+    via: viaStore,
     schedulingStore: schedulingStore,
     schedulingStatus: schedulingStatusStore,
     localAcess: localAcess,
     printerConfigurationStore: printerConfigurationStore,
-    accountInfo : accountInfoStore,
-    consultationPlace : consultationPlaceStore,
+    accountInfo: accountInfoStore,
+    consultationPlace: consultationPlaceStore,
     dosage: dosageStore,
-    unitMeasure : unitMeasureStore,
+    unitMeasure: unitMeasureStore,
     healthProfessional: HealthProfessionalStore,
-    approach : ApproachStore,
-    specialty : SpecialtyStore,
-    targetAudience : TargetAudienceStore,
-    stockName : stockNameStore,
-    stockType : stockTypeStore,
-    presentation : presentationStore,
+    approach: ApproachStore,
+    specialty: SpecialtyStore,
+    targetAudience: TargetAudienceStore,
+    stockName: stockNameStore,
+    stockType: stockTypeStore,
+    presentation: presentationStore,
     company: companyStore,
     procedureType: procedureTypeStore,
     scheduleName: scheduleNameStore,
-    serviceType : serviceTypeStore,
+    serviceType: serviceTypeStore,
     receiptType: receiptTypeStore,
     user: userStore,
     productClassification: productClassificationStore,
     protocolName: protocolNameStore,
-    healthPlan:healthPlanStore,
+    healthPlan: healthPlanStore,
     tableNames: tableNamesStore,
-    typeGuide:typeGuideStore,
-    provider:providerStore,
+    typeGuide: typeGuideStore,
+    provider: providerStore,
     scheduleConfig: scheduleConfigsStore,
     healthInsurance: healthInsuranceStore,
     manufacturer: manufacturersStore,
@@ -86,8 +85,12 @@ const store = createStore({
     AclModuleRoute:AclModuleRouteStore,
     aclGroup:aclGroupStore,
     aclProfileCorporation:aclProfileCorporationStore,
-    patient: patientStore
+    patientStore: patientStore,
+    patient: patientStore,
+    guideManagement: guideManagementStore,
+    billsSadt: billsSadtStore,
+    guidesType: guidesTypeStore,
   },
 })
 
-export { store,  key }
+export { store, key }
