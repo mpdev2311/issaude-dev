@@ -1,9 +1,9 @@
 import { PatientService } from '../../services/patients/patient-service';
-import { State, Patient, RequestPatient, PatientDto, Plan } from '../../domain/patient/patient';
+import { State, Patient, RequestPatient, PatientDto, Plan } from '../../domain/patient/Patient';
 import { BasePaginator } from '../../domain/pagination/Paginator';
 import { store } from '../store';
 import { Ethnicitie } from '../../domain/patient/ethnicitie';
-import { Race } from '../..//domain/patient/race';
+import { Race } from '../../domain/patient/race';
 import { Schooling } from '../../domain/patient/schooling';
 import { Religion } from '../../domain/patient/religion';
 import { MaritalStatus } from '../../domain/patient/marital-status';

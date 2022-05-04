@@ -73,8 +73,13 @@ import Patient from './views/core/patients/Patient.vue'
 import GuideManagement from './views/core/guide-management/GuideManagement.vue'
 import GuideManagementList from './views/core/guide-management/GuideManagementList.vue'
 import GuideSadt from './views/core/guide-sadt/GuideSadt.vue'
+
 import GuideHonorarios from './views/core/guide-honorarios/GuideHonorarios.vue'
 import GuideHospitalization from './views/core/guide-hospitalization/GuideHospitalization.vue'
+
+import PlaceServiceList from './views/core/local-attendance/LocalAttendanceList.vue'
+import PlaceService from './views/core/local-attendance/LocalAttendance.vue'
+
 
 const routes: RouteRecordRaw[] = [
   {
@@ -442,7 +447,8 @@ const routes: RouteRecordRaw[] = [
     path:"/patients/:id",
     name: "Patient",
     component: Patient
-  },{
+  },
+  {
     path: '/guide-managements',
     name: 'GuideManagementList',
     component: GuideManagementList,
@@ -465,8 +471,19 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/guide-hospitalization/:id',
     name: 'GuideHospitalization',
-    component: GuideHospitalization,
-  }
+    component: GuideHospitalization,  
+  },
+
+  {
+    path: '/local-attendanceList',
+    name: 'LocalAttendanceList',
+    component: PlaceServiceList,
+  },
+  {
+    path: '/local-attendance/:id',
+    name: 'LocalAttendance',
+    component: PlaceService,
+  },
 ]
 
 const router = createRouter({

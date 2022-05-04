@@ -10,7 +10,6 @@
   <div class="space-y-8 divide-y divide-gray-200">
 
     <div class="pt-1">
-
  
       <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1 ">
 
@@ -97,8 +96,8 @@
           </label>
           <div>
             <select   v-model="guideManagement.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-               <option  v-bind:value="0">Selecione</option>
-               <option v-for="i in providers.content" :key="i" :value="i.specialtie.id" >{{i.specialtie.nome_especialidade}}</option> 
+               <option  v-bind:value="1">Selecione</option>
+               <!-- <option v-for="i in providers.content" :key="i" :value="i.specialtie.id" >{{i.specialtie.nome_especialidade}}</option>  -->
             </select>
           </div>
         </div>
@@ -279,6 +278,7 @@
         </div>
 
          <div class="col-span-6 sm:col-span-6">
+
             <label for="obs" class="block text-sm font-medium text-gray-700">
             Obs:
             </label>

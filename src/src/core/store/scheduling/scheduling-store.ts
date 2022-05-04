@@ -1,5 +1,6 @@
 import Generic from "../../../core/domain/generic/generic-mode"
 import SchedulingService from "../../services/scheduling/scheduling.service"
+import { filterScheduling } from '../../domain/scheduling/scheduling-model';
 
 export default {
     state: () => ({
@@ -18,14 +19,11 @@ export default {
     },
 
     actions : {
- 
         LOAD_MENU : async ({ commit }) => {
-
            const menus = []
            let itemMenu = new Generic();
            itemMenu.nome = "Ambulatório";
-           itemMenu.id = 1;
-           
+           itemMenu.id = 1;           
 
            let subitemMenu = new Generic();
            subitemMenu.nome = "ITEM 1";
@@ -76,8 +74,8 @@ export default {
 
         },
 
-        LOAD_SCHEDULINGS : async ({ commit }) => {
-            await commit('LOAD_SCHEDULINGS', await SchedulingService.getAll())
+        LOAD_SCHEDULINGS : async ({ commit }, payload: filterScheduling) => {
+            await commit('LOAD_SCHEDULINGS', await SchedulingService.getAll(payload))
         }
     }
 }
