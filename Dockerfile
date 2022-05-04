@@ -1,6 +1,6 @@
-FROM node:16.5.0-slim AS builder
+FROM node:16.15.0-slim AS builder
 WORKDIR /usr/src/app
 COPY /src .
-RUN yarn 
+RUN yarn install
 RUN yarn build
 CMD yarn preview

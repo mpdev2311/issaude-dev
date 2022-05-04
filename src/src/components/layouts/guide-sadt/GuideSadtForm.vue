@@ -1,12 +1,8 @@
-<template>
-
-         
+<template>         
 <form class="space-y-4 divide-y divide-gray-200">
   <div class="space-y-8 divide-y divide-gray-200">
 
     <div class="pt-1">
-
- 
       <div class="mt-3 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1 lg:col-span-3  ">
        
          <div class="col-span-6 sm:col-span-3">

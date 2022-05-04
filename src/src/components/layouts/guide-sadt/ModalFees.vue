@@ -148,6 +148,7 @@ watchEffect(() => {
         <div class="mt-6 grid grid-cols-12 gap-4 gap-6">         
 
           <div class="col-span-11 sm:col-span-6">
+
             <label for="last-name" class="block text-sm font-medium text-gray-700">Tiss</label>
             <input
               type="text"

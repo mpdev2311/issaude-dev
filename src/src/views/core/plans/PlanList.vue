@@ -5,7 +5,7 @@
    <div class="mt-4 flex flex-col sm:flex-row">
          <div class="flex">
             <div class="relative">
-               <select class="mt-1 appearance-none h-10 rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+               <select class="mt-1 h-10 rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                   <option>Mosrar 5 resultados</option>
                   <option>Mostrar 10 resultados</option>
                   <option>Mostrar 20 resultados</option>
@@ -163,7 +163,6 @@ import { Provider } from "core/domain/providers/provider-model";
 import { HealthPlan } from "core/domain/health-plans/health-plan-model";
 
 export default defineComponent({
-
   components: { 
     Finder
   },
@@ -182,6 +181,7 @@ export default defineComponent({
   },
 
   beforeCreate : function() {
+    //@ts-ignore
     this.store = useStore(key)
   },
 

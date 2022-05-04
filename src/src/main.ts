@@ -4,6 +4,7 @@ import router from './router';
 import DashboardLayout from './components/layouts/DashboardLayout.vue'
 import EmptyLayout from './components/layouts/EmptyLayout.vue'
 import './assets/main.css';
+import 'v-calendar/dist/style.css';
 import * as store from '../src/core/store/store';
 import * as request  from '../src/core/services/request'
 

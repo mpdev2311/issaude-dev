@@ -5,6 +5,7 @@
 import type { Ref } from 'vue'
 import { reactive, ref, watchEffect } from 'vue'
 
+import { onClickOutside } from '@vueuse/core'
 /**
  * Generate refs to handle a dropdown state
  */
@@ -15,6 +16,9 @@ export default function useDropdown(container: Ref<HTMLElement | null>) {
     isOpen.value = true
   }
 
+  onClickOutside(container, () => {
+    isOpen.value = false
+  })
   const closeDropDown = () => {
     isOpen.value = false
   }

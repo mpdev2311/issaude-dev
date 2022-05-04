@@ -7,7 +7,8 @@ export default class LocalAccessService {
     
     public static async getAll() : Promise<Array<LocalAccess>>{
         const { get } = axios as AxiosInstance;
-        const { data } = await get('/schedulings/local-access?page=0&size=100&id_usuario=1&id_corp=1');
+        const { data } = await get('/schedulings/local-access?page=0&size=20&id_usuario=1&id_corp=1');
+        console.log(data);
         return data
     }
 }

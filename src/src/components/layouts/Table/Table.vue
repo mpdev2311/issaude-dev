@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import TableCell from './TableCell.vue';
-import type { InjectionKey, VNode } from 'vue'
-import { toRaw, computed, reactive, isReactive, inject } from 'vue'
-
+import type { InjectionKey, VNode, Ref } from 'vue'
+import { toRaw, computed, reactive, isReactive, inject, ref } from 'vue';
+const table = ref()
 interface TableColumn {
   key: string
   label: string
@@ -39,6 +39,7 @@ interface TableProps {
   columns?: Record<string, string | Partial<TableColumn>>
   reactive?: boolean
   noHeader?: boolean
+  scrollTop?: boolean
 }
 
 const emits = defineEmits<{
@@ -47,11 +48,15 @@ const emits = defineEmits<{
 const props = withDefaults(defineProps<TableProps>(), {
   columns: undefined,
   data: () => [],
+  scrollTop: false
 })
 
 const wrapper = inject(flewTableWrapperSymbol, null)
 
 const data = computed(() => {
+  if(table.value != null && props.scrollTop) {
+    table.value.parentElement.scrollTop = 0
+  }
   if (wrapper?.data) return wrapper.data
 
   if (props.reactive) {
@@ -102,7 +107,7 @@ const columns = computed(() => {
 </script>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="px-4 sm:px-6 lg:px-8">
+  <div ref="table" class="px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col">
       <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle">
@@ -116,21 +121,21 @@ const columns = computed(() => {
                         :is="{ render: column.renderHeader }"
                         v-if="column.renderHeader"
                         :class="[
-                          column.headerCellClass ? column.headerCellClass : id === 0 ? 'sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8' : 'sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell',
+                          column.headerCellClass ? column.headerCellClass : id === 0 ? 'sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8' : 'sticky top-0 z-10  border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell',
                         ]"
                       />
                       <th
                         v-else
                         scope="col"
-                        :class="id === 0 ? 'sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8' : 'sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell'"
+                        :class="id === 0 ? 'sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8' : 'sticky top-0 z-10  border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell'"
                       >{{ column.label }}</th>
                     </slot>
                   </template>
                 </slot>
               </thead>
-              <tbody class="bg-white">
+              <tbody class="bg-white" id="table-body">
                 <slot name="body">
-                  <tr v-for="(row, index) in data" :key="index">
+                  <tr v-for="(row, index) in data" :key="index" :class="index % 2 === 0 ? undefined : 'bg-gray-100'">
                     <slot name="body-row-pre" :row="row" :columns="columns" :index="index"></slot>
                     <slot name="body-row" :row="row" :columns="columns" :index="index">
                       <template v-for="(column, idx) in columns" :key="'row' + column.key">
