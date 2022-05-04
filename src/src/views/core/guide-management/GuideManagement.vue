@@ -96,8 +96,8 @@
           </label>
           <div>
             <select   v-model="guideManagement.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-               <option  v-bind:value="0">Selecione</option>
-               <option v-for="i in providers.content" :key="i" :value="i.specialtie.id" >{{i.specialtie.nome_especialidade}}</option> 
+               <option  v-bind:value="1">Selecione</option>
+               <!-- <option v-for="i in providers.content" :key="i" :value="i.specialtie.id" >{{i.specialtie.nome_especialidade}}</option>  -->
             </select>
           </div>
         </div>

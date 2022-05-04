@@ -69,7 +69,7 @@
           </label>
           <div class="mt-3 max-w-5xl ">
             <select  v-model="guideManagement.id_local_atendimento" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-                  <option value="0">Selecionar</option>
+                   <option value="0">Selecionar</option>
                   <option
                     v-for="i in localAccess"
                     :key="i"
