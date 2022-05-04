@@ -30,10 +30,10 @@ watchEffect(() => {
 </script>
 
 <template>
-<Modal class="grid lg:grid-cols-2 lg:pl-1/3" title="Honorários" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal()" lg>
-      <template #body>
-         <div class="mt-6 grid gap-4  gap-6 ">
-          <div class="col-span-11  sm:col-span-6">
+<Modal class="grid lg:grid-cols-2   lg:pl-1/3  "  title="Honorários" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal()" lg>
+      <template #body>        
+         <div class="mt- grid gap-4  gap-6   ">
+          <div class="col-span-11  sm:col-span-7">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Faturamento de:</label>
             <select
               id="location"
@@ -51,7 +51,7 @@ watchEffect(() => {
             <label
               for="first-name"
               class=" block text-sm  font-medium text-gray-700"
-            >Produtos:</label>
+            >Produ:</label>
                 <input
               type="text"
               name="last-name"
@@ -74,7 +74,7 @@ watchEffect(() => {
           </div>
         </div>
         
-        <div class="mt-6 grid grid-cols-12 gap-4  gap-6">
+        <div class="mt- grid grid-cols-12 gap-4  gap-6">
           <div class="col-span-11 sm:col-span-6">
             <label for="first-name" class="block text-sm font-medium text-gray-700">Tipo Executante:</label>
             <input
@@ -98,7 +98,7 @@ watchEffect(() => {
           </div>
         </div>
         
-        <div class="mt-6 grid grid-cols-12 gap-4  gap-6 ">
+        <div class="mt-3 grid grid-cols-12 gap-4  gap-6 ">
 
           <div class="col-span-11 sm:col-span-6">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Qualidade</label>

@@ -1,107 +1,117 @@
 <template>
   <div>
-    <NotificationAlert />
-     <h3 class="text-gray-700 text-3xl font-semibold">Gestão de Guias</h3>
-    <div class="mt-4">
-      <div class="mt-6" >
-        <div class="rounded-lg  mt-4 px-4 py-5 bg-white grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1">
-                       
-             <div class="sm:col-span-1">               
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                     Prontuário
-                </label>
-              <div class="mt-3" >
-                  <input type="text" v-model="inputFilter.prontuario"  name="p_consulta" id="p_consulta" autocomplete="p_consulta" class="w-full xl:w-40 ml-2 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>                    
-              </div>
-            </div>
-        <div class="sm:col-span-2">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
-          Paciente
-          </label>
-           <div class="mt-2 max-w-5xl ">
-            <input  v-model="inputFilter.paciente" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+    <!-- <NotificationAlert /> -->
+    <!-- <Modal title="Dados do paciente" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal" lg>
+      <template #body>
+         <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label
+              for="first-name"
+              class="block text-sm font-medium text-gray-700"
+            >Data de nascimento</label>
+            <input
+              type="date"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Sexo</label>
+            <select
+              id="location"
+              name="location"
+              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            >
+              <option>Masculino</option>
+              <option selected>Feminino</option>
+              <option>Outros</option>
+            </select>
           </div>
         </div>
 
-            <div class="sm:col-span-3">
-                <label for="nome" class="px-2 block text-sm font-medium text-gray-700">
-                   Período de Busca:
-                </label>
-                <div class="mt-2 px-2  flex">
-                    <input v-model="inputFilter.data_ini" type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  name="dataInicio" id="dataInicio" autocomplete="dataInicio" class=" w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-r border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                     <span>a</span>
-                     <input v-model="inputFilter.data_fim" type="date"  pattern="\d{4}-\d{1,2}-\d{1,2}" name="dataFim" id="dataFim" autocomplete="dataFim" class="w-30 ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-2 rounded-l border border-gray-300 rounded-md transition duration-500 ease-in-out " >
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
-                  <button @click="alert('crud componentes')" type="button" class="  inline-flex justify-center  py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mx-3 ">
-                  Atualizar               
-                </button>
-                </div>                       
-             </div>
+        <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label
+              for="first-name"
+              class="block text-sm font-medium text-gray-700"
+            >Telefone comercial</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
 
-              <div class="sm:col-span-1 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Tipo de Guia
-                </label>
-                <div class="mt-1 ">
-                    <select v-model="inputFilter.tipoGuia" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0">Selecione</option>
-                          <option v-for="i in guidetypes" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Telefone celular</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+        </div>
 
-              <div class="sm:col-span-1 m-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Convênio
-                </label>
-                <div class="mt-1 ">
-                    <select v-model="inputFilter.convenio" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                         <option  v-bind:value="0"></option>
-                          <option v-for="i in scheduleNames" :key="i" :value="i.id" >{{i.nome}}</option>
-                    </select>
-                </div>
-             </div>
+        <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label for="first-name" class="block text-sm font-medium text-gray-700">CPF</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
 
-              <div class="sm:col-span-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Local Atendimento
-                </label>
-                <div class="mt-1">
-                    <select v-model="inputFilter.local_atend" name="agenda" id="agenda" autocomplete="agenda" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                        >
-                        <option  v-bind:value="0">Selecione</option>
-                         <option
-                            v-for="i in localAccess"
-                            :key="i"
-                            :value="i.id"
-                          >{{ i.localAttendance.local }}</option>
-                    </select>
-                </div>
-             </div>
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">RG</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+        </div>
 
-              <div class="sm:col-span-2">
-                <label for="nome" class="block text-sm font-medium text-gray-700">
-                    Profissional
-                </label>
-                <div class="mt-1">
-                    <select v-model="inputFilter.profissional" name="profissional" id="profissional" autocomplete="profissional" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" 
-                       >
-                        <option  v-bind:value="0">Selecione</option>
-                            <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
-                            
-                    </select>
-                </div>
-             </div>
-             
-        </div>       
-      </div> 
-    </div>
+        <div class="mt-6 grid grid-cols-12 gap-6">
+          <div class="col-span-12 sm:col-span-6">
+            <label for="first-name" class="block text-sm font-medium text-gray-700">Nome</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-12 sm:col-span-6">
+            <label for="last-name" class="block text-sm font-medium text-gray-700">Sobrenome</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              autocomplete="family-name"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            />
+          </div>
+        </div>
+      </template>
+    </Modal> -->
+     <ModalFees :open-modal="modalFees" @close-modal="modalFees = false" />
+    
     <!-- drop -->
-<div class="mt-4 flex flex-col md:flex-row">         
+<!-- <div class="mt-4 flex flex-col md:flex-row">         
          <button class="rounded-l text-sm bg-gray-800 hover:bg-gray-900 text-gray-50 font-semibold py-2 px-5">
               <span class="flex justify-end px-4 py-0">  
               <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -121,7 +131,7 @@
                   
             </div>
          </div>
-      </div>
+      </div> -->
     <!--  -->
  
       <!-- nova table -->
@@ -135,8 +145,8 @@
                   class="bg-white shadow rounded-md overflow-hidden mb-0 w-full max-h-[27rem] overflow-y-auto bg-gray-100"
                 >
                   <!--  -->
-                  <Table v-if="guideManagements !== 0"
-                    :data="guideManagements.content"
+                  <Table v-if="billsSadts !== 0"
+                    :data="billsSadts.content"
                     :columns="columnsTab"
                   >
                     <template #header-column="{ column }">
@@ -147,16 +157,16 @@
                          <Dropdown class="lg:mr-10">
                           <template #content="{ closeDropDown }">
                             <button
-                              @click="
+                               @click="
                                 () => {
-                                  closeDropDown(), onCreate()
+                                  closeDropDown(), openModalFees()
                                 }
                               "
                               class="flex text-left text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 w-full"
                               role="menuitem"
                               tabindex="0"
                               id="menu-item-0"
-                            >Nova Guia
+                            >Nova Procedimento
                               <span class="inline-flex justify-center border border-transparent shadow-sm text-sm font-medium rounded-md text-green-600">
                                 <svg class="h-5 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                   <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -170,7 +180,7 @@
                     </template>
                     <template #body-cell="{ row, column, value }">
                        <template v-if="column.key === 'iditem'">{{ row.id }}</template>
-                      <template v-if="column.key === 'convenio'">{{ row.agreementPlan.id }}</template>
+                      <!-- <template v-if="column.key === 'convenio'">{{ row.agreementPlan.id }}</template> -->
                       
                       <template v-if="column.key === 'dropdown'">
                         <Dropdown class="lg:mr-10">
@@ -178,7 +188,7 @@
                             <button
                               @click="
                                 () => {
-                                  closeDropDown(), onEdit(row)
+                                  closeDropDown(), onEdit(row.id)
                                 }
                               "
                               class="flex text-left text-gray-700 block px-4 py-1 text-sm hover:bg-gray-100 w-full"
@@ -232,7 +242,15 @@
             </div>
           </main>
         </div>
+         <div class="mt-4 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-20">   
+            <div class="sm:col-span-6"></div> 
+            <div class="sm:col-span-6"></div> 
+            <div class="sm:col-span-6"></div>    
+            <div class="sm:col-span-6"></div> 
+                   
+        </div>
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -243,23 +261,29 @@ import { key, store } from "../../../../src/core/store/store";
 import Pagination from '../../../components/pagination/Pagination.vue';
 import Table from '../../../components/layouts/Table/Table.vue';
 import Dropdown from '../../../components/dropdown/Dropdown.vue';
+import Modal from '../../../components/modal/Modal.vue'
+import ModalFees from '../../../components/layouts/guide-honorarios/ModalFees.vue'
 
 export default defineComponent({
 
   components: {
     Dropdown,
     Pagination,
-    Table
+    Table,
+    Modal,
+    ModalFees
   },
 
   computed:{
     ...mapState([
-      'guideManagements',
+        'billsSadts',
+        'guideManagements',
        'localAccess',
        'providers',
        'guidetypes'
       ]),
     ...mapGetters([
+      'billsSadts',
       'guideManagements',
        'localAccess',
        'providers',
@@ -275,17 +299,8 @@ export default defineComponent({
 
     const router = useRouter();
     const route = useRoute();
-
-    const inputFilter ={
-      tipoGuia: 0,
-      prontuario: 0,
-      paciente: "",
-      data_ini:"",
-      data_fim: "",
-      convenio: 0,
-      local_atend: 0,
-      profissional: 0
-    }
+    const modalIsOpen = ref(false);
+    const modalFees = ref(false);
     const columnsTab = ref({
                       iditem: {
                         label: 'ID',
@@ -293,33 +308,48 @@ export default defineComponent({
                         format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                       },
-                      data_atendimento: {
+                      data_prescricao: {
                         label: 'Data',
                         align: 'start',
+                       // format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                      patient: {
-                        label: 'Paciente',
+                      codigo_tiss: {
+                        label: 'Código',
                         align: 'start',
-                        format: (value: any) => value.nome,
+                       // format: (value: any) => value.nome,
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                      id: {
-                        label: 'Guia Prestator',
-                        align: 'start'
+                      honorario: {
+                        label: 'Descrição',
+                        align: 'start',
+                        format: (value: any) => value.descri,
+                        cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                       },
-                       numero_guia: {
-                        label: 'Guia Operadora',
+                       quant: {
+                        label: 'Qtd',
                         align: 'start',
                       cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
                        },
-                     'convenio': {
-                        label: 'Convênio',
+                     valor_unitario: {
+                        label: 'Valor',
                         align: 'start',
                        // format: (value: any) => value,
                         cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                       },
-                      provider: {
+                       valor_total: {
+                        label: 'Valor Total',
+                        align: 'start',
+                        //format: (value: any) => value.nome,
+                      cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
+                       },
+                      grau_part: {
+                        label: 'Grau',
+                        align: 'start',
+                        //format: (value: any) => value.nome,
+                      cellClass: 'whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-[0.65rem]'
+                       },
+                       provider: {
                         label: 'Profissional',
                         align: 'start',
                         format: (value: any) => value.nome,
@@ -344,48 +374,26 @@ export default defineComponent({
     })
 
     onMounted(async () => {
-      await store.dispatch('LOAD_LOCAL_ACESS')
-      await store.dispatch('PROVIDER_STORE_LOAD')
-       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
-      await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
+        await store.dispatch('BILLS_STORE_LOAD')
+        await store.dispatch('LOAD_LOCAL_ACESS')
+        await store.dispatch('PROVIDER_STORE_LOAD')
+        await store.dispatch('GUIDES_TYPE_STORE_LOAD')
+        await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
+
+        console.log(store.getters.billsSadts);
     })
 
-    const onEdit = (dados) => {
-      if(store.getters.guideManagement.tipo === 3){
-        router.push(`/guide-sadt/${ dados.id}`)        
-      }else  if(store.getters.guideManagement.tipo === 5){
-        router.push(`/guide-management/${ dados.id}`)
-      }else  if(store.getters.guideManagement.tipo === 6){
-        router.push(`/guide-honorarios/${ dados.id}`)
-        }else  if(store.getters.guideManagement.tipo === 7){
-        router.push(`/guide-hospitalization/${ dados.id}`)
-      }else{
-         router.push(`/guide-management/${ dados.id}`)
-      }
-
+    const onEdit = (id) => {
+        openModalFees()
+     // router.push(`/guide-management/${id}`)
     }
 
     const onDelete = async (id) => {
-      await store.dispatch('GUIDE_MANAGEMENT_STORE_DELETE_BY_ID', id)
+      await store.dispatch('BILLS_STORE_DELETE_BY_ID', id)
     }
 
     const onCreate = () =>{
-      if(inputFilter.tipoGuia !== 0){
-         if(inputFilter.tipoGuia === 3){
-            router.push(`/guide-sadt/0`)        
-          }else  if(inputFilter.tipoGuia === 5){
-            router.push(`/guide-management/0`)
-          }else  if(inputFilter.tipoGuia === 6){
-            router.push(`/guide-honorarios/0`)
-          }else  if(inputFilter.tipoGuia === 7){
-            router.push(`/guide-hospitalization/0`)
-          }else{
-            router.push(`/guide-management/0`)
-          }
-      }else{
-        alert('Selecione um Tipo de Guia');
-      }
-      
+      router.push('/guide-management/0')
     }
 
 //     const dataAtualFormatada = () =>{
@@ -397,13 +405,29 @@ export default defineComponent({
 // }
 // console.log(dataAtualFormatada());
 
+  const onCloseModal = () => {
+      modalIsOpen.value = !modalIsOpen.value
+    }
+
+    const onOpenModal = () => {
+      modalIsOpen.value = !modalIsOpen.value
+    }
+
+    const openModalFees = () => {
+      modalFees.value = !modalFees.value
+    }
+
     return {
       onCreate,
       onEdit,
       onDelete,
       currentPage,
       columnsTab,
-      inputFilter
+      onCloseModal,
+      onOpenModal,
+      modalIsOpen,
+      modalFees,
+      openModalFees
       //dataAtualFormatada
     };
   },
