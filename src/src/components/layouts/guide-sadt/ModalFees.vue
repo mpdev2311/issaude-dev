@@ -32,7 +32,7 @@ watchEffect(() => {
 <template>
 <Modal class="grid lg:grid-cols-2 lg:pl-1/3" title="Honorários" :modal-is-open="modalIsOpen" @on-close-modal="onCloseModal()" lg>
       <template #body>
-         <div class="mt-6 grid gap-4  gap-6 ">
+         <div class="mt-6 pl-1 mb-4 grid gap-4  gap-6 ">
           <div class="col-span-11  sm:col-span-6">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Faturamento de:</label>
             <select
@@ -65,7 +65,7 @@ watchEffect(() => {
             <select
               id="location"
               name="location"
-              class="mt-6 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+              class="mt-6  block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
             >
             <option v-bind:value="0">Selecione</option>
               <option v-bind:value="1">Cirurgia</option>
@@ -74,7 +74,7 @@ watchEffect(() => {
           </div>
         </div>
         
-        <div class="mt-6 grid grid-cols-12 gap-4  gap-6">
+        <div class="mt-6 pl-1 grid grid-cols-12 gap-4  gap-6">
           <div class="col-span-11 sm:col-span-6">
             <label for="first-name" class="block text-sm font-medium text-gray-700">Tipo Executante:</label>
             <input
@@ -98,7 +98,7 @@ watchEffect(() => {
           </div>
         </div>
         
-        <div class="mt-6 grid grid-cols-12 gap-4  gap-6 ">
+        <div class="mt-6 pl-1 grid grid-cols-12 gap-4  gap-6 ">
 
           <div class="col-span-11 sm:col-span-6">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Qualidade</label>
@@ -121,7 +121,7 @@ watchEffect(() => {
             />
           </div>
         </div>
-        <div class="mt-6 grid grid-cols-12 gap-4 gap-6">         
+        <div class="mt-6 pl-1 grid grid-cols-12 gap-4 gap-6">         
 
           <div class="col-span-11 sm:col-span-6">
             <label for="last-name" class="block text-sm font-medium text-gray-700">Valor Unitário:</label>
@@ -145,7 +145,7 @@ watchEffect(() => {
           </div>
         </div>
 
-        <div class="mt-6 grid grid-cols-12 gap-4 gap-6">         
+        <div class="mt-6 pl-1 grid grid-cols-12 gap-4 gap-6">         
 
           <div class="col-span-11 sm:col-span-6">
 

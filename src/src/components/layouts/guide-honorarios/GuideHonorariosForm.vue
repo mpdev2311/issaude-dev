@@ -13,7 +13,7 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Paciente:
           </label>
-           <div class="mt-3 max-w-5xl ">
+           <div class="mt-5 max-w-5xl ">
             <input  v-model="guideManagement.id_paciente" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
@@ -22,7 +22,7 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Guia Prestador:
           </label>
-          <div class="mt-3 max-w-5xl ">
+          <div class="mt-0 max-w-5xl lg:p-4 ">
             <input  v-model="guideManagement.id" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
@@ -31,7 +31,7 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Guia operadora:
           </label>
-          <div class="mt-3 max-w-5xl ">
+          <div class="mt-0 max-w-5xl lg:p-4 ">
             <input  v-model="guideManagement.numero_guia" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
@@ -39,7 +39,7 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
            Senha:
           </label>
-          <div class="mt-3 max-w-5xl">
+          <div class="mt-5 max-w-5xl">
            <input v-model="guideManagement.senha" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
           </div>
         </div> 
@@ -95,7 +95,7 @@
           <label for="local" class="block text-sm font-medium text-gray-700">
             Empresa onde executante:
           </label>
-        <div>
+        <div class="mt-4">
             <select  v-model="guideManagement.id_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option  v-bind:value="0">Selecione</option>
               <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
@@ -107,7 +107,7 @@
           <label for="local" class="block text-sm font-medium text-gray-700">
            Local de Atendimento:
           </label>
-          <div>
+          <div class="mt-5">
             <select  v-model="guideManagement.id_profissional_executante" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option  v-bind:value="0">Selecione</option>
               <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
@@ -120,7 +120,7 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
          Profissional Executante:
           </label>
-          <div class="mt-3 max-w-5xl">
+          <div class="mt-0 max-w-5xl lg:p-4">
             <input v-model="guideManagement.senha" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
           </div>
         </div>
@@ -129,19 +129,19 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Prontuário:
           </label>
-          <div class="mt-3 max-w-5xl">
+          <div class="mt-5 max-w-5xl">
             <input type="date" pattern="\d{4}-\d{1,2}-\d{1,2}"  v-model="guideManagement.id_paciente" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
           </div>
         </div> 
 
-         <div class="col-span-6 sm:col-span-1">
+         <!-- <div class="col-span-6 sm:col-span-1">
           <label for="last_name" class="block text-sm font-medium text-gray-700">
            
           </label>
-          <div class="mt-8 max-w-5xl">
+          <div class="mt-10">
             <input type="date" v-model="guideManagement.data_autorizacao" pattern="\d{4}-\d{1,2}-\d{1,2}" name="last_name" id="last_name" autocomplete="family-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out">
           </div>
-        </div>
+        </div> -->
 
          <!-- <div class="col-span-6 sm:col-span-1">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
