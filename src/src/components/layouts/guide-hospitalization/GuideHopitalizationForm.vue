@@ -29,7 +29,7 @@
         
 
         <div class="col-span-6 sm:col-span-1">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
           Início Atendimento:
           </label>
           <div class="mt-0  lg:p-4">
@@ -105,7 +105,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-1">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
           Validade da  Senha:
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">
@@ -114,7 +114,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-1">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
          N° Guia Solicitação
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">
@@ -136,7 +136,7 @@
         </div>
            
         <div class="col-span-6 sm:col-span-2">
-          <label for="local" class="block text-sm font-medium text-gray-700">
+          <label for="local" class=" block text-sm font-medium text-gray-700">
             Profissional Execultante
           </label>
           <div class="mt-5  max-w-5xl">
@@ -148,7 +148,7 @@
         </div>
              
        <div class="col-span-6 sm:col-span-1">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
          Profissional Solicitante:
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">
@@ -157,7 +157,7 @@
         </div>
 
          <div class="col-span-6 sm:col-span-1">
-          <label for="local" class="block text-sm font-medium text-gray-700">
+          <label for="local" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
             Local de Atendimento:
           </label>
             <div class="mt-0 max-w-5xl lg:p-4">
@@ -166,7 +166,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
           Indicação Clinica:
           </label>
           <div class="mt-0 max-w-5xl lg:p-4 ">
@@ -217,7 +217,7 @@
         </div> 
 
         <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
           Sinais e sintomas:
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">
@@ -226,7 +226,7 @@
         </div> 
              
          <div class="col-span-6 sm:col-span-1">
-          <label for="local" class="block text-sm font-medium text-gray-700">
+          <label for="local" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
             Regime de Internação:
           </label>          
           <div class="mt-0 max-w-5xl lg:p-4">            
@@ -239,7 +239,7 @@
         </div>
             
        <div class="col-span-6 sm:col-span-1">
-          <label for="local" class="block text-sm font-medium text-gray-700">
+          <label for="local" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
             Tipo de Doença
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">
@@ -264,7 +264,7 @@
         </div> 
              
         <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
            Prova Diagnóstica: 
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">
@@ -295,7 +295,7 @@
         </div> 
           
         <div class="col-span-6 sm:col-span-1 max-w-5xl">
-          <label for="atendimento_rn" class="block text-sm font-medium text-gray-700">
+          <label for="atendimento_rn" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
             Atendimento RN
           </label>          
           <div class="mt-0 max-w-5xl lg:p-4">            
@@ -345,7 +345,7 @@
         
               
        <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
             tipo de acomodaçao: 
           </label>
           <div class="mt-0 max-w-5xl lg:p-4">

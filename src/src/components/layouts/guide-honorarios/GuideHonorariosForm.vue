@@ -18,17 +18,17 @@
           </div>
         </div>
              
-              <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+     <div class="col-span-6 sm:col-span-1">
+          <label for="first_name" class="flex items-center justify-center block text-sm font-medium text-gray-700">
           Guia Prestador:
           </label>
           <div class="mt-0 max-w-5xl lg:p-4 ">
-            <input  v-model="guideManagement.id" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+          <input v-model="guideManagement.emissao" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out " >
           </div>
         </div>
              
         <div class="col-span-6 sm:col-span-1 ">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class=" flex items-center justify-center block text-sm font-medium text-gray-700">
           Guia operadora:
           </label>
           <div class="mt-0 max-w-5xl lg:p-4 ">
@@ -117,10 +117,10 @@
                             
         
           <div class="col-span-6 sm:col-span-1">
-          <label for="first_name" class="block text-sm font-medium text-gray-700">
+          <label for="first_name" class="flex items-center justify-center block text-sm font-medium text-gray-700">
          Profissional Executante:
           </label>
-          <div class="mt-0 max-w-5xl lg:p-4">
+          <div class="mt-0 max-w-5xl  lg:p-4">
             <input v-model="guideManagement.senha" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
           </div>
         </div>
