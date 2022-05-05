@@ -22,7 +22,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Guia Prestador:
             </label>
@@ -41,7 +41,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Guia Operadora:
             </label>
@@ -69,7 +69,7 @@
           <div class="col-span-6 sm:col-span-1 m-2">
             <label
               for="nome"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Guia:
             </label>
@@ -207,7 +207,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Validade da senha:
             </label>
@@ -227,7 +227,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Data emissão:
             </label>
@@ -246,7 +246,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Data Solicitação:
             </label>
@@ -265,7 +265,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="last_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Data Autorização:
             </label>
@@ -284,7 +284,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Doença:
             </label>
@@ -306,7 +306,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tempo de Doença:
             </label>
@@ -324,7 +324,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Indicação de Acidente:
             </label>
@@ -347,7 +347,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="last_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-2 block text-sm font-medium text-gray-700"
             >
               Cid Principal:
             </label>
@@ -366,7 +366,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Atendimento:
             </label>
@@ -388,7 +388,7 @@
           <div class="col-span-6 sm:col-span-1 max-w-5xl">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Consulta:
             </label>
@@ -411,7 +411,7 @@
           <div class="col-span-6 sm:col-span-1 max-w-5xl">
             <label
               for="atendimento_rn"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Atendimento RN:
             </label>

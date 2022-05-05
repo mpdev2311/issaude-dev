@@ -95,7 +95,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Guia Prestador:
             </label>
@@ -114,7 +114,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Guia operadora:
             </label>

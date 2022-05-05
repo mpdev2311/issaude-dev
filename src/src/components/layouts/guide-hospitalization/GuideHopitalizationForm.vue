@@ -41,7 +41,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Início Atendimento:
             </label>
@@ -173,7 +173,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Validade da Senha:
             </label>
@@ -192,7 +192,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               N° Guia Solicitação
             </label>
@@ -247,7 +247,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Profissional Solicitante:
             </label>
@@ -266,7 +266,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Local de Atendimento:
             </label>
@@ -285,7 +285,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Indicação Clinica:
             </label>
@@ -355,7 +355,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Sinais e sintomas:
             </label>
@@ -374,7 +374,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Regime de Internação:
             </label>
@@ -396,7 +396,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Doença
             </label>
@@ -436,7 +436,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Prova Diagnóstica:
             </label>
@@ -482,7 +482,7 @@
           <div class="col-span-6 sm:col-span-1 max-w-5xl">
             <label
               for="atendimento_rn"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               Atendimento RN
             </label>
@@ -568,7 +568,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-6 block text-sm font-medium text-gray-700"
             >
               tipo de acomodaçao:
             </label>
