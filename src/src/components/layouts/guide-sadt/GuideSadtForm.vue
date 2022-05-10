@@ -3,7 +3,7 @@
     <div class="space-y-8 divide-y divide-gray-200">
       <div class="pt-1">
         <div class="mt-3 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 space-y-1 lg:col-span-3">
-          <div class="col-span-6 sm:col-span-3">
+          <div class=" lg:pl-3 col-span-6 sm:col-span-3">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Empresa Solicitante:
             </label>
@@ -22,7 +22,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Guia Prestador:
             </label>
@@ -41,7 +41,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Guia Operadora:
             </label>
@@ -66,10 +66,10 @@
           </div>
         </div> -->
 
-          <div class="col-span-6 sm:col-span-1 m-2">
+          <div class=" col-span-6 sm:col-span-1 m-2">
             <label
               for="nome"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Guia:
             </label>
@@ -88,7 +88,7 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-3">
+          <div class=" lg:pl-3 col-span-6 sm:col-span-3">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Paciente:
             </label>
@@ -123,7 +123,8 @@
               </select>
             </div>
           </div>
-          <div class="col-span-6 sm:col-span-1 max-w-5xl">
+
+          <div class=" lg:pr-5 col-span-6 sm:col-span-1 max-w-5xl">
             <label for="local" class="block text-sm font-medium text-gray-700"> Carater: </label>
             <div class="mt-3 max-w-5xl">
               <select
@@ -139,7 +140,8 @@
               </select>
             </div>
           </div>
-          <div class="col-span-6 sm:col-span-2">
+
+          <div class=" lg:pl-3 col-span-6 sm:col-span-2">
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional Solicitante:
             </label>
@@ -156,7 +158,8 @@
               </select>
             </div>
           </div>
-          <div class="col-span-6 sm:col-span-2">
+
+          <div class="  col-span-6 sm:col-span-2">
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional Execultante:
             </label>
@@ -174,7 +177,7 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-2">
+          <div class=" lg:pr-5 col-span-6 sm:col-span-2">
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional Autorizador:
             </label>
@@ -191,7 +194,8 @@
               </select>
             </div>
           </div>
-          <div class="col-span-6 sm:col-span-1">
+
+          <div class=" lg:pl-3 col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Senha: </label>
             <div class="mt-5 max-w-5xl">
               <input
@@ -204,10 +208,11 @@
               />
             </div>
           </div>
+
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Validade da senha:
             </label>
@@ -227,7 +232,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Data emissão:
             </label>
@@ -246,7 +251,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Data Solicitação:
             </label>
@@ -265,7 +270,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="last_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Data Autorização:
             </label>
@@ -284,7 +289,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Doença:
             </label>
@@ -303,28 +308,28 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-1">
+          <div class=" col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tempo de Doença:
             </label>
             <div class="mt-0 max-w-5xl lg:p-4">
               <input
-                v-model="guideManagement.tempo_doenca"
+                v-model="guideManagement.senha"
                 type="text"
                 name="first_name"
                 id="first_name"
                 autocomplete="given-name"
-                class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+                class="bg-gray-100  shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
           </div>
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Indicação de Acidente:
             </label>
@@ -347,7 +352,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="last_name"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="pl-2 block text-sm font-medium text-gray-700"
             >
               Cid Principal:
             </label>
@@ -366,7 +371,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Atendimento:
             </label>
@@ -388,7 +393,7 @@
           <div class="col-span-6 sm:col-span-1 max-w-5xl">
             <label
               for="local"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Tipo de Consulta:
             </label>
@@ -411,7 +416,7 @@
           <div class="col-span-6 sm:col-span-1 max-w-5xl">
             <label
               for="atendimento_rn"
-              class="flex items-center justify-center block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Atendimento RN:
             </label>
@@ -430,8 +435,8 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-6">
-            <label for="obs" class="block text-sm font-medium text-gray-700"> Obs: </label>
+          <div class=" lg:pl-4 col-span-6 sm:col-span-6">
+            <label for="obs" class="lg:pl-2 block text-sm font-medium text-gray-700"> Obs: </label>
             <div class="mt-3 max-w-5xl">
               <textarea
                 v-model="guideManagement.obs"
