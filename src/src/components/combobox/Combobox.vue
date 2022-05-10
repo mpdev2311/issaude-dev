@@ -12,12 +12,14 @@ interface Props {
   noResults?: string
   valueProp?: string
   labelInput?: string
+  hiddenIcon?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   noResults: 'Não foi encontrado nenhum resultado.',
   label: 'name',
-  valueProp: 'id'
+  valueProp: 'id',
+  hiddenIcon: false
 })
 
 const emit = defineEmits(['update:modelValue', 'changeSearch'])
@@ -86,6 +88,7 @@ defineExpose({
         @focus="(e) => e.target.select()"
       />
       <button
+        v-if="!props.hiddenIcon"
         @click="combobox.toggleCombobox"
         id="button-input"
         type="button"

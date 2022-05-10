@@ -67,8 +67,7 @@ export default {
       state.patient = state.patients.find(pacient => pacient.id == payload)
     },
     SET_PATIENTS_SEARCH: (state: State, payload: PatientDto[]) => {
-      console.log(payload)
-      state.patients = payload
+      state.patients = payload.content
     },
     SEARCH_PATIENT: (state: State, payload: string) => state.parameters.paciente_nome = payload,
     SET_CLEAR_PATIENT_SELECTED: (state: State, payload: PatientDto) => state.patient = payload, 
@@ -141,6 +140,7 @@ export default {
     },
 
     SEARCH_PATIENT: async({ commit }, parameter: RequestPatient) => {
+      console.log('CHAMANDO');
       await commit('SET_PATIENTS_SEARCH', await PatientService.searchPatient(parameter))
     },
   }

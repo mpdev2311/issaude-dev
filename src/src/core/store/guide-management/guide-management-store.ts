@@ -88,7 +88,9 @@ export default {
         
         
         GUIDE_MANAGEMENT_STORE_LOAD : async ({ commit }) => {
-            await commit('GUIDE_MANAGEMENT_STORE_LOAD', await GuideManagementService.getAll())
+            const data = await GuideManagementService.getAll();
+            await commit('GUIDE_MANAGEMENT_STORE_LOAD', data)
+            return data;
         },
 
         

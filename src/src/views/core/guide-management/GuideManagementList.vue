@@ -30,14 +30,13 @@
               Paciente
             </label>
             <div class="mt-2 max-w-5xl">
-              <input
-                v-model="inputFilter.paciente"
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
+              <Combobox :options="patients" label="nome" v-model="inputFilter.id_paciente" @change-search="getPatients" hidden-icon>
+                <!-- <template #noResults>
+                  <button
+                    class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Novo
+                    Paciente</button>
+                </template> -->
+              </Combobox>
             </div>
           </div>
 
@@ -333,12 +332,11 @@
               <div
                 class="px-5 py-2 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between"
               >
-                <Pagination
-                  :item-per-page="10"
-                  :total-items="300"
-                  :current-page="currentPage"
-                  :max-links-displayed="3"
-                />
+               <Pagination 
+                  :item-per-page="pagination.size" 
+                  :total-items="pagination.totalElements"
+                  v-model:current-page="currentPage" 
+                  :max-links-displayed="3" noRouter />
               </div>
             </div>
           </div>
@@ -349,13 +347,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, onBeforeUpdate, toRef, computed } from 'vue'
+import { defineComponent, ref, onMounted, onBeforeUpdate, toRef, computed, reactive, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { mapGetters, mapState, useStore, mapMutations } from 'vuex'
 import { key, store } from '../../../../src/core/store/store'
 import Pagination from '../../../components/pagination/Pagination.vue'
 import Table from '../../../components/layouts/Table/Table.vue'
 import Dropdown from '../../../components/dropdown/Dropdown.vue'
+import { DatePicker } from 'v-calendar';
 import Combobox from '../../../components/combobox/Combobox.vue'
 
 export default defineComponent({
@@ -363,6 +362,7 @@ export default defineComponent({
     Dropdown,
     Pagination,
     Table,
+    Combobox
   },
   methods: {
     ...mapMutations([
@@ -370,12 +370,12 @@ export default defineComponent({
       'guideManagements',
       'localAccess',
       'providers',
-      'guidetypes',
+      'guidetypes'
     ]),
   },
   computed: {
     ...mapState(['guideManagements', 'localAccess', 'providers', 'guidetypes']),
-    ...mapGetters(['guideManagements', 'localAccess', 'providers', 'guidetypes']),
+    ...mapGetters(['guideManagements', 'localAccess', 'providers', 'guidetypes','patients']),
   },
 
   beforeCreate: function () {
@@ -385,17 +385,29 @@ export default defineComponent({
   setup(props) {
     const router = useRouter()
     const route = useRoute()
-
-    const inputFilter = {
-      tipoGuia: 0,
-      prontuario: 0,
-      paciente: '',
-      data_ini: '',
-      data_fim: '',
-      convenio: 0,
-      local_atend: 0,
-      profissional: 0,
-    }
+    //const patients  = computed(() => store.getters.patients)
+    const currentPage = ref(1);
+    const user = computed(() => store.getters.user);
+    const pagination = ref({
+      totalPages: 0,
+      size: 0,
+      totalElements: 0
+    })
+ 
+   const inputFilter = reactive(
+        {
+        tipoGuia: 0,
+        prontuario: 0,
+        id_paciente: '',
+        paciente: '',
+        data_ini: '',
+        data_fim: '',
+        convenio: 0,
+        local_atend: 0,
+        profissional: 0,
+      }
+    );
+   
     const columnsTab = ref({
       iditem: {
         label: 'ID',
@@ -452,12 +464,12 @@ export default defineComponent({
       },
     })
 
-    const currentPage = computed(() => {
-      try {
-        return Number.parseInt(route.query.page as string) || 1
-      } catch {}
-      return 1
-    })
+    // const currentPage = computed(() => {
+    //   try {
+    //     return Number.parseInt(route.query.page as string) || 1
+    //   } catch {}
+    //   return 1
+    // })
 
     onMounted(async () => {
       await store.dispatch('LOAD_LOCAL_ACESS')
@@ -465,6 +477,17 @@ export default defineComponent({
       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
       await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
     })
+
+  async function getPatients(nome: string) {
+    console.log(nome);
+  if (!nome.length) return
+  await store.dispatch('SEARCH_PATIENT', {
+    page: 0,
+    size: 20,
+    paciente_nome: nome,
+    id_corp: 1 //user.value.id_corp
+  })
+}
 
     const onEdit = (dados) => {
       switch (dados.tipo) {
@@ -534,6 +557,17 @@ export default defineComponent({
           alert('Selecione um Tipo de Guia')
           break
       }
+
+      watch(currentPage, async (value) => {
+        await getListGuides(value - 1)
+      },{immediate: true})
+
+      const getListGuides = async(page = 0) => {
+        let result= await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
+        pagination.value.size = result.value.size
+        pagination.value.totalElements = result.value.totalElements
+        pagination.value.totalPages = result.value.totalPages
+      }
       // if(inputFilter.tipoGuia !== 0){
       //    if(inputFilter.tipoGuia === 3){
       //       router.push(`/guide-sadt/0`)
@@ -567,6 +601,8 @@ export default defineComponent({
       currentPage,
       columnsTab,
       inputFilter,
+      getPatients,
+      pagination
       //dataAtualFormatada
     }
   },
