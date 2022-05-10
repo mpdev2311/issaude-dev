@@ -49,10 +49,12 @@
                 autocomplete="local"
                 class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
-                <option v-bind:value="0">Selecione</option>
-                <option v-for="i in localAccess" :key="i" :value="2">
-                  {{ i.localAttendance.local }}
-                </option>
+                <option value="0">Selecionar</option>
+                  <option
+                    v-for="i in localAccess"
+                    :key="i"
+                    :value="2"
+                  >{{ i.localAttendance.local }}</option>
               </select>
             </div>
           </div>
