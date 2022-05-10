@@ -230,12 +230,11 @@
                   <div
                     class="px-5 py-2 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between"
                   >
-                    <Pagination
-                      :item-per-page="10"
-                      :total-items="300"
-                      :current-page="currentPage"
-                      :max-links-displayed="3"
-                    />
+                   <!-- <Pagination 
+                    :item-per-page="pagination.size" 
+                    :total-items="pagination.totalElements"
+                    v-model:current-page="currentPage" 
+                    :max-links-displayed="3" noRouter /> -->
                   </div>
                 </div>
               </div>
@@ -254,9 +253,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, onBeforeUpdate, toRef, computed } from "vue";
+import { defineComponent, ref, onMounted, watch } from "vue";
 import { useRouter, useRoute } from 'vue-router'
-import { mapGetters, mapState, useStore } from "vuex";
+import { mapGetters,mapMutations, mapState, useStore } from "vuex";
 import { key, store } from "../../../../src/core/store/store";
 import Pagination from '../../../components/pagination/Pagination.vue';
 import Table from '../../../components/layouts/Table/Table.vue';
@@ -273,11 +272,19 @@ export default defineComponent({
     Modal,
     ModalFees
   },
-
+ methods: {
+    ...mapMutations([
+      'billsSadts',
+      'guideManagements',
+       'localAccess',
+       'providers',
+       'guidetypes'
+    ]),
+  },
   computed:{
     ...mapState([
-        'billsSadts',
-        'guideManagements',
+      'billsSadts',
+      'guideManagements',
        'localAccess',
        'providers',
        'guidetypes'
@@ -285,9 +292,9 @@ export default defineComponent({
     ...mapGetters([
       'billsSadts',
       'guideManagements',
-       'localAccess',
-       'providers',
-        'guidetypes'
+      'localAccess',
+      'providers',
+      'guidetypes'
     ]),
   },
 
@@ -301,6 +308,12 @@ export default defineComponent({
     const route = useRoute();
     const modalIsOpen = ref(false);
     const modalFees = ref(false);
+    const currentPage = ref(1);  
+    const pagination = ref({
+      totalPages: 0,
+      size: 0,
+      totalElements: 0
+    })
     const columnsTab = ref({
                       iditem: {
                         label: 'ID',
@@ -366,12 +379,7 @@ export default defineComponent({
                       }
                     })
                     
-    const currentPage = computed(() => {
-      try {
-        return Number.parseInt(route.query.page as string) || 1
-      } catch { }
-      return 1
-    })
+  
 
     onMounted(async () => {
         await store.dispatch('BILLS_STORE_LOAD')
@@ -380,7 +388,7 @@ export default defineComponent({
         await store.dispatch('GUIDES_TYPE_STORE_LOAD')
         await store.dispatch('GUIDE_MANAGEMENT_STORE_LOAD')
 
-        console.log(store.getters.billsSadts);
+      //  console.log(store.getters.billsSadts);
     })
 
     const onEdit = (id) => {
@@ -395,6 +403,20 @@ export default defineComponent({
     const onCreate = () =>{
       router.push('/guide-management/0')
     }
+
+    
+
+      const getListGuides = async(page = 0) => {
+        let result= await store.dispatch('BILLS_STORE_LOAD')
+        console.log(result);
+        pagination.value.size = result.value.size
+        pagination.value.totalElements = result.value.totalElements
+        pagination.value.totalPages = result.value.totalPages
+      }
+
+       watch(currentPage, async (value) => {
+        await getListGuides(value - 1)
+      },{immediate: true})
 
 //     const dataAtualFormatada = () =>{
 //     let data = new Date(),
@@ -427,7 +449,7 @@ export default defineComponent({
       onOpenModal,
       modalIsOpen,
       modalFees,
-      openModalFees
+      openModalFees,
       //dataAtualFormatada
     };
   },

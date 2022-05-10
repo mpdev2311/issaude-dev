@@ -71,8 +71,8 @@
                 </div>
               </div>
               <div class="border-b-2 px-3 py-4 text-white bg-gray-900 rounded-b-lg">
-                <div class="flex flex-wrap md:items-center md:justify-between">
-                  <div class="w-4/6 text-right"></div>
+                <div class="flex sm:flex-wrap sm:items-center sm:justify-between flex-row items-center justify-around">         
+                 <div class="w-4/6 text-right hidden sm:block"> </div>
                   <div class="w-2/2 text-right">
                     <button
                       v-show="step > 1"

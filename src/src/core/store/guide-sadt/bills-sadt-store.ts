@@ -73,7 +73,9 @@ export default {
     actions :{ 
         
         BILLS_STORE_LOAD : async ({ commit }) => {
-            await commit('BILLS_STORE_LOAD', await BillsService.getAll())
+            const data = await BillsService.getAll();
+            await commit('BILLS_STORE_LOAD', data)
+            return data;
         },
 
         
