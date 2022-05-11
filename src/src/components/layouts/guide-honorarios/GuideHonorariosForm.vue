@@ -7,7 +7,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Paciente:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-4 max-w-5xl">
               <Combobox :options="patients" label="nome" v-model="guideManagement.id_paciente" @change-search="getPatients" hidden-icon>
                 <!-- <template #noResults>
                   <button
@@ -23,16 +23,13 @@
               Empresa executante:
             </label>
             <div class="mt-3">
-              <select
-                v-model="guideManagement.id_solicitante"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
+               <select  v-model="guideManagement.id_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
                 <option v-bind:value="0">Selecione</option>
-                <option v-for="i in providers.content" :key="i" :value="i.id">{{ i.nome }}</option>
-              </select>
+                <option v-for="i in localAccess" :key="i" :value="1">
+                  {{ i.localAttendance.local }}
+                </option>
+            </select>
+            
             </div>
           </div>
 
@@ -71,7 +68,7 @@
                 class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option v-bind:value="0">Selecione</option>
-                <option v-for="i in providers.content" :key="i" :value="i.id">{{ i.nome }}</option>
+                <option v-for="i in professionalRequesting.content" :key="i" :value="i.id">{{ i.nome }}</option>
               </select>
             </div>
           </div>
@@ -135,7 +132,7 @@
             <div class="mt-4 max-w-5xl">
               <input
                 v-model="guideManagement.senha"
-                type="text"
+                type="password"
                 name="first_name"
                 id="first_name"
                 autocomplete="given-name"
@@ -168,16 +165,12 @@
               Empresa Solicitante:
             </label>
             <div class="mt-3 max-w-5xl">
-              <select
-                v-model="guideManagement.id_empresa_solicitante"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
+               <select  v-model="guideManagement.id_empresa_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
                 <option v-bind:value="0">Selecione</option>
-                <option v-for="i in providers.content" :key="i" :value="i.id">{{ i.nome }}</option>
-              </select>
+                <option v-for="i in localAccess" :key="i" :value="1">
+                  {{ i.localAttendance.local }}
+                </option>
+            </select>  
             </div>
           </div>
 
@@ -194,7 +187,7 @@
                 class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option v-bind:value="0">Selecione</option>
-                <option v-for="i in providers.content" :key="i" :value="i.id">{{ i.nome }}</option>
+                <option v-for="i in professionalAuthorizing.content" :key="i" :value="i.id">{{ i.nome }}</option>
               </select>
             </div>
           </div>
@@ -267,12 +260,14 @@ export default defineComponent({
       'localAccess',
       'providers',
       'guidetypes',
+      'professionalRequesting',
+      'professionalAuthorizing'
     ]),
   },
 
   computed: {
-    ...mapState(['guideManagement', 'localAccess', 'providers', 'guidetypes']),
-    ...mapGetters(['guideManagement', 'localAccess', 'providers', 'guidetypes','patients']),
+    ...mapState(['guideManagement', 'localAccess', 'providers', 'guidetypes', 'professionalRequesting', 'professionalAuthorizing']),
+    ...mapGetters(['guideManagement', 'localAccess', 'providers', 'guidetypes','patients', 'professionalRequesting', 'professionalAuthorizing']),
   },
 
   beforeCreate: function () {
@@ -287,7 +282,7 @@ export default defineComponent({
       numero_guia: '0',
       emissao: '',
       id_profissional_executante: 0,
-      id_paciente: 0,
+      id_paciente: '',
       tipo_doenca: '',
       tempo_doenca: '',
       indicacao_acidente: 2,
@@ -355,6 +350,8 @@ export default defineComponent({
       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
       await store.dispatch('LOAD_LOCAL_ACESS')
       await store.dispatch('PROVIDER_STORE_LOAD')
+      await store.dispatch('PROFESSIONAL_REQUESTING_STORE_LOAD')
+      await store.dispatch('PROFESSIONAL_AUTHORIZING_STORE_LOAD')
       const { id } = router.currentRoute.value.params
 
       if (id !== '0') {

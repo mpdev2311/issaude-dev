@@ -6,6 +6,15 @@ export class GuideManagements {
     totalElements: number;
 }
 
+export class TypeService {
+    id: number;
+    nome: string;
+    valor: string;
+    sadt?: boolean;
+    consulta?: boolean;
+    ativo: boolean;
+}
+
 export interface Provider {
     id: number;
     nome: string;
@@ -43,7 +52,7 @@ export class GuideManagement {
         numero_guia: string;
         emissao: string;
         id_profissional_executante: number;
-        id_paciente: number;
+        id_paciente: string;
         tipo_doenca: string;
         tempo_doenca: string;
         indicacao_acidente: number;

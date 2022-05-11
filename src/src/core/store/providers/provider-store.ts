@@ -143,23 +143,42 @@ export default {
             id_idioma: 0,
             id_publico: 0,
             id_abordagem: 0
-        } 
+        },        
+        professionalPerformer: [],
+        professionalRequesting: [],
+        professionalAuthorizing: [],
     }),
 
     getters: {
         providers : (state) => state.providers,
-        provider : (state) => state.provider
+        provider : (state) => state.provider,        
+        professionalPerformer: (state) => state.professionalPerformer,
+        professionalRequesting: (state) => state.professionalRequesting,
+        professionalAuthorizing: (state) => state.professionalAuthorizing,
     }, 
 
     mutations: {
         PROVIDER_STORE_LOAD : (state, payload) => state.providers = payload,
         PROVIDER_STORE_LOAD_BY_ID : (state, payload) => state.provider = payload,
+        PROFESSIONAL_PERFORMER_STORE_LOAD: (state, payload) => state.professionalPerformer = payload,
+        PROFESSIONAL_REQUESTING_STORE_LOAD: (state, payload) => state.professionalRequesting = payload,
+        PROFESSIONAL_AUTHORIZING_STORE_LOAD: (state, payload) => state.professionalAuthorizing = payload,
     },
 
     actions :{
         
         PROVIDER_STORE_LOAD : async ({ commit }) => {
             await commit('PROVIDER_STORE_LOAD', await ProviderService.getAll())
+        },
+
+        PROFESSIONAL_PERFORMER_STORE_LOAD : async ({ commit }) => {
+            await commit('PROFESSIONAL_PERFORMER_STORE_LOAD', await ProviderService.getProfessionalPerformer())
+        },
+        PROFESSIONAL_REQUESTING_STORE_LOAD : async ({ commit }) => {
+            await commit('PROFESSIONAL_REQUESTING_STORE_LOAD', await ProviderService.getProfessionalRequest())
+        },
+        PROFESSIONAL_AUTHORIZING_STORE_LOAD : async ({ commit }) => {
+            await commit('PROFESSIONAL_AUTHORIZING_STORE_LOAD', await ProviderService.getProfessionalAuthorizing())
         },
  
         PROVIDER_STORE_SET_BLANK : async ({ commit }, provider : Provider) =>{
