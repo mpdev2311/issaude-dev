@@ -5,12 +5,13 @@ import router from "../../../router";
 export default {
     state: () => ({
         guideManagements: [],
+        getTypeService: [],
         guideManagement: {
             id: 0,
             numero_guia: "",
             emissao: "",
             id_profissional_executante: 0,
-            d_paciente: 0,
+            id_paciente: 0,
             tipo_doenca: "",
             tempo_doenca: "",
             ndicacao_acidente: 0,
@@ -46,7 +47,6 @@ export default {
             id_plano: 1,
             id_acomodacao: null,
             alta: null,
-            id_paciente: 0,
             id_entrega: null,
             data_hora_recebimento: null,
             id_user_recebeu: null,
@@ -76,12 +76,14 @@ export default {
 
     getters: {
         guideManagements: (state) => state.guideManagements,
-        guideManagement: (state) => state.guideManagement
+        guideManagement: (state) => state.guideManagement,
+        getTypeService:  (state) => state.getTypeService,
     }, 
 
     mutations: {
         GUIDE_MANAGEMENT_STORE_LOAD : (state, payload) => state.guideManagements = payload,
-        GUIDE_MANAGEMENT_STORE_LOAD_BY_ID : (state, payload) => state.guideManagement = payload
+        GUIDE_MANAGEMENT_STORE_LOAD_BY_ID : (state, payload) => state.guideManagement = payload,
+        TYPE_SERVICE_GUIDE_LOAD : (state, payload) => state.getTypeService = payload,
     },
 
     actions :{        
@@ -90,6 +92,12 @@ export default {
         GUIDE_MANAGEMENT_STORE_LOAD : async ({ commit }) => {
             const data = await GuideManagementService.getAll();
             await commit('GUIDE_MANAGEMENT_STORE_LOAD', data)
+            return data;
+        },
+
+        TYPE_SERVICE_GUIDE_LOAD : async ({ commit }) => {
+            const data = await GuideManagementService.getTypeService();
+            await commit('TYPE_SERVICE_GUIDE_LOAD', data)
             return data;
         },
 

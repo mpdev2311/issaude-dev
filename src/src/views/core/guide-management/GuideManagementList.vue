@@ -585,7 +585,7 @@ export default defineComponent({
       // }
     }
 
-    //     const dataAtualFormatada = () =>{
+    //   const dataAtualFormatada = () =>{
     //     let data = new Date(),
     //         dia  = data.getDate().toString().padStart(2, '0'),
     //         mes  = (data.getMonth()+1).toString().padStart(2, '0'),

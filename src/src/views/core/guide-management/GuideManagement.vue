@@ -27,7 +27,7 @@
           Paciente
           </label>
           <div class="mt-3 max-w-5xl">
-              <Combobox :options="patients" label="nome" v-model="guideManagement.id_paciente" @change-search="getPatients" hidden-icon>
+              <Combobox class="bg-gray-100" autocomplete="given-name" :options="patients" label="nome" v-model="guideManagement.id_paciente" @change-search="getPatients" hidden-icon>
                 <!-- <template #noResults>
                   <button
                     class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Novo
@@ -42,7 +42,12 @@
           Empresa Solicitante
           </label>
            <div class="mt-2 max-w-5xl ">
-            <input  v-model="guideManagement.id_empresa_solicitante" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
+              <select  v-model="guideManagement.id_empresa_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+                <option v-bind:value="0">Selecione</option>
+                <option v-for="i in localAccess" :key="i" :value="1">
+                  {{ i.localAttendance.local }}
+                </option>
+            </select>
           </div>
         </div>
  
@@ -52,12 +57,10 @@
           </label>
           <div>
             <select  v-model="guideManagement.id_local_atendimento" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-                  <option value="0">Selecionar</option>
-                  <option
-                    v-for="i in localAccess"
-                    :key="i"
-                    :value="2"
-                  >{{ i.localAttendance.local }}</option>
+                <option v-bind:value="0">Selecione</option>
+                <option v-for="i in localAccess" :key="i" :value="2">
+                  {{ i.localAttendance.local }}
+                </option>
             </select>
           </div>
         </div>
@@ -68,8 +71,7 @@
           <div>
             <select  v-model="guideManagement.id_profissional_executante" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option value="">Selecionar</option>
-              <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
-              <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
+              <option v-for="i in professionalPerformer.content" :key="i" :value="i.id" >{{i.nome}}</option> 
             </select>
           </div>
         </div>
@@ -80,8 +82,7 @@
           <div>
             <select  v-model="guideManagement.id_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option value="">Selecionar</option>
-              <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
-               <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
+               <option v-for="i in professionalRequesting.content" :key="i" :value="i.id" >{{i.nome}}</option> 
             </select>
           </div>
         </div>
@@ -92,8 +93,7 @@
           <div>
             <select  v-model="guideManagement.id_medico_autorizador" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option value="">Selecionar</option>
-               <option v-for="i in providers.content" :key="i" :value="i.id" >{{i.nome}}</option> 
-              <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
+               <option v-for="i in professionalAuthorizing.content" :key="i" :value="i.id" >{{i.nome}}</option>
             </select>
           </div>
         </div>
@@ -103,8 +103,8 @@
           </label>
           <div>
             <select   v-model="guideManagement.id_especialidade" id="select-local-atendimento" name="local" autocomplete="local" class=" mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-               <option  v-bind:value="1">Selecione</option>
-               <!-- <option v-for="i in providers.content" :key="i" :value="i.specialtie.id" >{{i.specialtie.nome_especialidade}}</option>  -->
+               <option value="">Selecione</option>
+               <option v-for="i in providers.content" :key="i" :value="i.primeira_especialidade.id" >{{i.primeira_especialidade.nome_especialidade}}</option> 
             </select>
           </div>
         </div>
@@ -121,7 +121,7 @@
          Senha
           </label>
           <div class="mt-1 max-w-5xl">
-            <input v-model="guideManagement.senha" type="text" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
+            <input v-model="guideManagement.senha" type="password" name="first_name" id="first_name" autocomplete="given-name" class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out" >
           </div>
         </div>
         <div class="col-span-6 sm:col-span-1">
@@ -183,9 +183,8 @@
           </label>          
           <div>            
             <select  v-model="guideManagement.tipo_atendimento" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-              <option value="">Selecionar</option>
-              <!-- <option v-for="i in specialties" :key="i" :value="i.id"  >{{i.nome_especialidade}}</option>  -->
-              <option v-bind:value="'04'">teste Tipo de Atendimento</option>
+               <option value="">Selecionar</option>
+               <option v-for="i in getTypeService" :key="i" :value="i.id" >{{i.nome}}</option> 
             </select>
           </div>
         </div>
@@ -339,7 +338,11 @@ export default defineComponent({
              'guideManagements',
              'localAccess',
              'providers',
-             'guidetypes'
+             'guidetypes',
+             'getTypeService',
+            'professionalPerformer',
+            'professionalRequesting',
+            'professionalAuthorizing'
          ]),
       },
 
@@ -348,13 +351,22 @@ export default defineComponent({
       'guideManagement',
       'localAccess',
       'providers',
-      'guidetypes'
+      'guidetypes',
+      'getTypeService',
+       'professionalPerformer',
+        'professionalRequesting',
+        'professionalAuthorizing'
       ]),
     ...mapGetters([
       'guideManagement',
       'localAccess',
       'providers',
-      'guidetypes','patients'
+      'guidetypes',
+      'patients',
+      'getTypeService',
+      'professionalPerformer',
+      'professionalRequesting',
+      'professionalAuthorizing'
     ]),
   },
 
@@ -370,7 +382,7 @@ export default defineComponent({
       numero_guia: "0",
       emissao: "",
       id_profissional_executante: 0,
-      id_paciente: 0,
+      id_paciente: "",
       tipo_doenca: "",
       tempo_doenca: "",
       indicacao_acidente: 2,
@@ -438,6 +450,11 @@ export default defineComponent({
       await store.dispatch('LOAD_LOCAL_ACESS')
       await store.dispatch('PROVIDER_STORE_LOAD')
       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
+      await store.dispatch('TYPE_SERVICE_GUIDE_LOAD')
+      await store.dispatch('PROFESSIONAL_PERFORMER_STORE_LOAD')
+      await store.dispatch('PROFESSIONAL_REQUESTING_STORE_LOAD')
+      await store.dispatch('PROFESSIONAL_AUTHORIZING_STORE_LOAD')
+
       const { id } = router.currentRoute.value.params;
 
       if(id !== '0'){
@@ -457,8 +474,7 @@ export default defineComponent({
       await store.dispatch('GUIDE_MANAGEMENT_STORE_SAVE')
     };
     
-      async function getPatients(nome: string) {
-    console.log(nome);
+  async function getPatients(nome: string) {
   if (!nome.length) return
   await store.dispatch('SEARCH_PATIENT', {
     page: 0,
@@ -468,10 +484,19 @@ export default defineComponent({
   })
 }
 
+  const formatDate = (date) =>{
+      let data = date;//new Date(),
+      let dia = data.getDate().toString().padStart(2, '0');
+      let mes  = (data.getMonth()+1).toString().padStart(2, '0');
+      let ano  = data.getFullYear();
+      return `${dia}/${mes}/${ano}`;
+  }
+
     return {
       onSave,
       onCancel,
-      getPatients
+      getPatients,
+      formatDate
     };
 
   }

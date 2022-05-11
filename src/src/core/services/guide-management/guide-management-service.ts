@@ -1,4 +1,4 @@
-import { GuideManagement, GuideManagements } from './../../domain/guide-management/guide-management-model';
+import { GuideManagement, GuideManagements, TypeService } from './../../domain/guide-management/guide-management-model';
 import { AxiosResponse } from 'axios'
 import { axios } from '../request'
 import { AxiosInstance } from 'axios';
@@ -14,6 +14,12 @@ export default class GuideManagementService{
 
         const { get } = axios as AxiosInstance;
         const { data } = await get(`/revenues/guides?page=0&size=20&id_corp=1&start_date=01/02/2022&end_date=${dataAtual}`)
+        return data;
+    }
+
+    public static async getTypeService() : Promise<Array<TypeService>>{ 
+        const { get } = axios as AxiosInstance;
+        const { data } = await get(`/revenues/service-type-guide?page=0&size=20&id_corp=1`)
         return data;
     }
 
