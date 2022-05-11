@@ -23,11 +23,11 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="lg:pl-6 block text-sm font-medium text-gray-700"
+              class=" block text-sm font-medium text-gray-700"
             >
               Início Atendimento:
             </label>
-            <div class="mt-0 lg:p-4">
+            <div class="lg:mt-4  ">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -39,9 +39,24 @@
               />
             </div>
           </div>
-          <div class="col-span-6 sm:col-span-1">          
-            <div class="mt-5 lg:p-4">              
-               <input type="time" pattern="\d{1,2}:\d{1,2}" v-model="guideManagement.hora_atendimento"  name="inicio" id="inicio" autocomplete="inicio" class=" ml-1 mr-1 text-sm bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-r border border-gray-300 rounded-md" >
+
+          <div class="col-span-6 sm:col-span-1">
+            <label
+              for="first_name"
+              class=" block text-sm font-medium text-gray-700"
+            >
+              Data:
+            </label>
+            <div class="mt-4  ">
+              <input
+                type="date"
+                pattern="\d{4}-\d{1,2}-\d{1,2}"
+                v-model="guideManagement.data_atendimento"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
             </div>
           </div>
 
@@ -49,7 +64,7 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Local de Atendimento:
             </label>
-            <div class="mt-4 max-w-5xl">
+            <div class="mt-4 max-w-5xl lg:pr-4">
               <select
                 v-model="guideManagement.id_local_atendimento"
                 id="select-local-atendimento"
@@ -67,7 +82,7 @@
 
           <div class="col-span-6 sm:col-span-1 m-2">
             <label for="nome" class="block text-sm font-medium text-gray-700"> Tipo de Guia </label>
-            <div class="mt-2 max-w-5xl">
+            <div class="mt-3 max-w-5xl">
               <select
                 disabled
                 v-model="guideManagement.tipo"
@@ -86,7 +101,7 @@
             <label for="last_name" class="block text-sm font-medium text-gray-700">
               Registro:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-5 max-w-5xl">
               <input
                 type="date"
                 v-model="guideManagement.id"
@@ -103,7 +118,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               N°.Guia:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-5 max-w-5xl">
               <input
                 v-model="guideManagement.numero_guia"
                 type="text"
@@ -119,7 +134,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Data emissão:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-5 max-w-5xl">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -134,7 +149,7 @@
 
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Data Autorização: </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="lg:mt-5 max-w-5xl">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -149,7 +164,7 @@
          
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Senha: </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-5 max-w-5xl lg:pr-4">
               <input
                 v-model="guideManagement.senha"
                 type="text"
@@ -179,7 +194,7 @@
 
            <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">Validade da Senha: </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="lg:mt-5 max-w-5xl">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -193,8 +208,8 @@
           </div>
 
           <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class=" lg:pl-6 block text-sm font-medium text-gray-700"> N:° Guia Solicitante:  </label>
-            <div class="mt-0 lg:p-4">
+            <label for="first_name" class=" lg:pl-1 block text-sm font-medium text-gray-700"> N:° Guia Solicitante:  </label>
+            <div class="lg:mt-5 ">
               <input
                 v-model="guideManagement.numero_guia_solicitacao_internacao"
                 type="text"
@@ -212,7 +227,7 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Empresa Solicitante:
             </label>
-            <div class="mt-5 max-w-5xl">
+            <div class="mt-5 max-w-5xl lg:pr-4">
               <select
                 v-model="guideManagement.id_solicitante"
                 id="select-local-atendimento"
@@ -250,7 +265,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Empresa executante:
             </label>
-            <div class="mt-0 lg:p-4">
+            <div class="lg:mt-5 ">
                <select
                 v-model="guideManagement.id_solicitante"
                 id="select-local-atendimento"
@@ -268,7 +283,7 @@
 
           <div class="col-span-6 sm:col-span-2">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Local de Atendimento:  </label>
-            <div class="mt-0 lg:p-4">
+            <div class="mt-5 ">
                <select
                 v-model="guideManagement.id_local_atendimento"
                 id="select-local-atendimento"
@@ -304,8 +319,8 @@
           </div>
 
           <div class="col-span-6 sm:col-span-1 max-w-5xl">
-            <label for="local" class="block text-sm font-medium text-gray-700"> Carater de Internação: </label>
-            <div class="mt-5 max-w-5xl">
+            <label for="local" class="grid block text-sm font-medium text-gray-700"> Carater de Internação: </label>
+            <div class="mt-0 max-w-5xl">
               <select  v-model="guideManagement.carater_internacao" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
               <option value="">Selecionar</option>
                <option v-bind:value="'E'">Eletiva</option>
@@ -331,7 +346,7 @@
 
            <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Tipo de Acomodação:  </label>
-            <div class="mt-0 lg:p-4">
+            <div class="mt-0 ">
                <select
                 v-model="guideManagement.id_local_atendimento"
                 id="select-local-atendimento"
@@ -388,11 +403,11 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="local"
-              class="lg:pl-6 block text-sm font-medium text-gray-700"
+              class=" block text-sm font-medium text-gray-700"
             >
               Tipo de Doença
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="lg:mt-6 max-w-5xl ">
               <select
                 v-model="guideManagement.tipo_doenca"
                 id="select-local-atendimento"
@@ -430,7 +445,7 @@
             >
               Prova Diagnóstica:
             </label>
-            <div class="mt-1 max-w-5xl lg:p-4">
+            <div class="mt-1 max-w-5xl ">
               <input
                 v-model="guideManagement.prova_diagnostica"
                 type="text"
@@ -555,7 +570,7 @@
 
            <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Tipo de Alta:  </label>
-            <div class="mt-0 lg:p-4">
+            <div class="mt-5 ">
                <select
                 v-model="guideManagement.tipo_saida"
                 id="select-local-atendimento"
