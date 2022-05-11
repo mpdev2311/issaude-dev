@@ -147,13 +147,13 @@
             </div>
           </div>
 
+                 
           <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="block text-sm font-medium text-gray-700"> Data Autorização: </label>
-            <div class="lg:mt-5 max-w-5xl">
+            <label for="first_name" class=" lg:pl-1 block text-sm font-medium text-gray-700"> N:° Guia Solicitante:  </label>
+            <div class="lg:mt-5 ">
               <input
-                type="date"
-                pattern="\d{4}-\d{1,2}-\d{1,2}"
-                v-model="guideManagement.data_autorizacao"
+                v-model="guideManagement.numero_guia_solicitacao_internacao"
+                type="text"
                 name="first_name"
                 id="first_name"
                 autocomplete="given-name"
@@ -161,7 +161,7 @@
               />
             </div>
           </div>
-         
+
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Senha: </label>
             <div class="mt-5 max-w-5xl lg:pr-4">
@@ -176,6 +176,22 @@
             </div>
           </div>
                
+                   
+          <div class="col-span-6 sm:col-span-1">
+            <label for="first_name" class="block text-sm font-medium text-gray-700"> Data Autorização: </label>
+            <div class="lg:mt-5 max-w-5xl">
+              <input
+                type="date"
+                pattern="\d{4}-\d{1,2}-\d{1,2}"
+                v-model="guideManagement.data_autorizacao"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>
+
           <div class="col-span-6 sm:col-span-2">
             <label for="local" class="block text-sm font-medium text-gray-700"> Internação: </label>
             <div class="mt-5">
@@ -205,22 +221,7 @@
                 class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class=" lg:pl-1 block text-sm font-medium text-gray-700"> N:° Guia Solicitante:  </label>
-            <div class="lg:mt-5 ">
-              <input
-                v-model="guideManagement.numero_guia_solicitacao_internacao"
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="bg-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-                  
+          </div>                      
        
 
           <div class="col-span-6 sm:col-span-2">
@@ -318,16 +319,7 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-1 max-w-5xl">
-            <label for="local" class="grid block text-sm font-medium text-gray-700"> Carater de Internação: </label>
-            <div class="mt-0 max-w-5xl">
-              <select  v-model="guideManagement.carater_internacao" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
-              <option value="">Selecionar</option>
-               <option v-bind:value="'E'">Eletiva</option>
-               <option v-bind:value="'U'">Urgência</option>
-            </select>
-            </div>
-          </div>        
+                 
 
           <div class="col-span-6 sm:col-span-2">
             <label for="local" class="block text-sm font-medium text-gray-700">
@@ -343,6 +335,17 @@
             </select>
             </div>
           </div>
+                
+          <div class="col-span-6 sm:col-span-1 max-w-5xl">
+            <label for="local" class=" block text-sm font-medium text-gray-700"> Carater de Internação: </label>
+            <div class="mt-0 max-w-5xl">
+              <select  v-model="guideManagement.carater_internacao" id="select-local-atendimento" name="local" autocomplete="local" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
+              <option value="">Selecionar</option>
+               <option v-bind:value="'E'">Eletiva</option>
+               <option v-bind:value="'U'">Urgência</option>
+            </select>
+            </div>
+          </div> 
 
            <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Tipo de Acomodação:  </label>
