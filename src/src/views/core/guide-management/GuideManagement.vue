@@ -17,7 +17,7 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Guia Prestador
           </label>
-          <div class="mt-2 max-w-5xl ">
+          <div class="mt-4 max-w-5xl ">
             <input  v-model="guideManagement.id" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
           </div>
         </div>
@@ -26,10 +26,17 @@
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Paciente
           </label>
-           <div class="mt-2 max-w-5xl ">
-            <input  v-model="guideManagement.id_paciente" type="text" name="first_name" id="first_name" autocomplete="given-name" class="shadow-sm focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out ">
-          </div>
+          <div class="mt-3 max-w-5xl">
+              <Combobox :options="patients" label="nome" v-model="guideManagement.id_paciente" @change-search="getPatients" hidden-icon>
+                <!-- <template #noResults>
+                  <button
+                    class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Novo
+                    Paciente</button>
+                </template> -->
+              </Combobox>
+            </div>
         </div>
+
         <div class="col-span-6 sm:col-span-2">
           <label for="first_name" class="block text-sm font-medium text-gray-700">
           Empresa Solicitante
@@ -316,13 +323,15 @@ import { defineComponent, ref, onMounted } from "vue";
 import { useRouter } from "vue-router"
 import {mapGetters, mapMutations, mapState, useStore } from 'vuex'
 import { key, store } from "../../../../src/core/store/store"
-import { GuideManagement } from "../../../core/domain/guide-management/guide-management-model";
+import { GuideManagement } from "../../../core/domain/guide-management/guide-management-model"
+import Combobox from '../../../components/combobox/Combobox.vue'
 
 
  
 export default defineComponent({
 
   components: { 
+    Combobox
   },
    methods: {
          ...mapMutations([   
@@ -345,7 +354,7 @@ export default defineComponent({
       'guideManagement',
       'localAccess',
       'providers',
-      'guidetypes'
+      'guidetypes','patients'
     ]),
   },
 
@@ -447,10 +456,22 @@ export default defineComponent({
       store.getters.guideManagement.tipo = 5;
       await store.dispatch('GUIDE_MANAGEMENT_STORE_SAVE')
     };
+    
+      async function getPatients(nome: string) {
+    console.log(nome);
+  if (!nome.length) return
+  await store.dispatch('SEARCH_PATIENT', {
+    page: 0,
+    size: 20,
+    paciente_nome: nome,
+    id_corp: 1 //user.value.id_corp
+  })
+}
 
     return {
       onSave,
       onCancel,
+      getPatients
     };
 
   }
