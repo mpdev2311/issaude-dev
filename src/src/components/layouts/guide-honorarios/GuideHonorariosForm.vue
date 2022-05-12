@@ -59,7 +59,7 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional executante:
             </label>
-            <div class="mt-4">
+            <div class="mt-6">
               <select
                 v-model="guideManagement.id_profissional_executante"
                 id="select-local-atendimento"
@@ -75,7 +75,7 @@
 
           <div class="col-span-6 sm:col-span-1 m-2">
             <label for="nome" class="block text-sm font-medium text-gray-700"> Tipo de Guia </label>
-            <div class="mt-4">
+            <div class="lg:mt-4">
               <select
                 disabled
                 v-model="guideManagement.tipo"
@@ -93,7 +93,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="pl-6 block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Guia Prestador:
             </label>
@@ -112,7 +112,7 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="first_name"
-              class="pl-6 block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Guia operadora:
             </label>
@@ -145,7 +145,7 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Atendimento RN:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="lg:mt-6 max-w-5xl">
               <select
                 v-model="guideManagement.atendimento_rn"
                 id="select-local-atendimento"
@@ -164,7 +164,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Empresa Solicitante:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-6 max-w-5xl">
                <select  v-model="guideManagement.id_empresa_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
                 <option v-bind:value="0">Selecione</option>
                 <option v-for="i in localAccess" :key="i" :value="1">
@@ -178,7 +178,7 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional Autorizador:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-6 max-w-5xl">
               <select
                 v-model="guideManagement.id_medico_autorizador"
                 id="select-local-atendimento"
@@ -196,7 +196,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Guia Principal:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-6 max-w-5xl">
               <input
                 v-model="guideManagement.numero_guia_solicitacao_internacao"
                 type="text"

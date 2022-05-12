@@ -11,7 +11,7 @@
             >
               Guia Prestador:
             </label>
-            <div class="mt-1 max-w-5xl lg:p-4">
+            <div class="mt-0 max-w-5xl lg:p-4">
               <input
                 v-model="guideManagement.id_prestador"
                 type="text"
@@ -61,7 +61,7 @@
             <label for="nome" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Tipo de Guia:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-4 max-w-5xl lg:pr-4">
               <select
                 disabled
                 v-model="guideManagement.tipo"
@@ -77,10 +77,10 @@
           </div>
 
           <div class=" lg:pl-3 col-span-6 sm:col-span-2">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">
+            <label for="first_name" class="pl-2 block text-sm font-medium text-gray-700">
               Empresa Solicitante:
             </label>
-            <div class="mt-1 max-w-5xl">
+            <div class="mt-5 pl-1 max-w-5xl">
               <select  v-model="guideManagement.id_empresa_solicitante" id="select-local-atendimento" name="local" autocomplete="local" class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out" >
                 <option v-bind:value="0">Selecione</option>
                 <option v-for="i in localAccess" :key="i" :value="1">
@@ -97,7 +97,7 @@
             >
               Guia Operadora:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-1">
+            <div class="lg:mt-1 max-w-5xl lg:p-4 ">
               <input
                 v-model="guideManagement.numero_guia"
                 type="text"
@@ -117,7 +117,7 @@
                 id="select-local-atendimento"
                 name="local"
                 autocomplete="local"
-                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+                class="mt-5 block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option value="">Selecionar</option>
                 <option v-bind:value="'E'">Eletiva</option>
@@ -130,13 +130,13 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional Solicitante:
             </label>
-            <div>
+            <div class="lg:pr-4">
               <select
                 v-model="guideManagement.id_solicitante"
                 id="select-local-atendimento"
                 name="local"
                 autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+                class="mt-5 max-w-5xl  block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option v-bind:value="0">Selecione</option>
                 <option v-for="i in professionalPerformer.content" :key="i" :value="i.id">{{ i.nome }}</option>
@@ -145,16 +145,16 @@
           </div>
 
           <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="block text-sm font-medium text-gray-700">
+            <label for="local" class=" pl-4 block text-sm font-medium text-gray-700">
               Profissional Execultante:
             </label>
-            <div>
+            <div class="lg:pl-4">
               <select
                 v-model="guideManagement.id_profissional_executante"
                 id="select-local-atendimento"
                 name="local"
                 autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+                class="mt-5 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option v-bind:value="0">Selecione</option>
                 <option v-for="i in professionalRequesting.content" :key="i" :value="i.id">{{ i.nome }}</option>
@@ -172,7 +172,7 @@
                 id="select-local-atendimento"
                 name="local"
                 autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+                class="mt-5 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option v-bind:value="0">Selecione</option>
                 <option v-for="i in professionalAuthorizing.content" :key="i" :value="i.id">{{ i.nome }}</option>
@@ -182,7 +182,7 @@
 
           <div class=" lg:pl-3 col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"> Senha: </label>
-            <div class="mt-1 max-w-5xl">
+            <div class="mt-5 max-w-5xl">
               <input
                 v-model="guideManagement.senha"
                 type="password"
@@ -201,7 +201,7 @@
             >
               Validade da senha:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-1">
+            <div class="mt-0 max-w-5xl lg:p-4 ">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -221,7 +221,7 @@
             >
               Data emissão:
             </label>
-            <div class="mt-5 max-w-5xl">
+            <div class="mt-6 max-w-5xl lg:pl-4">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -240,7 +240,7 @@
             >
               Data Solicitação:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-1 max-w-5xl lg:p-4">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -259,7 +259,7 @@
             >
               Data Autorização:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-1 max-w-5xl lg:p-4">
               <input
                 type="date"
                 v-model="guideManagement.data_autorizacao"
@@ -337,11 +337,11 @@
           <div class="col-span-6 sm:col-span-1">
             <label
               for="last_name"
-              class="pl-2 block text-sm font-medium text-gray-700"
+              class="lg:pl-6 block text-sm font-medium text-gray-700"
             >
               Cid Principal:
             </label>
-            <div class="mt-5 max-w-5xl">
+            <div class="mt-5 max-w-5xl lg:pl-5">
               <input
                 v-model="guideManagement.cid_principal"
                 type="text"
@@ -360,7 +360,7 @@
             >
               Tipo de Atendimento:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-5 max-w-5xl ">
               <select
                 v-model="guideManagement.tipo_atendimento"
                 id="select-local-atendimento"
