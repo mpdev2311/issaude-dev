@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "target": "esnext",
-    "useDefineForClassFields": true,
     "module": "esnext",
+    "useDefineForClassFields": true,
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
@@ -12,13 +13,28 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@services/*": ["core/services/*"],
-      "@views/*": ["views/*"],
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "@components/*": ["components/*"],
+      "@pinia/*": ["core/_store/*"],
+      "@domain/*": ["core/domain/*"],
+      "@src/*": ["./*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "components.d.ts",
+    "components-global.d.ts",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.tsx",
+    "**/*.vue",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
