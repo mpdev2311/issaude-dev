@@ -1,36 +1,43 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    Vue({
+      include: [/\.vue$/],
+    }),
+    Components({
+      dirs: ['components/base'],
+      extensions: ['vue', 'ts'],
+      dts: true,
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+    }),
+  ],
   resolve: {
     alias: [
       {
-        find: '@services/',
-        replacement: '/src/core/services/'
-      },
-      {
-        find: '@views/',
-        replacement: '/src/views/core/'
+        find: '@src/',
+        replacement: '/',
       },
       {
         find: '@core/',
-        replacement: '/src/core/'
+        replacement: '/core/',
       },
       {
-        find: 'core',
-        replacement: '/src/core/'
+        find: '@components/',
+        replacement: '/components/',
       },
       {
-        find: 'services',
-        replacement: '/src/core/services/'
+        find: '@pinia/',
+        replacement: '/core/_store/',
       },
       {
-        find: 'views',
-        replacement: '/src/views/core/'
+        find: '@domain/',
+        replacement: '/core/domain/',
       },
-      
-    ]
-  }
+    ],
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+  },
 })
