@@ -4,7 +4,7 @@ module.exports = {
   mode: 'jit',
   purge: {
     enabled: process.env.NODE_ENV === 'production',
-    content: ['./index.html', './src/**/*.{vue,ts}'],
+    content: ['./index.html', './**/*.{vue,ts}'],
   },
   theme: {
     extend: {
@@ -18,7 +18,7 @@ module.exports = {
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/ui'), 
+    require('@tailwindcss/ui'),
     require('@tailwindcss/forms'),
   ],
 }

@@ -1,5 +1,6 @@
 {
   "name": "is-saude",
+  "type": "commonjs",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -12,6 +13,10 @@
   "dependencies": {
     "@glidejs/glide": "^3.5.2",
     "@vueuse/core": "^8.2.4",
+    "jwt-decode": "^3.1.2",
+    "maska": "^1.5.0",
+    "pinia": "^2.0.14",
+    "tiny-emitter": "^2.1.0",
     "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.25",
     "vue-router": "4",
@@ -37,11 +42,11 @@
     "@vuedx/typescript-plugin-vue": "~0.7",
     "autoprefixer": "~10.2",
     "axios": "^0.21.0",
+    "cpf-cnpj-validator": "^1.0.3",
     "cross-env": "^7.0.2",
     "dayjs": "^1.10.2",
     "eslint": "~7",
     "eslint-plugin-vue": "~7",
-    "mitt": "^2.1.0",
     "moment": "^2.29.1",
     "postcss": "~8.3",
     "postcss-nesting": "~8.0",
@@ -49,6 +54,7 @@
     "sass": "^1.49.7",
     "tailwindcss": "~2.2",
     "typescript": "^4.5.4",
+    "unplugin-vue-components": "^0.19.6",
     "vee-validate": "^3.4.5",
     "vite": "^2.9.5",
     "vue-tsc": "^0.34.7",
