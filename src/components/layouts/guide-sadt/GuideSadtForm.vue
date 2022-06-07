@@ -51,7 +51,7 @@
                 autocomplete="local"
                 class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
-                <option value="0">Selecionar</option>
+                <option v-bind="value" value="0">Selecionar</option>
                 <option v-for="i in localAccess.content" :key="i" :value="i.id">
                   {{ i.localAttendance.local }}
                 </option>
@@ -60,10 +60,10 @@
           </div>
 
           <div class="col-span-6 sm:col-span-1">
-            <label for="nome" class="lg:pl-6 block text-sm font-medium text-gray-700">
+            <label for="nome" class=" block text-sm font-medium text-gray-700">
               Tipo de Guia:
             </label>
-            <div class="mt-4 max-w-5xl lg:pr-4">
+            <div class="lg:mt-4 max-w-5xl lg:pr-4">
               <select
                 disabled
                 v-model="guideManagement.tipo"
@@ -91,9 +91,7 @@
                 class="bg-gray-100 mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
               >
                 <option v-bind:value="0">Selecione</option>
-                <option v-for="i in localAccess.content" :key="i" :value="i.id">
-                  {{ i.localAttendance.local }}
-                </option>
+                <option v-for="i in state.companies" :key="i.id" :value="i.id">{{ i.nome }}</option>
               </select>
             </div>
           </div>
@@ -135,19 +133,17 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Profissional Solicitante:
             </label>
-            <div class="lg:pr-4">
-              <select
-                v-model="guideManagement.id_solicitante"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="mt-5 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option v-bind:value="0">Selecione</option>
-                <option v-for="i in professionalPerformer.content" :key="i" :value="i.id">
-                  {{ i.nome }}
-                </option>
-              </select>
+            <div class="mt-5 lg:pr-4">
+          <Combobox
+               v-model="guideManagement.id_solicitante"
+               class="bg-gray-100"
+               autocomplete="given-name"
+              :options="state.healthProfessionals?.content ?? []"
+              label="nome"
+              @change-search="onSearchHealthProfessional"
+              hidden-icon
+                 >
+           </Combobox>
             </div>
           </div>
 
@@ -209,7 +205,7 @@
             <label for="first_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Validade da senha:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="lg:mt-1 max-w-5xl lg:p-4">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -226,7 +222,7 @@
             <label for="first_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Data emissão:
             </label>
-            <div class="mt-6 max-w-5xl lg:pl-4">
+            <div class="md:mt-6 max-w-3xl lg:pl-4">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -242,7 +238,7 @@
             <label for="first_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Data Solicitação:
             </label>
-            <div class="mt-1 max-w-5xl lg:p-4">
+            <div class="mt-2 max-w-5xl lg:p-4">
               <input
                 type="date"
                 pattern="\d{4}-\d{1,2}-\d{1,2}"
@@ -258,7 +254,7 @@
             <label for="last_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Data Autorização:
             </label>
-            <div class="mt-1 max-w-5xl lg:p-4">
+            <div class="mt-2 max-w-5xl lg:p-4">
               <input
                 type="date"
                 v-model="guideManagement.data_autorizacao"
@@ -274,7 +270,7 @@
             <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Tipo de Doença:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-1 max-w-5xl lg:p-4">
               <select
                 v-model="guideManagement.tipo_doenca"
                 id="select-local-atendimento"
@@ -293,7 +289,7 @@
             <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Tempo de Doença:
             </label>
-            <div class="mt-1 max-w-5xl lg:p-4">
+            <div class="mt-2 max-w-5xl lg:p-4">
               <input
                 v-model="guideManagement.tempo_doenca"
                 type="text"
@@ -305,10 +301,10 @@
             </div>
           </div>
           <div class="col-span-6 sm:col-span-1">
-            <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
+            <label for="local" class=" block text-sm font-medium text-gray-700">
               Indicação de Acidente:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="lg:mt-6 max-w-5xl ">
               <select
                 v-model="guideManagement.indicacao_acidente"
                 id="select-local-atendimento"
@@ -328,7 +324,7 @@
             <label for="last_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Cid Principal:
             </label>
-            <div class="mt-5 max-w-5xl lg:pl-5">
+            <div class="lg:mt-5 max-w-5xl lg:pl-5">
               <input
                 v-model="guideManagement.cid_principal"
                 type="text"
@@ -341,7 +337,7 @@
           </div>
 
           <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
+            <label for="local" class=" block text-sm font-medium text-gray-700">
               Tipo de Atendimento:
             </label>
             <div class="mt-5 max-w-5xl">
@@ -443,6 +439,12 @@ import { RequestPatient } from '@domain/patient/patient'
 import { Patient } from '@domain/guide-management/guide-management-model'
 import { PatientService } from '@domain/patient/patient-service'
 import { formatDate, formatDateReverse } from '@core/helpers/date'
+import { RequestHealthProfessional } from '@domain/health-professional/health-professional-model'
+import HealthProfessionalService from '@domain/health-professional/health-professional-service'
+import { HealthProfessional } from '@domain/health-professional/health-professional-model'
+import { Company } from '@domain/company/company-model'
+import CompanyService from '@domain/company/company-service'
+
 
 export default defineComponent({
   components: { Combobox },
@@ -491,6 +493,7 @@ export default defineComponent({
   setup(props) {
     const router = useRouter()
     const patientService = new PatientService()
+    const companyService = new CompanyService()
 
     const guideManagement = ref<GuideManagement>({
       id: 0,
@@ -561,6 +564,7 @@ export default defineComponent({
     store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
 
     onMounted(async () => {
+       await loadTypes()
       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
       await store.dispatch('LOAD_LOCAL_ACESS')
       await store.dispatch('PROVIDER_STORE_LOAD')
@@ -621,7 +625,14 @@ export default defineComponent({
 
     let state = reactive({
       patients: [] as Patient[],
+       healthProfessionals: [] as HealthProfessional[],
+      companies: [] as Company[],
     })
+
+     const loadTypes = async () => {
+      const promisses = await Promise.all([companyService.getAll()])
+      state.companies = promisses[0].content
+    }
 
     const onSearchPatient = async (name: string) => {
       if (!name.length) return
@@ -630,11 +641,25 @@ export default defineComponent({
       state.patients = patientResults.content
     }
 
+    const onSearchHealthProfessional = async (name: string) => {
+      const requestHealthProfessional = new RequestHealthProfessional(
+        0,
+        PAGINATION_SIZE,
+        name,
+        store.getters.user.id_corp,
+        false,
+        1,
+        true
+      )      
+      state.healthProfessionals = await HealthProfessionalService.getAll(requestHealthProfessional)
+    }
+
     return {
       onSave,
       onCancel,
       onSearchPatient,
       state,
+      onSearchHealthProfessional
     }
   },
 })
