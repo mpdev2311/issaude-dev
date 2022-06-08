@@ -7,7 +7,7 @@
             <label for="last_name" class="block text-sm font-medium text-gray-700">
               Registro:
             </label>
-            <div class="mt-4 max-w-5xl">
+            <div class="mt-7 max-w-5xl">
               <input
                 type="text"
                 v-model="guideManagement.id"
@@ -23,7 +23,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Paciente:
             </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="mt-6 max-w-5xl">
               <Combobox
                 :options="state.patients"
                 label="nome"
@@ -39,42 +39,11 @@
               </Combobox>
             </div>
           </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">
-              Início Atendimento:
-            </label>
-            <div class="mt-3">
-              <input
-                type="date"
-                pattern="\d{4}-\d{1,2}-\d{1,2}"
-                v-model="guideManagement.data_atendimento"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="block text-sm font-medium text-gray-700"> </label>
-            <div class="mt-8">
-              <input
-                type="time"
-                pattern="\d{1,2}:\d{1,2}"
-                v-model="guideManagement.hora_atendimento"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
+       
 
           <div class="col-span-6 sm:col-span-1 m-2">
             <label for="nome" class="block text-sm font-medium text-gray-700"> Tipo de Guia </label>
-            <div class="mt-3 max-w-5xl">
+            <div class="lg:mt-6 max-w-5xl">
               <select
                 disabled
                 v-model="guideManagement.tipo"
@@ -89,27 +58,7 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="block text-sm font-medium text-gray-700">
-              Local de Atendimento:
-            </label>
-            <div class="mt-5 max-w-5xl lg:pr-4">
-              <select
-                v-model="guideManagement.id_local_atendimento"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="bg-white mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option value="0">Selecionar</option>
-                <option v-for="i in localAccess.content" :key="i" :value="i.id">
-                  {{ i.localAttendance.local }}
-                </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
+              <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               N°.Guia:
             </label>
@@ -121,23 +70,6 @@
                 id="first_name"
                 autocomplete="given-name"
                 class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">
-              Data emissão:
-            </label>
-            <div class="mt-5 max-w-5xl">
-              <input
-                type="date"
-                pattern="\d{4}-\d{1,2}-\d{1,2}"
-                v-model="guideManagement.emissão"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
           </div>
@@ -158,11 +90,152 @@
             </div>
           </div>
 
+           <div class="col-span-6 sm:col-span-2">
+            <label for="local" class="block text-sm font-medium text-gray-700">
+              Empresa Solicitante:
+            </label>
+            <div class="mt-5 max-w-5xl lg:pr-4">
+              <select
+                v-model="guideManagement.id_solicitante"
+                id="select-local-atendimento"
+                name="local"
+                autocomplete="local"
+                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+              >
+                 <option v-bind:value="0">Selecione</option>
+                <option v-for="i in state.companies" :key="i.id" :value="i.id">{{ i.nome }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-2">
+            <label for="local" class="block text-sm font-medium text-gray-700">
+              Profissional Solicitante:
+            </label>
+            <div class="mt-5 max-w-5xl">
+               <Combobox
+                        v-model="guideManagement.id_solicitante"
+                        class="bg-gray-100"
+                        autocomplete="given-name"
+                        :options="state.healthProfessionals?.content ?? []"
+                        label="nome"
+                        @change-search="onSearchHealthProfessional"
+                        hidden-icon
+                      >
+                </Combobox>
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-2">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">
+              Empresa executante:
+            </label>
+            <div class="mt-5">
+              <select
+                v-model="guideManagement.id_solicitante"
+                id="select-local-atendimento"
+                name="local"
+                autocomplete="local"
+                class="mt-2 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+              >
+                <option  value="0">Selecionar</option>
+                <option v-for="i in localAccess.content" :key="i" :value="i.id">
+                  {{ i.localAttendance.local }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+            <div class="col-span-6 sm:col-span-1">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">
+              Início Atendimento:
+            </label>
+            <div class="lg:mt-6">
+              <input
+                type="date"
+                pattern="\d{4}-\d{1,2}-\d{1,2}"
+                v-model="guideManagement.data_atendimento"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-1">
+            <label for="first_name" class="block text-sm font-medium text-gray-700"> </label>
+            <div class="mt-11">
+              <input
+                type="time"
+                pattern="\d{1,2}:\d{1,2}"
+                v-model="guideManagement.hora_atendimento"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>
+
+          <div class="col-span-6 sm:col-span-2">
+            <label for="local" class="block text-sm font-medium text-gray-700">
+              Local de Atendimento:
+            </label>
+            <div class="mt-5 max-w-5xl lg:pr-4">
+              <select
+                v-model="guideManagement.id_local_atendimento"
+                id="select-local-atendimento"
+                name="local"
+                autocomplete="local"
+                class="bg-white mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+              >
+                <option v-bind="value" value="0">Selecionar</option>
+                <option v-for="i in localAccess.content" :key="i" :value="i.id">
+                  {{ i.localAttendance.local }}
+                </option>
+              </select>
+            </div>
+          </div>      
+
+          <div class="col-span-6 sm:col-span-1">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">
+              Data emissão:
+            </label>
+            <div class="lg:mt-5 max-w-5xl">
+              <input
+                type="date"
+                pattern="\d{4}-\d{1,2}-\d{1,2}"
+                v-model="guideManagement.emissão"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div> 
+
+           <div class="col-span-6 sm:col-span-1">
+            <label for="last_name" class="block text-sm font-medium text-gray-700">
+              Cid Principal:
+            </label>
+            <div class="lg:mt-4 max-w-5xl">
+              <input
+                v-model="guideManagement.cid_principal"
+                type="text"
+                name="last_name"
+                id="last_name"
+                autocomplete="family-name"
+                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>      
+
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="lg:pl-1 block text-sm font-medium text-gray-700">
               Senha:
             </label>
-            <div class="lg:mt-5">
+            <div class="mt-5">
               <input
                 v-model="guideManagement.senha"
                 type="text"
@@ -211,7 +284,7 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-1">
+          <!-- <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700"
               >Validade da Senha:
             </label>
@@ -226,67 +299,7 @@
                 class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="block text-sm font-medium text-gray-700">
-              Empresa Solicitante:
-            </label>
-            <div class="mt-5 max-w-5xl lg:pr-4">
-              <select
-                v-model="guideManagement.id_solicitante"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option value="0">Selecionar</option>
-                <option v-for="i in localAccess.content" :key="i" :value="i.id">
-                  {{ i.localAttendance.local }}
-                </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="block text-sm font-medium text-gray-700">
-              Profissional Solicitante:
-            </label>
-            <div class="mt-5 max-w-5xl">
-              <select
-                v-model="guideManagement.id_solicitante"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option v-bind:value="0">Selecione</option>
-                <option v-for="i in professionalPerformer.content" :key="i" :value="i.id">
-                  {{ i.nome }}
-                </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-2">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">
-              Empresa executante:
-            </label>
-            <div class="lg:mt-5">
-              <select
-                v-model="guideManagement.id_solicitante"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option value="0">Selecionar</option>
-                <option v-for="i in localAccess.content" :key="i" :value="i.id">
-                  {{ i.localAttendance.local }}
-                </option>
-              </select>
-            </div>
-          </div>
+          </div>          -->
 
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
@@ -308,7 +321,7 @@
             <label for="local" class="block text-sm font-medium text-gray-700">
               Indicação de Acidente:
             </label>
-            <div class="mt-5">
+            <div class="lg:mt-5">
               <select
                 v-model="guideManagement.indicacao_acidente"
                 id="select-local-atendimento"
@@ -344,11 +357,27 @@
             </div>
           </div>
 
+            <div class="col-span-6 sm:col-span-2">
+            <label for="local" class="block text-sm font-medium text-gray-700">
+              Tempo de Doença:
+            </label>
+            <div class="mt-5  ">
+              <input
+                v-model="guideManagement.tempo_doenca"
+                type="text"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>  
+
           <div class="col-span-6 sm:col-span-1">
             <label for="local" class="block text-sm font-medium text-gray-700">
               Carater de Internação:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="lg:mt-5 max-w-5xl ">
               <select
                 v-model="guideManagement.carater_internacao"
                 id="select-local-atendimento"
@@ -367,7 +396,7 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Tipo de Acomodação:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="lg:mt-5 max-w-5xl ">
               <select
                 v-model="guideManagement.id_local_atendimento"
                 id="select-local-atendimento"
@@ -390,7 +419,7 @@
             <label for="first_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Sinais e sintomas:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-1 max-w-5xl lg:p-4">
               <input
                 v-model="guideManagement.sintomas"
                 type="text"
@@ -406,7 +435,7 @@
             <label for="atendimento_rn" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Atendimento RN
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-1 max-w-5xl lg:p-4">
               <input
                 v-model="guideManagement.atendimento_rn"
                 type="text"
@@ -422,7 +451,7 @@
             <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
               Regime de Internação:
             </label>
-            <div class="mt-0 max-w-5xl lg:p-4">
+            <div class="mt-0 max-w-5xl lg:pl-6">
               <select
                 v-model="guideManagement.id_local_atendimento"
                 id="select-local-atendimento"
@@ -440,27 +469,12 @@
             </div>
           </div>
 
-          <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="block text-sm font-medium text-gray-700">
-              Tempo de Doença:
-            </label>
-            <div class="mt-6">
-              <input
-                v-model="guideManagement.tempo_doenca"
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-
+          
           <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="lg:pl-6 block text-sm font-medium text-gray-700">
+            <label for="first_name" class=" block text-sm font-medium text-gray-700">
               Prova Diagnóstica:
             </label>
-            <div class="mt-5 max-w-5xl">
+            <div class="lg:mt-5 max-w-5xl">
               <input
                 v-model="guideManagement.prova_diagnostica"
                 type="text"
@@ -470,23 +484,7 @@
                 class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="last_name" class="block text-sm font-medium text-gray-700">
-              Cid Principal:
-            </label>
-            <div class="mt-5 max-w-5xl">
-              <input
-                v-model="guideManagement.cid_principal"
-                type="text"
-                name="last_name"
-                id="last_name"
-                autocomplete="family-name"
-                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
+          </div>              
 
           <div class="col-span-6 sm:col-span-1">
             <label for="last_name" class="block text-sm font-medium text-gray-700">
@@ -550,7 +548,7 @@
                 class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
+          </div>           
 
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
@@ -603,6 +601,11 @@ import { PAGINATION_SIZE } from '@core/constaints'
 import { RequestPatient } from '@domain/patient/patient'
 import { Patient } from '@domain/guide-management/guide-management-model'
 import { PatientService } from '@domain/patient/patient-service'
+import { RequestHealthProfessional } from '@domain/health-professional/health-professional-model'
+import HealthProfessionalService from '@domain/health-professional/health-professional-service'
+import { HealthProfessional } from '@domain/health-professional/health-professional-model'
+import { Company } from '@domain/company/company-model'
+import CompanyService from '@domain/company/company-service'
 
 export default defineComponent({
   components: { Combobox },
@@ -646,6 +649,8 @@ export default defineComponent({
 
   setup(props) {
     const router = useRouter()
+    const patientService = new PatientService()
+    const companyService = new CompanyService()
 
     const guideManagement = ref<GuideManagement>({
       id: 0,
@@ -717,6 +722,7 @@ export default defineComponent({
     store.dispatch('GUIDE_MANAGEMENT_STORE_SET_BLANK', guideManagement.value)
 
     onMounted(async () => {
+      await loadTypes()
       await store.dispatch('GUIDES_TYPE_STORE_LOAD')
       await store.dispatch('LOAD_LOCAL_ACESS')
       await store.dispatch('PROVIDER_STORE_LOAD')
@@ -748,7 +754,14 @@ export default defineComponent({
 
     let state = reactive({
       patients: [] as Patient[],
+      healthProfessionals: [] as HealthProfessional[],
+      companies: [] as Company[],
     })
+
+      const loadTypes = async () => {
+      const promisses = await Promise.all([companyService.getAll()])
+      state.companies = promisses[0].content
+    }
 
     const onSearchPatient = async (name: string) => {
       if (!name.length) return
@@ -757,11 +770,25 @@ export default defineComponent({
       state.patients = patientResults.content
     }
 
+      const onSearchHealthProfessional = async (name: string) => {
+      const requestHealthProfessional = new RequestHealthProfessional(
+        0,
+        PAGINATION_SIZE,
+        name,
+        store.getters.user.id_corp,
+        false,
+        1,
+        true
+      )      
+      state.healthProfessionals = await HealthProfessionalService.getAll(requestHealthProfessional)
+    }
+
     return {
       onSave,
       onCancel,
       onSearchPatient,
       state,
+      onSearchHealthProfessional
     }
   },
 })
