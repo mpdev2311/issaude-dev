@@ -146,7 +146,27 @@
             </div>
           </div>
 
-            <div class="col-span-6 sm:col-span-1">
+                 <div class="col-span-6 sm:col-span-2">
+            <label for="local" class="block text-sm font-medium text-gray-700">
+              Local de Atendimento:
+            </label>
+            <div class="mt-5 max-w-5xl lg:pr-4">
+              <select
+                v-model="guideManagement.id_local_atendimento"
+                id="select-local-atendimento"
+                name="local"
+                autocomplete="local"
+                class="bg-white mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+              >
+                <option v-bind="value" value="0">Selecionar</option>
+                <option v-for="i in localAccess.content" :key="i" :value="i.id">
+                  {{ i.localAttendance.local }}
+                </option>
+              </select>
+            </div>
+          </div>  
+
+          <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Início Atendimento:
             </label>
@@ -177,26 +197,7 @@
               />
             </div>
           </div>
-
-          <div class="col-span-6 sm:col-span-2">
-            <label for="local" class="block text-sm font-medium text-gray-700">
-              Local de Atendimento:
-            </label>
-            <div class="mt-5 max-w-5xl lg:pr-4">
-              <select
-                v-model="guideManagement.id_local_atendimento"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="bg-white mt-1 max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option v-bind="value" value="0">Selecionar</option>
-                <option v-for="i in localAccess.content" :key="i" :value="i.id">
-                  {{ i.localAttendance.local }}
-                </option>
-              </select>
-            </div>
-          </div>      
+            
 
           <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
@@ -215,39 +216,7 @@
             </div>
           </div> 
 
-           <div class="col-span-6 sm:col-span-1">
-            <label for="last_name" class="block text-sm font-medium text-gray-700">
-              Cid Principal:
-            </label>
-            <div class="lg:mt-4 max-w-5xl">
-              <input
-                v-model="guideManagement.cid_principal"
-                type="text"
-                name="last_name"
-                id="last_name"
-                autocomplete="family-name"
-                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>      
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="lg:pl-1 block text-sm font-medium text-gray-700">
-              Senha:
-            </label>
-            <div class="mt-5">
-              <input
-                v-model="guideManagement.senha"
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
+            <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Data Autorização:
             </label>
@@ -263,6 +232,22 @@
               />
             </div>
           </div>
+           
+                 <div class="col-span-6 sm:col-span-1">
+            <label for="first_name" class="block text-sm font-medium text-gray-700">
+              Qtd Diária:
+            </label>
+            <div class="mt-5 max-w-5xl">
+              <!--v-model="guideManagement.qdiariasda"-->
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>                                      
 
           <div class="col-span-6 sm:col-span-2">
             <label for="local" class="block text-sm font-medium text-gray-700"
@@ -429,45 +414,7 @@
                 class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="atendimento_rn" class="lg:pl-6 block text-sm font-medium text-gray-700">
-              Atendimento RN
-            </label>
-            <div class="mt-1 max-w-5xl lg:p-4">
-              <input
-                v-model="guideManagement.atendimento_rn"
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-1">
-            <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
-              Regime de Internação:
-            </label>
-            <div class="mt-0 max-w-5xl lg:pl-6">
-              <select
-                v-model="guideManagement.id_local_atendimento"
-                id="select-local-atendimento"
-                name="local"
-                autocomplete="local"
-                class="bg-white max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-              >
-                <option value="0">
-                  Selecionar(criar endpoint /revenues/hospitalization-regime/findall)
-                </option>
-                <option v-for="i in localAccess.content" :key="i" :value="2">
-                  {{ i.localAttendance.local }}
-                </option>
-              </select>
-            </div>
-          </div>
+          </div>             
 
           
           <div class="col-span-6 sm:col-span-1">
@@ -484,7 +431,23 @@
                 class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>              
+          </div>  
+
+             <div class="col-span-6 sm:col-span-1">
+            <label for="last_name" class="block text-sm font-medium text-gray-700">
+              Cid Principal:
+            </label>
+            <div class="lg:mt-4 max-w-5xl">
+              <input
+                v-model="guideManagement.cid_principal"
+                type="text"
+                name="last_name"
+                id="last_name"
+                autocomplete="family-name"
+                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>             
 
           <div class="col-span-6 sm:col-span-1">
             <label for="last_name" class="block text-sm font-medium text-gray-700">
@@ -516,7 +479,7 @@
                 class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
+          </div>          
 
           <div class="col-span-6 sm:col-span-1">
             <label for="last_name" class="block text-sm font-medium text-gray-700">
@@ -532,29 +495,14 @@
                 class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
               />
             </div>
-          </div>
+          </div>               
+       
 
-          <div class="col-span-6 sm:col-span-1">
-            <label for="first_name" class="block text-sm font-medium text-gray-700">
-              Qtd Diária:
-            </label>
-            <div class="mt-5 max-w-5xl">
-              <!--v-model="guideManagement.qdiariasda"-->
-              <input
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="given-name"
-                class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>           
-
-          <div class="col-span-6 sm:col-span-1">
+         <div class="col-span-6 sm:col-span-1">
             <label for="first_name" class="block text-sm font-medium text-gray-700">
               Tipo de Alta:
             </label>
-            <div class="mt-5">
+            <div class=lg:mt-5>
               <select
                 v-model="guideManagement.tipo_saida"
                 id="select-local-atendimento"
@@ -571,6 +519,61 @@
               </select>
             </div>
           </div>
+
+          <div class="col-span-6 sm:col-span-1">
+            <label for="local" class="lg:pl-6 block text-sm font-medium text-gray-700">
+              Regime de Internação:
+            </label>
+            <div class="mt-0 max-w-5xl lg:pl-6">
+              <select
+                v-model="guideManagement.id_local_atendimento"
+                id="select-local-atendimento"
+                name="local"
+                autocomplete="local"
+                class="bg-white max-w-5xl block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+              >
+                <option value="0">
+                  Selecionar(criar endpoint /revenues/hospitalization-regime/findall)
+                </option>
+                <option v-for="i in localAccess.content" :key="i" :value="2">
+                  {{ i.localAttendance.local }}
+                </option>
+              </select>
+            </div>
+          </div>                     
+       
+
+          <div class="col-span-6 sm:col-span-1">
+            <label for="first_name" class="lg:pl-1 block text-sm font-medium text-gray-700">
+              Senha:
+            </label>
+            <div class="mt-5">
+              <input
+                v-model="guideManagement.senha"
+                type="text"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="bg-white shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>  
+
+          <div class="col-span-6 sm:col-span-1">
+            <label for="atendimento_rn" class="lg:pl-6 block text-sm font-medium text-gray-700">
+              Atendimento RN
+            </label>
+            <div class="mt-1 max-w-5xl lg:p-4">
+              <input
+                v-model="guideManagement.atendimento_rn"
+                type="text"
+                name="first_name"
+                id="first_name"
+                autocomplete="given-name"
+                class="shadow-sm focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full sm:text-sm border border-gray-200 rounded-md transition duration-500 ease-in-out"
+              />
+            </div>
+          </div>    
 
           <div class="col-span-6 sm:col-span-6">
             <label for="obs" class="block text-sm font-medium text-gray-700"> Obs: </label>
