@@ -1,15 +1,15 @@
 <template>
   <Modal
-    class="lg:grid-cols-2 lg:pr-60 lg:pl-1/3"
+    class="  lg:grid-cols-2  lg:ml-auto lg:pr-36  lg:pl-1/3 md:mx-auto "
     title="Procedimentos"
     :modal-is-open="modalIsOpen"
     @on-close-modal="onCloseModal"
-    mg
+    lg
     @save="onSave"
   >
     <template #body>
-      <div class="mt-6 pl-1 mb-4 grid gap-4">
-        <div class="col-span-11 sm:col-span-6">
+      <div class="mt-6 pl-1 mb-4  gap-4">
+        <div class="col-span-11 sm:col-span-4">
           <label for="last-name" class="block text-sm font-medium text-gray-700"
             >Faturamento de:</label
           >
@@ -18,7 +18,7 @@
             disabled
             name="location"
             v-model="billsSadt.tipo"
-            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            class="mt-1 block w-full pl-3 pr-10 py-1 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
           >
             <option v-bind:value="''">Selecione</option>
             <option v-for="i in listIinvoicing" :key="i.id" :value="i.id">
@@ -26,18 +26,20 @@
             </option>
           </select>
         </div>
-
-        <div class="col-span-11 sm:col-span-2 px-3 py-1 m-1">
+             
+         <div class="grid grid-cols-2 mt-0 ">                 
+            <div class=" flex col-span-11  sm:col-span-1 px-1 py-2 m-2 ">
           <input
             type="checkbox"
             @click="checkboxValidate()"
             :value="cirurgia"
             v-model="cirurgia"
-            class="mr-2 text-orange-600 border-2 border-gray-300 focus:border-gray-300 focus:ring-orange-600"
+            class="mr-1 text-orange-600 border-2 border-gray-300 focus:border-gray-300 focus:ring-orange-600"
           />
-          <span class="px-2 mt-1"> Cirurgia</span>
+          <span class=" px-2 mt-0 "> Cirurgia</span>
         </div>
-        <div class="px-3 py-1 m-1">
+        
+        <div class=" flex  lg:flex-row  px-3  py-4 lg:m-1   ">
           <input
             type="checkbox"
             @click="checkboxValidate()"
@@ -45,10 +47,12 @@
             v-model="searizar"
             class="mr-2 text-orange-600 border-2 border-gray-300 focus:border-gray-300 focus:ring-orange-600"
           />
-          <span class="px-2 mt-0"> Searizar</span>
+          <span class=" px-2 mt-0  "> Searizar</span>
         </div>
+      </div>
+        
 
-        <div class="col-span-11 sm:col-span-6 m-1">
+        <div class="col-span-11 sm:col-span-4 m-1">
           <label for="first-name" class="block text-sm font-medium text-gray-700">Produtos:</label
           ><!--model codigo_tiss-->
           <Combobox
@@ -66,24 +70,25 @@
           </Combobox>
         </div>
       </div>
-
-      <div class="col-span-11 sm:col-span-6 m-2 py-2">
-        <label for="first-name" class="block text-sm font-medium text-gray-700"
+         
+        <div class="grid grid-cols-12 ">            
+             <div class="col-span-11 sm:col-span-4 m-2 py-2">
+           <label for="first-name" class="block text-sm font-medium text-gray-700"
           >Tipo Executante:</label
-        >
-        <select
+         >
+         <select
           v-model="billsSadt.tipo_executante"
           id="select-local-atendimento"
           name="local"
           autocomplete="local"
-          class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
-        >
+          class="mt-0 block w-full py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-500 ease-in-out"
+         >
           <option value="">Selecionar</option>
           <option v-for="i in getPerformeType" :key="i" :value="i.id">{{ i.descricao }}</option>
-        </select>
-      </div>
+         </select>
+      </div> 
 
-      <div class="col-span-11 sm:col-span-6 m-2">
+      <div class="col-span-11 sm:col-span-4 m-2">
         <label for="last-name" class="block text-sm font-medium text-gray-700">Executante:</label>
         <!-- <Combobox :options="providers" label="nome"  v-model="billsSadt.id_medico" @change-search="getProviders" hidden-icon /> -->
 
@@ -93,12 +98,14 @@
           id="last-name"
           autocomplete="family-name"
           v-model="billsSadt.id_medico"
-          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+          class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
         />
       </div>
+     </div>
+     
 
       <div class="mt-4 pl-1 grid grid-cols-12 gap-4 m-2">
-        <div class="col-span-11 sm:col-span-6">
+        <div class="col-span-11 sm:col-span-4">
           <label for="last-name" class="block text-sm font-medium text-gray-700">Quantidade</label>
           <input
             type="text"
@@ -107,10 +114,10 @@
             v-model="billsSadt.quant"
             @change="calc()"
             autocomplete="family-name"
-            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
-        <div class="col-span-11 sm:col-span-6">
+        <div class="col-span-11 sm:col-span-4">
           <label for="first-name" class="block text-sm font-medium text-gray-700"
             >Acrescimo/Desconto:</label
           >
@@ -121,12 +128,12 @@
             @change="calc()"
             v-model="billsSadt.acrescimo"
             autocomplete="family-name"
-            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
       </div>
-      <div class="mt-4 pl-1 grid grid-cols-12 gap-4 m-2">
-        <div class="col-span-11 sm:col-span-6">
+      <div class="mt-4 pl-1  sm:grid sm:grid-cols-12 gap-4 m-2">
+        <div class="col-span-11 sm:col-span-4">
           <label for="last-name" class="block text-sm font-medium text-gray-700"
             >Valor Unitário:</label
           >
@@ -137,10 +144,10 @@
             v-model="billsSadt.valor_unitario"
             @change="calc()"
             autocomplete="family-name"
-            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            class="mt-4 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
-        <div class="col-span-11 sm:col-span-6">
+        <div class="col-span-11 sm:col-span-4">
           <label for="first-name" class="block text-sm font-medium text-gray-700"
             >Valor total:</label
           >
@@ -151,24 +158,25 @@
             disabled
             v-model="billsSadt.valor_total"
             autocomplete="family-name"
-            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            class="mt-4 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
-        </div>
-      </div>
-
-      <div class="mt-3 pl-1 grid grid-cols-12 gap-6 m-2">
-        <div class="col-span-11 sm:col-span-6">
-          <label for="last-name" class="block text-sm font-medium text-gray-700">Tiss</label>
+        </div> 
+             <div class=" mt-3 pl-1 grid grid-cols-2   gap-6 m-2 ">
+        <div class="col-span-11 sm:col-span-7">
+          <label for="last-name" class="block text-sm font-medium text-gray-700 ">Tiss</label>
           <input
             type="text"
             name="last-name"
             id="last-name"
             autocomplete="family-name"
             v-model="billsSadt.codigo_tiss"
-            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
+      </div>    
       </div>
+
+   
     </template>
   </Modal>
 </template>

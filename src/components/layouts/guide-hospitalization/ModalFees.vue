@@ -27,7 +27,7 @@
           </select>
         </div>
 
-        <div class="col-span-11 sm:col-span-2 px-3 py-1 m-1">
+        <div class="col-span-11  sm:col-span-2 px-3 py-1 m-1">
           <input
             type="checkbox"
             @click="checkboxValidate()"
